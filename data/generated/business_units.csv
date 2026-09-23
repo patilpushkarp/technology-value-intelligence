@@ -1,0 +1,11 @@
+business_unit_id,business_unit_name,region,business_unit_type,annual_revenue,employee_count
+BU001,Retail Banking,India,Business Unit,125000000000.0,8500
+BU002,Commercial Banking,India,Business Unit,95000000000.0,4200
+BU003,Wealth Management,Global,Business Unit,68000000000.0,2800
+BU004,Digital Payments,India,Business Unit,82000000000.0,3100
+BU005,Cards & Lending,India,Business Unit,74000000000.0,3900
+BU006,Operations & Shared Services,India,Shared Services,15000000000.0,11200
+BU007,Corporate Functions,Global,Corporate Function,8000000000.0,2400
+BU008,Insurance Solutions,APAC,Business Unit,45000000000.0,1900
+BU009,Treasury & Capital Markets,Global,Business Unit,54000000000.0,1200
+BU010,Risk & Compliance,Global,Corporate Function,6000000000.0,1600

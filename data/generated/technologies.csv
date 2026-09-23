@@ -1,0 +1,36 @@
+technology_id,technology_name,technology_category,technology_vendor,lifecycle_status,environment
+TECH001,AWS Elastic Kubernetes Service,Cloud,TechNova,Current,Production
+TECH002,PostgreSQL Enterprise Engine,Database,EnterpriseSoft,Current,Production
+TECH003,Oracle Database 19c Enterprise,Database,EnterpriseSoft,Tolerate,Production
+TECH004,Snowflake Cloud Data Warehouse,Data Platform,DataForge,Current,Production
+TECH005,Apache Kafka Event Bus,Middleware,DataForge,Current,Production
+TECH006,Redis In-Memory Cluster,Database,PrimeScale,Current,Production
+TECH007,Red Hat Enterprise Linux 9,Operating System,SysCore,Current,Production
+TECH008,Microsoft Azure Kubernetes Service,Cloud,CloudSphere,Current,Production
+TECH009,Amazon S3 Object Storage,Storage,TechNova,Current,Production
+TECH010,MongoDB Atlas Enterprise,Database,DataForge,Current,Production
+TECH011,HashiCorp Terraform,Middleware,TechNova,Current,Production
+TECH012,Cisco Catalyst Core Switches,Network,GlobalNet,Current,Production
+TECH013,Palo Alto NextGen Firewalls,Security,CyberShield,Current,Production
+TECH014,Docker Enterprise Container Runtime,Compute,PrimeScale,Current,Production
+TECH015,Salesforce Financial Cloud,SaaS,EnterpriseSoft,Current,Production
+TECH016,Apache Spark Analytical Engine,Data Platform,DataForge,Current,Production
+TECH017,F5 BIG-IP Local Traffic Manager,Network,GlobalNet,Current,Production
+TECH018,Elasticsearch Logging Cluster,Data Platform,DataForge,Current,Production
+TECH019,IBM WebSphere Application Server,Middleware,SysCore,Deprecated,Production
+TECH020,Solaris Operating Environment,Operating System,SysCore,Legacy,Production
+TECH021,Dell PowerEdge Server Blades,Hardware,InfraWorks,Current,Production
+TECH022,NetApp SAN Storage Arrays,Storage,InfraWorks,Tolerate,Production
+TECH023,HashiCorp Vault Secrets Manager,Security,CyberShield,Current,Production
+TECH024,Okta Workforce Identity,Security,CyberShield,Current,Production
+TECH025,Kong API Gateway Enterprise,Middleware,PrimeScale,Current,Production
+TECH026,Node.js Microservices Runtime,Compute,TechNova,Current,Production
+TECH027,Python 3 Analytics Stack,Compute,DataForge,Current,Production
+TECH028,Apache Cassandra NoSQL DB,Database,DataForge,Tolerate,Production
+TECH029,RabbitMQ Messaging Broker,Middleware,PrimeScale,Tolerate,Production
+TECH030,Splunk Enterprise SIEM,Security,CyberShield,Current,Production
+TECH031,GitLab CI/CD Runner Farm,Compute,CloudSphere,Current,Production
+TECH032,Dynatrace APM Monitoring,Middleware,CloudSphere,Current,Production
+TECH033,VMware ESXi Hypervisor Cluster,Compute,InfraWorks,Tolerate,Production
+TECH034,AWS Lambda Serverless Engine,Cloud,TechNova,Current,Production
+TECH035,Mainframe z/OS Emulation Layer,Compute,SysCore,Legacy,Production

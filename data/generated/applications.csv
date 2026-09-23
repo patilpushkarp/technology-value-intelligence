@@ -1,0 +1,51 @@
+application_id,application_name,service_id,application_type,lifecycle_status,criticality,business_criticality,annual_license_cost
+APP001,CoreBanking Alpha,SRV012,Custom Built,Strategic,Mission Critical,High,35000000.0
+APP002,OmniCRM 360,SRV002,COTS,Strategic,Business Critical,High,28000000.0
+APP003,DataMesh Lakehouse,SRV016,Hybrid,Strategic,Business Critical,High,19500000.0
+APP004,Retail PayFlow Gateway,SRV011,Custom Built,Strategic,Mission Critical,High,22000000.0
+APP005,OrderFlow Enterprise,SRV001,COTS,Strategic,Mission Critical,High,25000000.0
+APP006,SmartProcure P2P,SRV001,COTS,Strategic,Operational,Medium,14000000.0
+APP007,Financial Consolidation Suite,SRV009,COTS,Strategic,Mission Critical,High,18000000.0
+APP008,Workforce Central HR,SRV001,SaaS,Strategic,Operational,Medium,12500000.0
+APP009,CloudVault Secrets Manager,SRV006,COTS,Strategic,Mission Critical,High,9500000.0
+APP010,Central Auth & Identity Hub,SRV006,Custom Built,Strategic,Mission Critical,High,16000000.0
+APP011,Customer Direct Portal,SRV007,Custom Built,Strategic,Mission Critical,High,31000000.0
+APP012,QuickOrder Legacy,SRV001,Custom Built,Retire,Operational,Low,11500000.0
+APP013,TradeExecution Engine,SRV012,Custom Built,Strategic,Mission Critical,High,29000000.0
+APP014,Cloud Payment Microhub,SRV011,Custom Built,Strategic,Mission Critical,High,14500000.0
+APP015,RiskPulse Engine,SRV018,COTS,Strategic,Mission Critical,High,21000000.0
+APP016,RegReport Automator,SRV018,Custom Built,Strategic,Mission Critical,High,15500000.0
+APP017,Campaign Studio Pro,SRV002,SaaS,Tolerate,Standard,Low,8500000.0
+APP018,ProcureDirect Legacy,SRV001,Custom Built,Retire,Operational,Low,9800000.0
+APP019,Global Ledger One,SRV009,COTS,Strategic,Mission Critical,High,38000000.0
+APP020,FraudSentry AI,SRV015,Hybrid,Strategic,Mission Critical,High,26000000.0
+APP021,Legacy Customer Web Portal,SRV007,Custom Built,Tolerate,Operational,Medium,24000000.0
+APP022,Batch Billing Engine v2,SRV009,Custom Built,Migrate,Operational,Medium,17500000.0
+APP023,Digital Lending Originator,SRV012,Custom Built,Strategic,Mission Critical,High,27500000.0
+APP024,WealthVision Portfolio,SRV002,COTS,Strategic,Business Critical,High,19000000.0
+APP025,ClaimsDirect Processor,SRV013,Custom Built,Strategic,Business Critical,High,13000000.0
+APP026,Strategic Sourcing Hub,SRV001,COTS,Strategic,Operational,Low,7800000.0
+APP027,Enterprise Service Desk,SRV004,SaaS,Strategic,Operational,Medium,9200000.0
+APP028,Document Vault Archive,SRV014,COTS,Tolerate,Standard,Low,6500000.0
+APP029,API Mesh Fabric,SRV010,Custom Built,Strategic,Mission Critical,High,18500000.0
+APP030,Corporate Treasury Net,SRV009,COTS,Strategic,Mission Critical,High,22500000.0
+APP031,Supplier Collaboration Portal,SRV008,Custom Built,Tolerate,Operational,Low,5800000.0
+APP032,Warehouse TrackMaster,SRV008,COTS,Strategic,Business Critical,Medium,11200000.0
+APP033,Logistics Fleet Dispatch,SRV008,Custom Built,Strategic,Business Critical,Medium,9500000.0
+APP034,Executive Dashboard BI,SRV003,COTS,Strategic,Business Critical,High,13500000.0
+APP035,Branch Teller Terminal,SRV012,Custom Built,Tolerate,Business Critical,Medium,19000000.0
+APP036,ATM Network Controller,SRV011,COTS,Strategic,Mission Critical,High,16500000.0
+APP037,Contact Center Telephony,SRV004,COTS,Tolerate,Business Critical,Medium,14200000.0
+APP038,Chatbot Virtual Assistant,SRV007,SaaS,Strategic,Operational,Low,6800000.0
+APP039,Mobile Banking App iOS/Android,SRV007,Custom Built,Strategic,Mission Critical,High,34000000.0
+APP040,Credit Bureau Interface,SRV010,Custom Built,Strategic,Mission Critical,High,8900000.0
+APP041,Anti-Money Laundering AML,SRV018,COTS,Strategic,Mission Critical,High,23000000.0
+APP042,Regulatory Archive System,SRV014,COTS,Migrate,Standard,Low,5100000.0
+APP043,Employee Travel & Expense,SRV001,SaaS,Strategic,Standard,Low,4200000.0
+APP044,Talent Acquisition Suite,SRV004,SaaS,Tolerate,Standard,Low,3800000.0
+APP045,Tax Calculation Engine,SRV009,COTS,Strategic,Mission Critical,High,10200000.0
+APP046,Fixed Asset Registry,SRV009,Custom Built,Migrate,Operational,Low,4900000.0
+APP047,Sales Forecasting Module,SRV003,Custom Built,Strategic,Operational,Medium,7200000.0
+APP048,Brand Asset Library,SRV014,SaaS,Retire,Standard,Low,3100000.0
+APP049,Security Incident Event Mgr,SRV015,COTS,Strategic,Mission Critical,High,24500000.0
+APP050,Vulnerability Scanner Hub,SRV015,COTS,Strategic,Business Critical,High,12800000.0

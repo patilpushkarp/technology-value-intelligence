@@ -1,0 +1,6129 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "TechnologyValueIntelligence"
+  },
+  "nodes": [
+    {
+      "label": "Retail Banking",
+      "entity_type": "BusinessUnit",
+      "region": "India",
+      "bu_type": "Business Unit",
+      "revenue": 125000000000.0,
+      "employees": 8500,
+      "id": "BU001"
+    },
+    {
+      "label": "Commercial Banking",
+      "entity_type": "BusinessUnit",
+      "region": "India",
+      "bu_type": "Business Unit",
+      "revenue": 95000000000.0,
+      "employees": 4200,
+      "id": "BU002"
+    },
+    {
+      "label": "Wealth Management",
+      "entity_type": "BusinessUnit",
+      "region": "Global",
+      "bu_type": "Business Unit",
+      "revenue": 68000000000.0,
+      "employees": 2800,
+      "id": "BU003"
+    },
+    {
+      "label": "Digital Payments",
+      "entity_type": "BusinessUnit",
+      "region": "India",
+      "bu_type": "Business Unit",
+      "revenue": 82000000000.0,
+      "employees": 3100,
+      "id": "BU004"
+    },
+    {
+      "label": "Cards & Lending",
+      "entity_type": "BusinessUnit",
+      "region": "India",
+      "bu_type": "Business Unit",
+      "revenue": 74000000000.0,
+      "employees": 3900,
+      "id": "BU005"
+    },
+    {
+      "label": "Operations & Shared Services",
+      "entity_type": "BusinessUnit",
+      "region": "India",
+      "bu_type": "Shared Services",
+      "revenue": 15000000000.0,
+      "employees": 11200,
+      "id": "BU006"
+    },
+    {
+      "label": "Corporate Functions",
+      "entity_type": "BusinessUnit",
+      "region": "Global",
+      "bu_type": "Corporate Function",
+      "revenue": 8000000000.0,
+      "employees": 2400,
+      "id": "BU007"
+    },
+    {
+      "label": "Insurance Solutions",
+      "entity_type": "BusinessUnit",
+      "region": "APAC",
+      "bu_type": "Business Unit",
+      "revenue": 45000000000.0,
+      "employees": 1900,
+      "id": "BU008"
+    },
+    {
+      "label": "Treasury & Capital Markets",
+      "entity_type": "BusinessUnit",
+      "region": "Global",
+      "bu_type": "Business Unit",
+      "revenue": 54000000000.0,
+      "employees": 1200,
+      "id": "BU009"
+    },
+    {
+      "label": "Risk & Compliance",
+      "entity_type": "BusinessUnit",
+      "region": "Global",
+      "bu_type": "Corporate Function",
+      "revenue": 6000000000.0,
+      "employees": 1600,
+      "id": "BU010"
+    },
+    {
+      "label": "Customer Management",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Business Critical",
+      "owner": "VP Customer Experience",
+      "id": "CAP001"
+    },
+    {
+      "label": "Order Management",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of Digital Operations",
+      "id": "CAP002"
+    },
+    {
+      "label": "Order-to-Cash",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Director Order Processing",
+      "id": "CAP003"
+    },
+    {
+      "label": "Procure-to-Pay",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Operational",
+      "owner": "Head of Procurement",
+      "id": "CAP004"
+    },
+    {
+      "label": "Financial Reporting",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Chief Financial Officer",
+      "id": "CAP005"
+    },
+    {
+      "label": "Supply Chain Planning",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Business Critical",
+      "owner": "VP Supply Chain",
+      "id": "CAP006"
+    },
+    {
+      "label": "Product Management",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Operational",
+      "owner": "Head of Product Strategy",
+      "id": "CAP007"
+    },
+    {
+      "label": "Digital Commerce",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of eCommerce",
+      "id": "CAP008"
+    },
+    {
+      "label": "Workforce Management",
+      "entity_type": "BusinessCapability",
+      "priority": "Low",
+      "criticality": "Operational",
+      "owner": "Chief People Officer",
+      "id": "CAP009"
+    },
+    {
+      "label": "Data & Analytics",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Business Critical",
+      "owner": "Chief Data Officer",
+      "id": "CAP010"
+    },
+    {
+      "label": "Customer Service",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Business Critical",
+      "owner": "Director Service Operations",
+      "id": "CAP011"
+    },
+    {
+      "label": "Risk Management",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Chief Risk Officer",
+      "id": "CAP012"
+    },
+    {
+      "label": "Regulatory Reporting",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of Regulatory Affairs",
+      "id": "CAP013"
+    },
+    {
+      "label": "Marketing",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Standard",
+      "owner": "Chief Marketing Officer",
+      "id": "CAP014"
+    },
+    {
+      "label": "Sales Management",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Business Critical",
+      "owner": "VP Enterprise Sales",
+      "id": "CAP015"
+    },
+    {
+      "label": "Enterprise Planning",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Business Critical",
+      "owner": "Head of Corporate Planning",
+      "id": "CAP016"
+    },
+    {
+      "label": "Treasury Operations",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of Global Treasury",
+      "id": "CAP017"
+    },
+    {
+      "label": "Accounts Payable",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Operational",
+      "owner": "Controller Accounts Payable",
+      "id": "CAP018"
+    },
+    {
+      "label": "Accounts Receivable",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Operational",
+      "owner": "Controller Accounts Receivable",
+      "id": "CAP019"
+    },
+    {
+      "label": "Procurement Operations",
+      "entity_type": "BusinessCapability",
+      "priority": "Low",
+      "criticality": "Standard",
+      "owner": "Director Strategic Sourcing",
+      "id": "CAP020"
+    },
+    {
+      "label": "Wealth Advisory",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Business Critical",
+      "owner": "Head of Wealth Management",
+      "id": "CAP021"
+    },
+    {
+      "label": "Loan Origination",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of Retail Lending",
+      "id": "CAP022"
+    },
+    {
+      "label": "Fraud Detection",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Director Financial Crime",
+      "id": "CAP023"
+    },
+    {
+      "label": "Identity Verification",
+      "entity_type": "BusinessCapability",
+      "priority": "High",
+      "criticality": "Mission Critical",
+      "owner": "Head of Identity Security",
+      "id": "CAP024"
+    },
+    {
+      "label": "Claims Processing",
+      "entity_type": "BusinessCapability",
+      "priority": "Medium",
+      "criticality": "Business Critical",
+      "owner": "Head of Insurance Claims",
+      "id": "CAP025"
+    },
+    {
+      "label": "ERP Services",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Director ERP Applications",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV001"
+    },
+    {
+      "label": "CRM Services",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Head of Customer Platforms",
+      "criticality": "Tier 2",
+      "sla": "99.95%",
+      "id": "SRV002"
+    },
+    {
+      "label": "Data Analytics Platform",
+      "entity_type": "ITService",
+      "category": "Analytics",
+      "owner": "Chief Data Architect",
+      "criticality": "Tier 2",
+      "sla": "99.90%",
+      "id": "SRV003"
+    },
+    {
+      "label": "Enterprise Collaboration",
+      "entity_type": "ITService",
+      "category": "Workplace",
+      "owner": "Head of End User Compute",
+      "criticality": "Tier 3",
+      "sla": "99.50%",
+      "id": "SRV004"
+    },
+    {
+      "label": "Cloud Platform Services",
+      "entity_type": "ITService",
+      "category": "Infrastructure",
+      "owner": "VP Cloud Engineering",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV005"
+    },
+    {
+      "label": "Identity & Access Management",
+      "entity_type": "ITService",
+      "category": "Security",
+      "owner": "Chief Information Security Officer",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV006"
+    },
+    {
+      "label": "Customer Digital Banking Platform",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Head of Digital Channels",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV007"
+    },
+    {
+      "label": "Supply Chain Systems",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Director Logistics Applications",
+      "criticality": "Tier 2",
+      "sla": "99.90%",
+      "id": "SRV008"
+    },
+    {
+      "label": "Finance & Accounting Systems",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Head of Financial Systems",
+      "criticality": "Tier 1",
+      "sla": "99.95%",
+      "id": "SRV009"
+    },
+    {
+      "label": "Integration & API Services",
+      "entity_type": "ITService",
+      "category": "Platform",
+      "owner": "Director Integration Architecture",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV010"
+    },
+    {
+      "label": "Payment Processing Engine",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Head of Payments Tech",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV011"
+    },
+    {
+      "label": "Core Banking Services",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Director Core Banking",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV012"
+    },
+    {
+      "label": "Workflow Automation Suite",
+      "entity_type": "ITService",
+      "category": "Platform",
+      "owner": "Head of Automation CoE",
+      "criticality": "Tier 2",
+      "sla": "99.90%",
+      "id": "SRV013"
+    },
+    {
+      "label": "Enterprise Content Management",
+      "entity_type": "ITService",
+      "category": "Workplace",
+      "owner": "Director Workplace Solutions",
+      "criticality": "Tier 3",
+      "sla": "99.50%",
+      "id": "SRV014"
+    },
+    {
+      "label": "Cybersecurity Operations & SOC",
+      "entity_type": "ITService",
+      "category": "Security",
+      "owner": "Head of Threat Operations",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV015"
+    },
+    {
+      "label": "Data Lakehouse Infrastructure",
+      "entity_type": "ITService",
+      "category": "Platform",
+      "owner": "Director Big Data Infrastructure",
+      "criticality": "Tier 2",
+      "sla": "99.95%",
+      "id": "SRV016"
+    },
+    {
+      "label": "Global Network & Connectivity",
+      "entity_type": "ITService",
+      "category": "Infrastructure",
+      "owner": "Director Network Services",
+      "criticality": "Tier 1",
+      "sla": "99.99%",
+      "id": "SRV017"
+    },
+    {
+      "label": "Regulatory Compliance Systems",
+      "entity_type": "ITService",
+      "category": "Business Applications",
+      "owner": "Head of RegTech",
+      "criticality": "Tier 1",
+      "sla": "99.95%",
+      "id": "SRV018"
+    },
+    {
+      "label": "CoreBanking Alpha",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 35000000.0,
+      "id": "APP001"
+    },
+    {
+      "label": "OmniCRM 360",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 28000000.0,
+      "id": "APP002"
+    },
+    {
+      "label": "DataMesh Lakehouse",
+      "entity_type": "Application",
+      "app_type": "Hybrid",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 19500000.0,
+      "id": "APP003"
+    },
+    {
+      "label": "Retail PayFlow Gateway",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 22000000.0,
+      "id": "APP004"
+    },
+    {
+      "label": "OrderFlow Enterprise",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 25000000.0,
+      "id": "APP005"
+    },
+    {
+      "label": "SmartProcure P2P",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 14000000.0,
+      "id": "APP006"
+    },
+    {
+      "label": "Financial Consolidation Suite",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 18000000.0,
+      "id": "APP007"
+    },
+    {
+      "label": "Workforce Central HR",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 12500000.0,
+      "id": "APP008"
+    },
+    {
+      "label": "CloudVault Secrets Manager",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 9500000.0,
+      "id": "APP009"
+    },
+    {
+      "label": "Central Auth & Identity Hub",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 16000000.0,
+      "id": "APP010"
+    },
+    {
+      "label": "Customer Direct Portal",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 31000000.0,
+      "id": "APP011"
+    },
+    {
+      "label": "QuickOrder Legacy",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Retire",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 11500000.0,
+      "id": "APP012"
+    },
+    {
+      "label": "TradeExecution Engine",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 29000000.0,
+      "id": "APP013"
+    },
+    {
+      "label": "Cloud Payment Microhub",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 14500000.0,
+      "id": "APP014"
+    },
+    {
+      "label": "RiskPulse Engine",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 21000000.0,
+      "id": "APP015"
+    },
+    {
+      "label": "RegReport Automator",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 15500000.0,
+      "id": "APP016"
+    },
+    {
+      "label": "Campaign Studio Pro",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 8500000.0,
+      "id": "APP017"
+    },
+    {
+      "label": "ProcureDirect Legacy",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Retire",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 9800000.0,
+      "id": "APP018"
+    },
+    {
+      "label": "Global Ledger One",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 38000000.0,
+      "id": "APP019"
+    },
+    {
+      "label": "FraudSentry AI",
+      "entity_type": "Application",
+      "app_type": "Hybrid",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 26000000.0,
+      "id": "APP020"
+    },
+    {
+      "label": "Legacy Customer Web Portal",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 24000000.0,
+      "id": "APP021"
+    },
+    {
+      "label": "Batch Billing Engine v2",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Migrate",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 17500000.0,
+      "id": "APP022"
+    },
+    {
+      "label": "Digital Lending Originator",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 27500000.0,
+      "id": "APP023"
+    },
+    {
+      "label": "WealthVision Portfolio",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 19000000.0,
+      "id": "APP024"
+    },
+    {
+      "label": "ClaimsDirect Processor",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 13000000.0,
+      "id": "APP025"
+    },
+    {
+      "label": "Strategic Sourcing Hub",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 7800000.0,
+      "id": "APP026"
+    },
+    {
+      "label": "Enterprise Service Desk",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 9200000.0,
+      "id": "APP027"
+    },
+    {
+      "label": "Document Vault Archive",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 6500000.0,
+      "id": "APP028"
+    },
+    {
+      "label": "API Mesh Fabric",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 18500000.0,
+      "id": "APP029"
+    },
+    {
+      "label": "Corporate Treasury Net",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 22500000.0,
+      "id": "APP030"
+    },
+    {
+      "label": "Supplier Collaboration Portal",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 5800000.0,
+      "id": "APP031"
+    },
+    {
+      "label": "Warehouse TrackMaster",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "Medium",
+      "annual_license": 11200000.0,
+      "id": "APP032"
+    },
+    {
+      "label": "Logistics Fleet Dispatch",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "Medium",
+      "annual_license": 9500000.0,
+      "id": "APP033"
+    },
+    {
+      "label": "Executive Dashboard BI",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 13500000.0,
+      "id": "APP034"
+    },
+    {
+      "label": "Branch Teller Terminal",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Business Critical",
+      "business_criticality": "Medium",
+      "annual_license": 19000000.0,
+      "id": "APP035"
+    },
+    {
+      "label": "ATM Network Controller",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 16500000.0,
+      "id": "APP036"
+    },
+    {
+      "label": "Contact Center Telephony",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Business Critical",
+      "business_criticality": "Medium",
+      "annual_license": 14200000.0,
+      "id": "APP037"
+    },
+    {
+      "label": "Chatbot Virtual Assistant",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 6800000.0,
+      "id": "APP038"
+    },
+    {
+      "label": "Mobile Banking App iOS/Android",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 34000000.0,
+      "id": "APP039"
+    },
+    {
+      "label": "Credit Bureau Interface",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 8900000.0,
+      "id": "APP040"
+    },
+    {
+      "label": "Anti-Money Laundering AML",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 23000000.0,
+      "id": "APP041"
+    },
+    {
+      "label": "Regulatory Archive System",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Migrate",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 5100000.0,
+      "id": "APP042"
+    },
+    {
+      "label": "Employee Travel & Expense",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 4200000.0,
+      "id": "APP043"
+    },
+    {
+      "label": "Talent Acquisition Suite",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Tolerate",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 3800000.0,
+      "id": "APP044"
+    },
+    {
+      "label": "Tax Calculation Engine",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 10200000.0,
+      "id": "APP045"
+    },
+    {
+      "label": "Fixed Asset Registry",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Migrate",
+      "criticality": "Operational",
+      "business_criticality": "Low",
+      "annual_license": 4900000.0,
+      "id": "APP046"
+    },
+    {
+      "label": "Sales Forecasting Module",
+      "entity_type": "Application",
+      "app_type": "Custom Built",
+      "lifecycle_status": "Strategic",
+      "criticality": "Operational",
+      "business_criticality": "Medium",
+      "annual_license": 7200000.0,
+      "id": "APP047"
+    },
+    {
+      "label": "Brand Asset Library",
+      "entity_type": "Application",
+      "app_type": "SaaS",
+      "lifecycle_status": "Retire",
+      "criticality": "Standard",
+      "business_criticality": "Low",
+      "annual_license": 3100000.0,
+      "id": "APP048"
+    },
+    {
+      "label": "Security Incident Event Mgr",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Mission Critical",
+      "business_criticality": "High",
+      "annual_license": 24500000.0,
+      "id": "APP049"
+    },
+    {
+      "label": "Vulnerability Scanner Hub",
+      "entity_type": "Application",
+      "app_type": "COTS",
+      "lifecycle_status": "Strategic",
+      "criticality": "Business Critical",
+      "business_criticality": "High",
+      "annual_license": 12800000.0,
+      "id": "APP050"
+    },
+    {
+      "label": "AWS Elastic Kubernetes Service",
+      "entity_type": "Technology",
+      "category": "Cloud",
+      "vendor": "TechNova",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH001"
+    },
+    {
+      "label": "PostgreSQL Enterprise Engine",
+      "entity_type": "Technology",
+      "category": "Database",
+      "vendor": "EnterpriseSoft",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH002"
+    },
+    {
+      "label": "Oracle Database 19c Enterprise",
+      "entity_type": "Technology",
+      "category": "Database",
+      "vendor": "EnterpriseSoft",
+      "lifecycle_status": "Tolerate",
+      "environment": "Production",
+      "id": "TECH003"
+    },
+    {
+      "label": "Snowflake Cloud Data Warehouse",
+      "entity_type": "Technology",
+      "category": "Data Platform",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH004"
+    },
+    {
+      "label": "Apache Kafka Event Bus",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH005"
+    },
+    {
+      "label": "Redis In-Memory Cluster",
+      "entity_type": "Technology",
+      "category": "Database",
+      "vendor": "PrimeScale",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH006"
+    },
+    {
+      "label": "Red Hat Enterprise Linux 9",
+      "entity_type": "Technology",
+      "category": "Operating System",
+      "vendor": "SysCore",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH007"
+    },
+    {
+      "label": "Microsoft Azure Kubernetes Service",
+      "entity_type": "Technology",
+      "category": "Cloud",
+      "vendor": "CloudSphere",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH008"
+    },
+    {
+      "label": "Amazon S3 Object Storage",
+      "entity_type": "Technology",
+      "category": "Storage",
+      "vendor": "TechNova",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH009"
+    },
+    {
+      "label": "MongoDB Atlas Enterprise",
+      "entity_type": "Technology",
+      "category": "Database",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH010"
+    },
+    {
+      "label": "HashiCorp Terraform",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "TechNova",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH011"
+    },
+    {
+      "label": "Cisco Catalyst Core Switches",
+      "entity_type": "Technology",
+      "category": "Network",
+      "vendor": "GlobalNet",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH012"
+    },
+    {
+      "label": "Palo Alto NextGen Firewalls",
+      "entity_type": "Technology",
+      "category": "Security",
+      "vendor": "CyberShield",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH013"
+    },
+    {
+      "label": "Docker Enterprise Container Runtime",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "PrimeScale",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH014"
+    },
+    {
+      "label": "Salesforce Financial Cloud",
+      "entity_type": "Technology",
+      "category": "SaaS",
+      "vendor": "EnterpriseSoft",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH015"
+    },
+    {
+      "label": "Apache Spark Analytical Engine",
+      "entity_type": "Technology",
+      "category": "Data Platform",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH016"
+    },
+    {
+      "label": "F5 BIG-IP Local Traffic Manager",
+      "entity_type": "Technology",
+      "category": "Network",
+      "vendor": "GlobalNet",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH017"
+    },
+    {
+      "label": "Elasticsearch Logging Cluster",
+      "entity_type": "Technology",
+      "category": "Data Platform",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH018"
+    },
+    {
+      "label": "IBM WebSphere Application Server",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "SysCore",
+      "lifecycle_status": "Deprecated",
+      "environment": "Production",
+      "id": "TECH019"
+    },
+    {
+      "label": "Solaris Operating Environment",
+      "entity_type": "Technology",
+      "category": "Operating System",
+      "vendor": "SysCore",
+      "lifecycle_status": "Legacy",
+      "environment": "Production",
+      "id": "TECH020"
+    },
+    {
+      "label": "Dell PowerEdge Server Blades",
+      "entity_type": "Technology",
+      "category": "Hardware",
+      "vendor": "InfraWorks",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH021"
+    },
+    {
+      "label": "NetApp SAN Storage Arrays",
+      "entity_type": "Technology",
+      "category": "Storage",
+      "vendor": "InfraWorks",
+      "lifecycle_status": "Tolerate",
+      "environment": "Production",
+      "id": "TECH022"
+    },
+    {
+      "label": "HashiCorp Vault Secrets Manager",
+      "entity_type": "Technology",
+      "category": "Security",
+      "vendor": "CyberShield",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH023"
+    },
+    {
+      "label": "Okta Workforce Identity",
+      "entity_type": "Technology",
+      "category": "Security",
+      "vendor": "CyberShield",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH024"
+    },
+    {
+      "label": "Kong API Gateway Enterprise",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "PrimeScale",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH025"
+    },
+    {
+      "label": "Node.js Microservices Runtime",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "TechNova",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH026"
+    },
+    {
+      "label": "Python 3 Analytics Stack",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "DataForge",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH027"
+    },
+    {
+      "label": "Apache Cassandra NoSQL DB",
+      "entity_type": "Technology",
+      "category": "Database",
+      "vendor": "DataForge",
+      "lifecycle_status": "Tolerate",
+      "environment": "Production",
+      "id": "TECH028"
+    },
+    {
+      "label": "RabbitMQ Messaging Broker",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "PrimeScale",
+      "lifecycle_status": "Tolerate",
+      "environment": "Production",
+      "id": "TECH029"
+    },
+    {
+      "label": "Splunk Enterprise SIEM",
+      "entity_type": "Technology",
+      "category": "Security",
+      "vendor": "CyberShield",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH030"
+    },
+    {
+      "label": "GitLab CI/CD Runner Farm",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "CloudSphere",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH031"
+    },
+    {
+      "label": "Dynatrace APM Monitoring",
+      "entity_type": "Technology",
+      "category": "Middleware",
+      "vendor": "CloudSphere",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH032"
+    },
+    {
+      "label": "VMware ESXi Hypervisor Cluster",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "InfraWorks",
+      "lifecycle_status": "Tolerate",
+      "environment": "Production",
+      "id": "TECH033"
+    },
+    {
+      "label": "AWS Lambda Serverless Engine",
+      "entity_type": "Technology",
+      "category": "Cloud",
+      "vendor": "TechNova",
+      "lifecycle_status": "Current",
+      "environment": "Production",
+      "id": "TECH034"
+    },
+    {
+      "label": "Mainframe z/OS Emulation Layer",
+      "entity_type": "Technology",
+      "category": "Compute",
+      "vendor": "SysCore",
+      "lifecycle_status": "Legacy",
+      "environment": "Production",
+      "id": "TECH035"
+    },
+    {
+      "label": "TechNova",
+      "entity_type": "Vendor",
+      "category": "Cloud Provider",
+      "contract_value": 320000000.0,
+      "id": "VEN001"
+    },
+    {
+      "label": "CloudSphere",
+      "entity_type": "Vendor",
+      "category": "Infrastructure",
+      "contract_value": 185000000.0,
+      "id": "VEN002"
+    },
+    {
+      "label": "DataForge",
+      "entity_type": "Vendor",
+      "category": "Data Platform",
+      "contract_value": 140000000.0,
+      "id": "VEN003"
+    },
+    {
+      "label": "EnterpriseSoft",
+      "entity_type": "Vendor",
+      "category": "Software License",
+      "contract_value": 240000000.0,
+      "id": "VEN004"
+    },
+    {
+      "label": "InfraWorks",
+      "entity_type": "Vendor",
+      "category": "Hardware",
+      "contract_value": 95000000.0,
+      "id": "VEN005"
+    },
+    {
+      "label": "CyberShield",
+      "entity_type": "Vendor",
+      "category": "Security",
+      "contract_value": 110000000.0,
+      "id": "VEN006"
+    },
+    {
+      "label": "ApexLogic",
+      "entity_type": "Vendor",
+      "category": "System Integrator",
+      "contract_value": 160000000.0,
+      "id": "VEN007"
+    },
+    {
+      "label": "GlobalNet",
+      "entity_type": "Vendor",
+      "category": "Telecom & Network",
+      "contract_value": 125000000.0,
+      "id": "VEN008"
+    },
+    {
+      "label": "PrimeScale",
+      "entity_type": "Vendor",
+      "category": "Compute & SaaS",
+      "contract_value": 175000000.0,
+      "id": "VEN009"
+    },
+    {
+      "label": "SysCore",
+      "entity_type": "Vendor",
+      "category": "Software License",
+      "contract_value": 85000000.0,
+      "id": "VEN010"
+    },
+    {
+      "label": "Core Banking Cloud Migration",
+      "entity_type": "Project",
+      "project_type": "Cloud Migration",
+      "budget": 180000000.0,
+      "actual_spend": 185000000.0,
+      "expected_benefit": 45000000.0,
+      "status": "Completed",
+      "id": "PRJ001"
+    },
+    {
+      "label": "NextGen Enterprise Lakehouse",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 140000000.0,
+      "actual_spend": 138000000.0,
+      "expected_benefit": 38000000.0,
+      "status": "Completed",
+      "id": "PRJ002"
+    },
+    {
+      "label": "Real-Time Payment Modernization",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 120000000.0,
+      "actual_spend": 115000000.0,
+      "expected_benefit": 192000000.0,
+      "status": "Completed",
+      "id": "PRJ003"
+    },
+    {
+      "label": "Omnichannel CRM Rollout",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 95000000.0,
+      "actual_spend": 102000000.0,
+      "expected_benefit": 26000000.0,
+      "status": "Completed",
+      "id": "PRJ004"
+    },
+    {
+      "label": "Procure-to-Pay Automation",
+      "entity_type": "Project",
+      "project_type": "Automation",
+      "budget": 65000000.0,
+      "actual_spend": 62000000.0,
+      "expected_benefit": 21000000.0,
+      "status": "Completed",
+      "id": "PRJ005"
+    },
+    {
+      "label": "Financial Consolidation Upgrade",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 72000000.0,
+      "actual_spend": 74000000.0,
+      "expected_benefit": 18500000.0,
+      "status": "Completed",
+      "id": "PRJ006"
+    },
+    {
+      "label": "Zero-Trust Identity Fabric",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 88000000.0,
+      "actual_spend": 86000000.0,
+      "expected_benefit": 24000000.0,
+      "status": "Completed",
+      "id": "PRJ007"
+    },
+    {
+      "label": "Mobile Banking 4.0 Redesign",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 110000000.0,
+      "actual_spend": 118000000.0,
+      "expected_benefit": 42000000.0,
+      "status": "Completed",
+      "id": "PRJ008"
+    },
+    {
+      "label": "Order-to-Cash Optimization",
+      "entity_type": "Project",
+      "project_type": "Automation",
+      "budget": 85000000.0,
+      "actual_spend": 84000000.0,
+      "expected_benefit": 29000000.0,
+      "status": "In Progress",
+      "id": "PRJ009"
+    },
+    {
+      "label": "AI Fraud Prevention Shield",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 130000000.0,
+      "actual_spend": 126000000.0,
+      "expected_benefit": 48000000.0,
+      "status": "Completed",
+      "id": "PRJ010"
+    },
+    {
+      "label": "Treasury Liquidity Hub",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 55000000.0,
+      "actual_spend": 57000000.0,
+      "expected_benefit": 15000000.0,
+      "status": "In Progress",
+      "id": "PRJ011"
+    },
+    {
+      "label": "Retail Loan Origination FastTrack",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 92000000.0,
+      "actual_spend": 96000000.0,
+      "expected_benefit": 31000000.0,
+      "status": "Completed",
+      "id": "PRJ012"
+    },
+    {
+      "label": "Claims Auto-Adjudication AI",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 78000000.0,
+      "actual_spend": 75000000.0,
+      "expected_benefit": 22000000.0,
+      "status": "In Progress",
+      "id": "PRJ013"
+    },
+    {
+      "label": "Global Legacy CRM Consolidation",
+      "entity_type": "Project",
+      "project_type": "Application Replacement",
+      "budget": 250000000.0,
+      "actual_spend": 290000000.0,
+      "expected_benefit": 300000000.0,
+      "status": "Completed",
+      "id": "PRJ014"
+    },
+    {
+      "label": "API Gateway Mesh Evolution",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 45000000.0,
+      "actual_spend": 44000000.0,
+      "expected_benefit": 14000000.0,
+      "status": "Completed",
+      "id": "PRJ015"
+    },
+    {
+      "label": "Digital Workplace Modernization",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 62000000.0,
+      "actual_spend": 61000000.0,
+      "expected_benefit": 16000000.0,
+      "status": "In Progress",
+      "id": "PRJ016"
+    },
+    {
+      "label": "Regulatory Basel IV Reporting",
+      "entity_type": "Project",
+      "project_type": "Regulatory",
+      "budget": 105000000.0,
+      "actual_spend": 109000000.0,
+      "expected_benefit": 28000000.0,
+      "status": "Completed",
+      "id": "PRJ017"
+    },
+    {
+      "label": "Commercial Lending Automation",
+      "entity_type": "Project",
+      "project_type": "Automation",
+      "budget": 82000000.0,
+      "actual_spend": 80000000.0,
+      "expected_benefit": 25000000.0,
+      "status": "In Progress",
+      "id": "PRJ018"
+    },
+    {
+      "label": "Cyber Threat Intelligence Hub",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 76000000.0,
+      "actual_spend": 74000000.0,
+      "expected_benefit": 20000000.0,
+      "status": "Completed",
+      "id": "PRJ019"
+    },
+    {
+      "label": "Wealth Management Advisory Portal",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 89000000.0,
+      "actual_spend": 93000000.0,
+      "expected_benefit": 27000000.0,
+      "status": "Completed",
+      "id": "PRJ020"
+    },
+    {
+      "label": "Warehouse IoT Logistics Upgrade",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 52000000.0,
+      "actual_spend": 48000000.0,
+      "expected_benefit": 12000000.0,
+      "status": "In Progress",
+      "id": "PRJ021"
+    },
+    {
+      "label": "Customer Data Platform 360",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 94000000.0,
+      "actual_spend": 91000000.0,
+      "expected_benefit": 33000000.0,
+      "status": "In Progress",
+      "id": "PRJ022"
+    },
+    {
+      "label": "Mainframe Decommission Wave 1",
+      "entity_type": "Project",
+      "project_type": "Application Replacement",
+      "budget": 115000000.0,
+      "actual_spend": 128000000.0,
+      "expected_benefit": 40000000.0,
+      "status": "Completed",
+      "id": "PRJ023"
+    },
+    {
+      "label": "Branch Network Virtualization",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 68000000.0,
+      "actual_spend": 67000000.0,
+      "expected_benefit": 19000000.0,
+      "status": "In Progress",
+      "id": "PRJ024"
+    },
+    {
+      "label": "Enterprise Document AI Extraction",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 48000000.0,
+      "actual_spend": 47000000.0,
+      "expected_benefit": 15000000.0,
+      "status": "In Progress",
+      "id": "PRJ025"
+    },
+    {
+      "label": "Digital Onboarding Biometrics",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 64000000.0,
+      "actual_spend": 63000000.0,
+      "expected_benefit": 22000000.0,
+      "status": "Completed",
+      "id": "PRJ026"
+    },
+    {
+      "label": "Automated AML Surveillance",
+      "entity_type": "Project",
+      "project_type": "Regulatory",
+      "budget": 86000000.0,
+      "actual_spend": 89000000.0,
+      "expected_benefit": 26000000.0,
+      "status": "Completed",
+      "id": "PRJ027"
+    },
+    {
+      "label": "Supplier Self-Service Portal",
+      "entity_type": "Project",
+      "project_type": "Automation",
+      "budget": 38000000.0,
+      "actual_spend": 36000000.0,
+      "expected_benefit": 9500000.0,
+      "status": "In Progress",
+      "id": "PRJ028"
+    },
+    {
+      "label": "Multi-Cloud FinOps Engine",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 42000000.0,
+      "actual_spend": 41000000.0,
+      "expected_benefit": 18000000.0,
+      "status": "Completed",
+      "id": "PRJ029"
+    },
+    {
+      "label": "Cards Microservices Re-platform",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 125000000.0,
+      "actual_spend": 129000000.0,
+      "expected_benefit": 39000000.0,
+      "status": "Completed",
+      "id": "PRJ030"
+    },
+    {
+      "label": "Continuous Security Compliance",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 56000000.0,
+      "actual_spend": 54000000.0,
+      "expected_benefit": 14000000.0,
+      "status": "In Progress",
+      "id": "PRJ031"
+    },
+    {
+      "label": "Tax Automation Overhaul",
+      "entity_type": "Project",
+      "project_type": "Regulatory",
+      "budget": 49000000.0,
+      "actual_spend": 51000000.0,
+      "expected_benefit": 13000000.0,
+      "status": "Completed",
+      "id": "PRJ032"
+    },
+    {
+      "label": "Intelligent Sales Recommender",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 67000000.0,
+      "actual_spend": 65000000.0,
+      "expected_benefit": 20000000.0,
+      "status": "In Progress",
+      "id": "PRJ033"
+    },
+    {
+      "label": "Logistics Visibility Control Tower",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 73000000.0,
+      "actual_spend": 76000000.0,
+      "expected_benefit": 23000000.0,
+      "status": "Completed",
+      "id": "PRJ034"
+    },
+    {
+      "label": "Contact Center Cloud Migration",
+      "entity_type": "Project",
+      "project_type": "Cloud Migration",
+      "budget": 81000000.0,
+      "actual_spend": 83000000.0,
+      "expected_benefit": 24000000.0,
+      "status": "In Progress",
+      "id": "PRJ035"
+    },
+    {
+      "label": "Enterprise Asset Management Cloud",
+      "entity_type": "Project",
+      "project_type": "Cloud Migration",
+      "budget": 44000000.0,
+      "actual_spend": 43000000.0,
+      "expected_benefit": 11000000.0,
+      "status": "In Progress",
+      "id": "PRJ036"
+    },
+    {
+      "label": "Algorithmic Market Risk Analyzer",
+      "entity_type": "Project",
+      "project_type": "Transformation",
+      "budget": 96000000.0,
+      "actual_spend": 98000000.0,
+      "expected_benefit": 32000000.0,
+      "status": "Completed",
+      "id": "PRJ037"
+    },
+    {
+      "label": "Customer Feedback Sentiment AI",
+      "entity_type": "Project",
+      "project_type": "AI",
+      "budget": 35000000.0,
+      "actual_spend": 32000000.0,
+      "expected_benefit": 8000000.0,
+      "status": "In Progress",
+      "id": "PRJ038"
+    },
+    {
+      "label": "Insurance Underwriting Engine",
+      "entity_type": "Project",
+      "project_type": "Modernization",
+      "budget": 87000000.0,
+      "actual_spend": 89000000.0,
+      "expected_benefit": 27000000.0,
+      "status": "In Progress",
+      "id": "PRJ039"
+    },
+    {
+      "label": "NextGen Enterprise Integration Bus",
+      "entity_type": "Project",
+      "project_type": "Infrastructure",
+      "budget": 69000000.0,
+      "actual_spend": 68000000.0,
+      "expected_benefit": 21000000.0,
+      "status": "In Progress",
+      "id": "PRJ040"
+    },
+    {
+      "label": "Productivity (BEN001)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 27000000.0,
+      "realized_value": 26519044.0,
+      "status": "Realized",
+      "id": "BEN001"
+    },
+    {
+      "label": "Risk Reduction (BEN002)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 18000000.0,
+      "realized_value": 17679362.66,
+      "status": "Realized",
+      "id": "BEN002"
+    },
+    {
+      "label": "Risk Reduction (BEN003)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 22800000.0,
+      "realized_value": 20101928.53,
+      "status": "Partially Realized",
+      "id": "BEN003"
+    },
+    {
+      "label": "Capacity Release (BEN004)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 15200000.0,
+      "realized_value": 13401285.68,
+      "status": "Partially Realized",
+      "id": "BEN004"
+    },
+    {
+      "label": "Capacity Release (BEN005)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 115200000.0,
+      "realized_value": 124416000.0,
+      "status": "Exceeded",
+      "id": "BEN005"
+    },
+    {
+      "label": "Cost Reduction (BEN006)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 76800000.0,
+      "realized_value": 82944000.0,
+      "status": "Exceeded",
+      "id": "BEN006"
+    },
+    {
+      "label": "Cost Reduction (BEN007)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 15600000.0,
+      "realized_value": 15718238.27,
+      "status": "Realized",
+      "id": "BEN007"
+    },
+    {
+      "label": "Revenue Enablement (BEN008)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 10400000.0,
+      "realized_value": 10478825.51,
+      "status": "Realized",
+      "id": "BEN008"
+    },
+    {
+      "label": "Revenue Enablement (BEN009)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 12600000.0,
+      "realized_value": 12086051.15,
+      "status": "Realized",
+      "id": "BEN009"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN010)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 8400000.0,
+      "realized_value": 8057367.43,
+      "status": "Realized",
+      "id": "BEN010"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN011)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 11100000.0,
+      "realized_value": 8638610.57,
+      "status": "Partially Realized",
+      "id": "BEN011"
+    },
+    {
+      "label": "Customer Experience (BEN012)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 7400000.0,
+      "realized_value": 5759073.71,
+      "status": "Partially Realized",
+      "id": "BEN012"
+    },
+    {
+      "label": "Customer Experience (BEN013)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 14400000.0,
+      "realized_value": 15014688.56,
+      "status": "Realized",
+      "id": "BEN013"
+    },
+    {
+      "label": "Productivity (BEN014)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 9600000.0,
+      "realized_value": 10009792.37,
+      "status": "Realized",
+      "id": "BEN014"
+    },
+    {
+      "label": "Productivity (BEN015)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 25200000.0,
+      "realized_value": 24654216.15,
+      "status": "Realized",
+      "id": "BEN015"
+    },
+    {
+      "label": "Risk Reduction (BEN016)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 16800000.0,
+      "realized_value": 16436144.1,
+      "status": "Realized",
+      "id": "BEN016"
+    },
+    {
+      "label": "Risk Reduction (BEN017)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 17400000.0,
+      "realized_value": 8951007.56,
+      "status": "In Progress",
+      "id": "BEN017"
+    },
+    {
+      "label": "Capacity Release (BEN018)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 11600000.0,
+      "realized_value": 5967338.38,
+      "status": "In Progress",
+      "id": "BEN018"
+    },
+    {
+      "label": "Capacity Release (BEN019)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 28800000.0,
+      "realized_value": 22706901.79,
+      "status": "Partially Realized",
+      "id": "BEN019"
+    },
+    {
+      "label": "Cost Reduction (BEN020)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 19200000.0,
+      "realized_value": 15137934.52,
+      "status": "Partially Realized",
+      "id": "BEN020"
+    },
+    {
+      "label": "Cost Reduction (BEN021)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 9000000.0,
+      "realized_value": 3421389.38,
+      "status": "In Progress",
+      "id": "BEN021"
+    },
+    {
+      "label": "Revenue Enablement (BEN022)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 6000000.0,
+      "realized_value": 2280926.25,
+      "status": "In Progress",
+      "id": "BEN022"
+    },
+    {
+      "label": "Revenue Enablement (BEN023)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 18600000.0,
+      "realized_value": 16019052.98,
+      "status": "Partially Realized",
+      "id": "BEN023"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN024)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 12400000.0,
+      "realized_value": 10679368.65,
+      "status": "Partially Realized",
+      "id": "BEN024"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN025)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 13200000.0,
+      "realized_value": 7533319.14,
+      "status": "In Progress",
+      "id": "BEN025"
+    },
+    {
+      "label": "Customer Experience (BEN026)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 8800000.0,
+      "realized_value": 5022212.76,
+      "status": "In Progress",
+      "id": "BEN026"
+    },
+    {
+      "label": "Customer Experience (BEN027)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 180000000.0,
+      "realized_value": 41940000.0,
+      "status": "Unrealized",
+      "id": "BEN027"
+    },
+    {
+      "label": "Productivity (BEN028)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 120000000.0,
+      "realized_value": 27960000.0,
+      "status": "Unrealized",
+      "id": "BEN028"
+    },
+    {
+      "label": "Productivity (BEN029)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 8400000.0,
+      "realized_value": 7922540.1,
+      "status": "Realized",
+      "id": "BEN029"
+    },
+    {
+      "label": "Risk Reduction (BEN030)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 5600000.0,
+      "realized_value": 5281693.4,
+      "status": "Realized",
+      "id": "BEN030"
+    },
+    {
+      "label": "Risk Reduction (BEN031)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 9600000.0,
+      "realized_value": 5079404.59,
+      "status": "In Progress",
+      "id": "BEN031"
+    },
+    {
+      "label": "Capacity Release (BEN032)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 6400000.0,
+      "realized_value": 3386269.73,
+      "status": "In Progress",
+      "id": "BEN032"
+    },
+    {
+      "label": "Capacity Release (BEN033)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 16800000.0,
+      "realized_value": 14834807.56,
+      "status": "Partially Realized",
+      "id": "BEN033"
+    },
+    {
+      "label": "Cost Reduction (BEN034)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 11200000.0,
+      "realized_value": 9889871.71,
+      "status": "Partially Realized",
+      "id": "BEN034"
+    },
+    {
+      "label": "Cost Reduction (BEN035)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 15000000.0,
+      "realized_value": 4363432.33,
+      "status": "In Progress",
+      "id": "BEN035"
+    },
+    {
+      "label": "Revenue Enablement (BEN036)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 10000000.0,
+      "realized_value": 2908954.89,
+      "status": "In Progress",
+      "id": "BEN036"
+    },
+    {
+      "label": "Revenue Enablement (BEN037)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 12000000.0,
+      "realized_value": 10996505.23,
+      "status": "Realized",
+      "id": "BEN037"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN038)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 8000000.0,
+      "realized_value": 7331003.49,
+      "status": "Realized",
+      "id": "BEN038"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN039)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 16200000.0,
+      "realized_value": 12460151.86,
+      "status": "Partially Realized",
+      "id": "BEN039"
+    },
+    {
+      "label": "Customer Experience (BEN040)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 10800000.0,
+      "realized_value": 8306767.91,
+      "status": "Partially Realized",
+      "id": "BEN040"
+    },
+    {
+      "label": "Customer Experience (BEN041)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 7200000.0,
+      "realized_value": 3823577.78,
+      "status": "In Progress",
+      "id": "BEN041"
+    },
+    {
+      "label": "Productivity (BEN042)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 4800000.0,
+      "realized_value": 2549051.85,
+      "status": "In Progress",
+      "id": "BEN042"
+    },
+    {
+      "label": "Productivity (BEN043)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 19800000.0,
+      "realized_value": 8962782.04,
+      "status": "In Progress",
+      "id": "BEN043"
+    },
+    {
+      "label": "Risk Reduction (BEN044)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 13200000.0,
+      "realized_value": 5975188.03,
+      "status": "In Progress",
+      "id": "BEN044"
+    },
+    {
+      "label": "Risk Reduction (BEN045)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 24000000.0,
+      "realized_value": 23458231.73,
+      "status": "Realized",
+      "id": "BEN045"
+    },
+    {
+      "label": "Capacity Release (BEN046)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 16000000.0,
+      "realized_value": 15638821.15,
+      "status": "Realized",
+      "id": "BEN046"
+    },
+    {
+      "label": "Capacity Release (BEN047)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 11400000.0,
+      "realized_value": 3896638.42,
+      "status": "In Progress",
+      "id": "BEN047"
+    },
+    {
+      "label": "Cost Reduction (BEN048)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 7600000.0,
+      "realized_value": 2597758.94,
+      "status": "In Progress",
+      "id": "BEN048"
+    },
+    {
+      "label": "Cost Reduction (BEN049)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 9000000.0,
+      "realized_value": 5294512.89,
+      "status": "In Progress",
+      "id": "BEN049"
+    },
+    {
+      "label": "Revenue Enablement (BEN050)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 6000000.0,
+      "realized_value": 3529675.26,
+      "status": "In Progress",
+      "id": "BEN050"
+    },
+    {
+      "label": "Revenue Enablement (BEN051)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 13200000.0,
+      "realized_value": 13436759.64,
+      "status": "Realized",
+      "id": "BEN051"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN052)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 8800000.0,
+      "realized_value": 8957839.76,
+      "status": "Realized",
+      "id": "BEN052"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN053)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 15600000.0,
+      "realized_value": 15342834.77,
+      "status": "Realized",
+      "id": "BEN053"
+    },
+    {
+      "label": "Customer Experience (BEN054)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 10400000.0,
+      "realized_value": 10228556.51,
+      "status": "Realized",
+      "id": "BEN054"
+    },
+    {
+      "label": "Customer Experience (BEN055)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 5700000.0,
+      "realized_value": 1583776.25,
+      "status": "In Progress",
+      "id": "BEN055"
+    },
+    {
+      "label": "Productivity (BEN056)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 3800000.0,
+      "realized_value": 1055850.84,
+      "status": "In Progress",
+      "id": "BEN056"
+    },
+    {
+      "label": "Productivity (BEN057)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 10800000.0,
+      "realized_value": 9612176.05,
+      "status": "Partially Realized",
+      "id": "BEN057"
+    },
+    {
+      "label": "Risk Reduction (BEN058)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 7200000.0,
+      "realized_value": 6408117.37,
+      "status": "Partially Realized",
+      "id": "BEN058"
+    },
+    {
+      "label": "Risk Reduction (BEN059)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 23400000.0,
+      "realized_value": 17857502.44,
+      "status": "Partially Realized",
+      "id": "BEN059"
+    },
+    {
+      "label": "Capacity Release (BEN060)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 15600000.0,
+      "realized_value": 11905001.62,
+      "status": "Partially Realized",
+      "id": "BEN060"
+    },
+    {
+      "label": "Capacity Release (BEN061)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 8400000.0,
+      "realized_value": 2198412.7,
+      "status": "In Progress",
+      "id": "BEN061"
+    },
+    {
+      "label": "Cost Reduction (BEN062)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 5600000.0,
+      "realized_value": 1465608.46,
+      "status": "In Progress",
+      "id": "BEN062"
+    },
+    {
+      "label": "Cost Reduction (BEN063)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 7800000.0,
+      "realized_value": 7448334.55,
+      "status": "Realized",
+      "id": "BEN063"
+    },
+    {
+      "label": "Revenue Enablement (BEN064)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 5200000.0,
+      "realized_value": 4965556.37,
+      "status": "Realized",
+      "id": "BEN064"
+    },
+    {
+      "label": "Revenue Enablement (BEN065)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 12000000.0,
+      "realized_value": 5974858.35,
+      "status": "In Progress",
+      "id": "BEN065"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN066)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 8000000.0,
+      "realized_value": 3983238.9,
+      "status": "In Progress",
+      "id": "BEN066"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN067)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 13800000.0,
+      "realized_value": 14355490.29,
+      "status": "Realized",
+      "id": "BEN067"
+    },
+    {
+      "label": "Customer Experience (BEN068)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 9200000.0,
+      "realized_value": 9570326.86,
+      "status": "Realized",
+      "id": "BEN068"
+    },
+    {
+      "label": "Customer Experience (BEN069)",
+      "entity_type": "Benefit",
+      "benefit_type": "Customer Experience",
+      "expected_value": 14400000.0,
+      "realized_value": 4756754.06,
+      "status": "In Progress",
+      "id": "BEN069"
+    },
+    {
+      "label": "Productivity (BEN070)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 9600000.0,
+      "realized_value": 3171169.38,
+      "status": "In Progress",
+      "id": "BEN070"
+    },
+    {
+      "label": "Productivity (BEN071)",
+      "entity_type": "Benefit",
+      "benefit_type": "Productivity",
+      "expected_value": 6600000.0,
+      "realized_value": 2298013.63,
+      "status": "In Progress",
+      "id": "BEN071"
+    },
+    {
+      "label": "Risk Reduction (BEN072)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 4400000.0,
+      "realized_value": 1532009.08,
+      "status": "In Progress",
+      "id": "BEN072"
+    },
+    {
+      "label": "Risk Reduction (BEN073)",
+      "entity_type": "Benefit",
+      "benefit_type": "Risk Reduction",
+      "expected_value": 19200000.0,
+      "realized_value": 17104641.47,
+      "status": "Partially Realized",
+      "id": "BEN073"
+    },
+    {
+      "label": "Capacity Release (BEN074)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 12800000.0,
+      "realized_value": 11403094.32,
+      "status": "Partially Realized",
+      "id": "BEN074"
+    },
+    {
+      "label": "Capacity Release (BEN075)",
+      "entity_type": "Benefit",
+      "benefit_type": "Capacity Release",
+      "expected_value": 4800000.0,
+      "realized_value": 1323785.01,
+      "status": "In Progress",
+      "id": "BEN075"
+    },
+    {
+      "label": "Cost Reduction (BEN076)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 3200000.0,
+      "realized_value": 882523.34,
+      "status": "In Progress",
+      "id": "BEN076"
+    },
+    {
+      "label": "Cost Reduction (BEN077)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cost Reduction",
+      "expected_value": 16200000.0,
+      "realized_value": 4081891.36,
+      "status": "In Progress",
+      "id": "BEN077"
+    },
+    {
+      "label": "Revenue Enablement (BEN078)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 10800000.0,
+      "realized_value": 2721260.9,
+      "status": "In Progress",
+      "id": "BEN078"
+    },
+    {
+      "label": "Revenue Enablement (BEN079)",
+      "entity_type": "Benefit",
+      "benefit_type": "Revenue Enablement",
+      "expected_value": 12600000.0,
+      "realized_value": 4917552.83,
+      "status": "In Progress",
+      "id": "BEN079"
+    },
+    {
+      "label": "Cycle Time Reduction (BEN080)",
+      "entity_type": "Benefit",
+      "benefit_type": "Cycle Time Reduction",
+      "expected_value": 8400000.0,
+      "realized_value": 3278368.55,
+      "status": "In Progress",
+      "id": "BEN080"
+    },
+    {
+      "label": "Cost per Digital Transaction",
+      "entity_type": "KPI",
+      "category": "Financial",
+      "baseline": 4.25,
+      "target": 2.8,
+      "actual": 2.65,
+      "unit": "\u20b9",
+      "id": "KPI001"
+    },
+    {
+      "label": "Average Incident Resolution Time",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 180.0,
+      "target": 60.0,
+      "actual": 72.0,
+      "unit": "Minutes",
+      "id": "KPI002"
+    },
+    {
+      "label": "Order Cycle Time",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 48.0,
+      "target": 12.0,
+      "actual": 14.5,
+      "unit": "Hours",
+      "id": "KPI003"
+    },
+    {
+      "label": "Procure-to-Pay Processing Time",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 14.0,
+      "target": 3.0,
+      "actual": 3.5,
+      "unit": "Days",
+      "id": "KPI004"
+    },
+    {
+      "label": "Digital Channel Adoption Rate",
+      "entity_type": "KPI",
+      "category": "Customer",
+      "baseline": 52.0,
+      "target": 85.0,
+      "actual": 88.5,
+      "unit": "%",
+      "id": "KPI005"
+    },
+    {
+      "label": "Process Automation Rate",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 35.0,
+      "target": 75.0,
+      "actual": 71.0,
+      "unit": "%",
+      "id": "KPI006"
+    },
+    {
+      "label": "Core Banking Availability",
+      "entity_type": "KPI",
+      "category": "Reliability",
+      "baseline": 99.8,
+      "target": 99.99,
+      "actual": 99.98,
+      "unit": "%",
+      "id": "KPI007"
+    },
+    {
+      "label": "Customer Support First-Call Resolution",
+      "entity_type": "KPI",
+      "category": "Customer",
+      "baseline": 64.0,
+      "target": 85.0,
+      "actual": 82.0,
+      "unit": "%",
+      "id": "KPI008"
+    },
+    {
+      "label": "Loan Origination Turnaround Time",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 72.0,
+      "target": 4.0,
+      "actual": 5.2,
+      "unit": "Hours",
+      "id": "KPI009"
+    },
+    {
+      "label": "Fraud Detection Accuracy Rate",
+      "entity_type": "KPI",
+      "category": "Agility",
+      "baseline": 84.0,
+      "target": 98.0,
+      "actual": 97.4,
+      "unit": "%",
+      "id": "KPI010"
+    },
+    {
+      "label": "Claims Processing Cycle Time",
+      "entity_type": "KPI",
+      "category": "Operational",
+      "baseline": 120.0,
+      "target": 24.0,
+      "actual": 28.0,
+      "unit": "Hours",
+      "id": "KPI011"
+    },
+    {
+      "label": "API Endpoint Response Latency",
+      "entity_type": "KPI",
+      "category": "Reliability",
+      "baseline": 450.0,
+      "target": 80.0,
+      "actual": 85.0,
+      "unit": "ms",
+      "id": "KPI012"
+    },
+    {
+      "label": "Cloud Resource Cost Efficiency Index",
+      "entity_type": "KPI",
+      "category": "Financial",
+      "baseline": 65.0,
+      "target": 90.0,
+      "actual": 86.5,
+      "unit": "%",
+      "id": "KPI013"
+    },
+    {
+      "label": "Identity Verification Pass Rate",
+      "entity_type": "KPI",
+      "category": "Customer",
+      "baseline": 78.0,
+      "target": 96.0,
+      "actual": 95.2,
+      "unit": "%",
+      "id": "KPI014"
+    },
+    {
+      "label": "Monthly Data Lake Ingestion Volume",
+      "entity_type": "KPI",
+      "category": "Agility",
+      "baseline": 120.0,
+      "target": 500.0,
+      "actual": 480.0,
+      "unit": "TB",
+      "id": "KPI015"
+    }
+  ],
+  "edges": [
+    {
+      "relationship": "OWNS",
+      "source": "BU001",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU001",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU001",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU001",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU002",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU003",
+      "target": "CAP021"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU004",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU004",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU004",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU005",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU006",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU006",
+      "target": "CAP006"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU006",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU006",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU006",
+      "target": "CAP024"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU007",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU007",
+      "target": "CAP009"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU007",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU007",
+      "target": "CAP018"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU007",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU008",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU009",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU010",
+      "target": "CAP012"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU010",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "OWNS",
+      "source": "BU010",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP005"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP006"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP008"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP012"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP018"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP026"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV001",
+      "target": "APP043"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV002",
+      "target": "APP002"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV002",
+      "target": "APP017"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV002",
+      "target": "APP024"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV003",
+      "target": "APP034"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV003",
+      "target": "APP047"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV004",
+      "target": "APP027"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV004",
+      "target": "APP037"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV004",
+      "target": "APP044"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV006",
+      "target": "APP009"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV006",
+      "target": "APP010"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV007",
+      "target": "APP011"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV007",
+      "target": "APP021"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV007",
+      "target": "APP038"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV007",
+      "target": "APP039"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV008",
+      "target": "APP031"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV008",
+      "target": "APP032"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV008",
+      "target": "APP033"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP007"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP019"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP022"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP030"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP045"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV009",
+      "target": "APP046"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV010",
+      "target": "APP029"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV010",
+      "target": "APP040"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV011",
+      "target": "APP004"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV011",
+      "target": "APP014"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV011",
+      "target": "APP036"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV012",
+      "target": "APP001"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV012",
+      "target": "APP013"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV012",
+      "target": "APP023"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV012",
+      "target": "APP035"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV013",
+      "target": "APP025"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV014",
+      "target": "APP028"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV014",
+      "target": "APP042"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV014",
+      "target": "APP048"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV015",
+      "target": "APP020"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV015",
+      "target": "APP049"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV015",
+      "target": "APP050"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV016",
+      "target": "APP003"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV018",
+      "target": "APP015"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV018",
+      "target": "APP016"
+    },
+    {
+      "relationship": "DELIVERED_BY",
+      "source": "SRV018",
+      "target": "APP041"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP001",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP001",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP001",
+      "target": "SRV012"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP001",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP001",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP001",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP001",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP002",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP002",
+      "target": "SRV002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP002",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP002",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP002",
+      "target": "TECH030"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP002",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP002",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP003",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP003",
+      "target": "SRV016"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP003",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP003",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP004",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP004",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP004",
+      "target": "SRV011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP004",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP004",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP004",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP004",
+      "target": "APP001"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP004",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP005",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP005",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP005",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP005",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP005",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP005",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP005",
+      "target": "TECH016"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP005",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP006",
+      "target": "CAP006"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP006",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP006",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP006",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP006",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP006",
+      "target": "APP003"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP007",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP007",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP007",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP007",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP007",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP007",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP008",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP008",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP008",
+      "target": "TECH002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP008",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP008",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP008",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP008",
+      "target": "APP005"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP009",
+      "target": "CAP009"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP009",
+      "target": "SRV006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP009",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP009",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP010",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP010",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP010",
+      "target": "SRV006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP010",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP010",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP010",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP010",
+      "target": "APP007"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP011",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP011",
+      "target": "SRV007"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP011",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP011",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP011",
+      "target": "TECH023"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP011",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP011",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP012",
+      "target": "CAP012"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Overlapping",
+      "source": "APP012",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP012",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP012",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP012",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP012",
+      "target": "APP009"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP013",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP013",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP013",
+      "target": "SRV012"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP013",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP013",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP013",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP013",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP014",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP014",
+      "target": "SRV011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP014",
+      "target": "TECH009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP014",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP014",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP014",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP014",
+      "target": "APP011"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP014",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP015",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP015",
+      "target": "SRV018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP015",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP015",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP016",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP016",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP016",
+      "target": "SRV018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP016",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP016",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP016",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP016",
+      "target": "APP013"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP017",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP017",
+      "target": "SRV002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP017",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP017",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP017",
+      "target": "TECH030"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP017",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP018",
+      "target": "CAP018"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Overlapping",
+      "source": "APP018",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP018",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP018",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP018",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP018",
+      "target": "APP015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP019",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP019",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP019",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP019",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP019",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP019",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP020",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP020",
+      "target": "SRV015"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP020",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP020",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP020",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP020",
+      "target": "TECH016"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP020",
+      "target": "APP017"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP021",
+      "target": "CAP021"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Overlapping",
+      "source": "APP021",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP021",
+      "target": "SRV007"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP021",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP021",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP022",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP022",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP022",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP022",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP022",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP022",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP022",
+      "target": "APP019"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP023",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP023",
+      "target": "SRV012"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP023",
+      "target": "TECH002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP023",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP023",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP023",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "Mission Critical",
+      "source": "APP023",
+      "target": "APP010"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP024",
+      "target": "CAP024"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP024",
+      "target": "SRV002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP024",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP024",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP024",
+      "target": "APP021"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP025",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP025",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP025",
+      "target": "SRV013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP025",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP025",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP025",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP026",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP026",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP026",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP026",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP026",
+      "target": "TECH023"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP026",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP026",
+      "target": "APP023"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP027",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP027",
+      "target": "SRV004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP027",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP027",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP028",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP028",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP028",
+      "target": "SRV014"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP028",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP028",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP028",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP028",
+      "target": "APP025"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP029",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP029",
+      "target": "SRV010"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP029",
+      "target": "TECH009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP029",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP029",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP029",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP030",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP030",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP030",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP030",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP030",
+      "target": "APP027"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP031",
+      "target": "CAP006"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP031",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP031",
+      "target": "SRV008"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP031",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP031",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP031",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP032",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP032",
+      "target": "SRV008"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP032",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP032",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP032",
+      "target": "TECH030"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP032",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP032",
+      "target": "APP029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP033",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP033",
+      "target": "SRV008"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP033",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP033",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP034",
+      "target": "CAP009"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP034",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP034",
+      "target": "SRV003"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP034",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP034",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP034",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP034",
+      "target": "APP031"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP035",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP035",
+      "target": "SRV012"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP035",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP035",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP035",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP035",
+      "target": "TECH016"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP036",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP036",
+      "target": "SRV011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP036",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP036",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP036",
+      "target": "APP033"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP037",
+      "target": "CAP012"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP037",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP037",
+      "target": "SRV004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP037",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP037",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP037",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP038",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP038",
+      "target": "SRV007"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP038",
+      "target": "TECH002"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP038",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP038",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP038",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP038",
+      "target": "APP035"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP039",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP039",
+      "target": "SRV007"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP039",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP039",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP040",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP040",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP040",
+      "target": "SRV010"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP040",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP040",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP040",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP040",
+      "target": "APP037"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP041",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP041",
+      "target": "SRV018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP041",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP041",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP041",
+      "target": "TECH023"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP041",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP042",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP042",
+      "target": "SRV014"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP042",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP042",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP042",
+      "target": "APP039"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP043",
+      "target": "CAP018"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP043",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP043",
+      "target": "SRV001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP043",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP043",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP043",
+      "target": "TECH032"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP044",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP044",
+      "target": "SRV004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP044",
+      "target": "TECH009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP044",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP044",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP044",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP044",
+      "target": "APP041"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP045",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP045",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP045",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP045",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP046",
+      "target": "CAP021"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP046",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP046",
+      "target": "SRV009"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP046",
+      "target": "TECH018"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP046",
+      "target": "TECH013"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP046",
+      "target": "TECH008"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP046",
+      "target": "APP043"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP047",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP047",
+      "target": "SRV003"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP047",
+      "target": "TECH025"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP047",
+      "target": "TECH020"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP047",
+      "target": "TECH030"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP047",
+      "target": "TECH015"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP048",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP048",
+      "target": "SRV014"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP048",
+      "target": "TECH027"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP048",
+      "target": "TECH022"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP048",
+      "target": "APP045"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP049",
+      "target": "CAP024"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Secondary",
+      "source": "APP049",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP049",
+      "target": "SRV015"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP049",
+      "target": "TECH034"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP049",
+      "target": "TECH004"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP049",
+      "target": "TECH029"
+    },
+    {
+      "relationship": "SUPPORTS",
+      "support_type": "Primary",
+      "source": "APP050",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "SUPPORTS_SERVICE",
+      "source": "APP050",
+      "target": "SRV015"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP050",
+      "target": "TECH001"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP050",
+      "target": "TECH011"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP050",
+      "target": "TECH006"
+    },
+    {
+      "relationship": "RUNS_ON",
+      "source": "APP050",
+      "target": "TECH016"
+    },
+    {
+      "relationship": "DEPENDS_ON",
+      "dependency_type": "Synchronous API",
+      "criticality": "High",
+      "source": "APP050",
+      "target": "APP047"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH001",
+      "target": "VEN001"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH002",
+      "target": "VEN004"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH003",
+      "target": "VEN004"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH004",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH005",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH006",
+      "target": "VEN009"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH007",
+      "target": "VEN010"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH008",
+      "target": "VEN002"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH009",
+      "target": "VEN001"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH010",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH011",
+      "target": "VEN001"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH012",
+      "target": "VEN008"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH013",
+      "target": "VEN006"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH014",
+      "target": "VEN009"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH015",
+      "target": "VEN004"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH016",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH017",
+      "target": "VEN008"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH018",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH019",
+      "target": "VEN010"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH020",
+      "target": "VEN010"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH021",
+      "target": "VEN005"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH022",
+      "target": "VEN005"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH023",
+      "target": "VEN006"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH024",
+      "target": "VEN006"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH025",
+      "target": "VEN009"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH026",
+      "target": "VEN001"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH027",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH028",
+      "target": "VEN003"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH029",
+      "target": "VEN009"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH030",
+      "target": "VEN006"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH031",
+      "target": "VEN002"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH032",
+      "target": "VEN002"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH033",
+      "target": "VEN005"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH034",
+      "target": "VEN001"
+    },
+    {
+      "relationship": "SUPPLIED_BY",
+      "source": "TECH035",
+      "target": "VEN010"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ001",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ001",
+      "target": "APP001"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ001",
+      "target": "BEN001"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ001",
+      "target": "BEN002"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ002",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ002",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ002",
+      "target": "APP004"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ002",
+      "target": "BEN003"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ002",
+      "target": "BEN004"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ003",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ003",
+      "target": "APP007"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ003",
+      "target": "BEN005"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ003",
+      "target": "BEN006"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ004",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ004",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ004",
+      "target": "APP010"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ004",
+      "target": "BEN007"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ004",
+      "target": "BEN008"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ005",
+      "target": "CAP009"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ005",
+      "target": "APP013"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ005",
+      "target": "BEN009"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ005",
+      "target": "BEN010"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ006",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ006",
+      "target": "CAP012"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ006",
+      "target": "APP016"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ006",
+      "target": "BEN011"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ006",
+      "target": "BEN012"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ007",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ007",
+      "target": "APP019"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ007",
+      "target": "BEN013"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ007",
+      "target": "BEN014"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ008",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ008",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ008",
+      "target": "APP022"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ008",
+      "target": "BEN015"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ008",
+      "target": "BEN016"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ009",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ009",
+      "target": "APP025"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ009",
+      "target": "BEN017"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ009",
+      "target": "BEN018"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ010",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ010",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ010",
+      "target": "APP028"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ010",
+      "target": "BEN019"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ010",
+      "target": "BEN020"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ011",
+      "target": "CAP021"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ011",
+      "target": "APP031"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ011",
+      "target": "BEN021"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ011",
+      "target": "BEN022"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ012",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ012",
+      "target": "CAP024"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ012",
+      "target": "APP034"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ012",
+      "target": "BEN023"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ012",
+      "target": "BEN024"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ013",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ013",
+      "target": "APP037"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ013",
+      "target": "BEN025"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ013",
+      "target": "BEN026"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ014",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ014",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ014",
+      "target": "APP040"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ014",
+      "target": "BEN027"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ014",
+      "target": "BEN028"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ015",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ015",
+      "target": "APP043"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ015",
+      "target": "BEN029"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ015",
+      "target": "BEN030"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ016",
+      "target": "CAP006"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ016",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ016",
+      "target": "APP046"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ016",
+      "target": "BEN031"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ016",
+      "target": "BEN032"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ017",
+      "target": "CAP008"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ017",
+      "target": "APP049"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ017",
+      "target": "BEN033"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ017",
+      "target": "BEN034"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ018",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ018",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ018",
+      "target": "APP002"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ018",
+      "target": "BEN035"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ018",
+      "target": "BEN036"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ019",
+      "target": "CAP012"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ019",
+      "target": "APP005"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ019",
+      "target": "BEN037"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ019",
+      "target": "BEN038"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ020",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ020",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ020",
+      "target": "APP008"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ020",
+      "target": "BEN039"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ020",
+      "target": "BEN040"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ021",
+      "target": "CAP016"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ021",
+      "target": "APP011"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ021",
+      "target": "BEN041"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ021",
+      "target": "BEN042"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ022",
+      "target": "CAP018"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ022",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ022",
+      "target": "APP014"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ022",
+      "target": "BEN043"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ022",
+      "target": "BEN044"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ023",
+      "target": "CAP020"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ023",
+      "target": "APP017"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ023",
+      "target": "BEN045"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ023",
+      "target": "BEN046"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ024",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ024",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ024",
+      "target": "APP020"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ024",
+      "target": "BEN047"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ024",
+      "target": "BEN048"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ025",
+      "target": "CAP024"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ025",
+      "target": "APP023"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ025",
+      "target": "BEN049"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ025",
+      "target": "BEN050"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ026",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ026",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ026",
+      "target": "APP026"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ026",
+      "target": "BEN051"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ026",
+      "target": "BEN052"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ027",
+      "target": "CAP003"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ027",
+      "target": "APP029"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ027",
+      "target": "BEN053"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ027",
+      "target": "BEN054"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ028",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ028",
+      "target": "CAP006"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ028",
+      "target": "APP032"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ028",
+      "target": "BEN055"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ028",
+      "target": "BEN056"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ029",
+      "target": "CAP007"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ029",
+      "target": "APP035"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ029",
+      "target": "BEN057"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ029",
+      "target": "BEN058"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ030",
+      "target": "CAP009"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ030",
+      "target": "CAP010"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ030",
+      "target": "APP038"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ030",
+      "target": "BEN059"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ030",
+      "target": "BEN060"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ031",
+      "target": "CAP011"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ031",
+      "target": "APP041"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ031",
+      "target": "BEN061"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ031",
+      "target": "BEN062"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ032",
+      "target": "CAP013"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ032",
+      "target": "CAP014"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ032",
+      "target": "APP044"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ032",
+      "target": "BEN063"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ032",
+      "target": "BEN064"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ033",
+      "target": "CAP015"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ033",
+      "target": "APP047"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ033",
+      "target": "BEN065"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ033",
+      "target": "BEN066"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ034",
+      "target": "CAP017"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ034",
+      "target": "CAP018"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ034",
+      "target": "APP050"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ034",
+      "target": "BEN067"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ034",
+      "target": "BEN068"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ035",
+      "target": "CAP019"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ035",
+      "target": "APP003"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ035",
+      "target": "BEN069"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ035",
+      "target": "BEN070"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ036",
+      "target": "CAP021"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ036",
+      "target": "CAP022"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ036",
+      "target": "APP006"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ036",
+      "target": "BEN071"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ036",
+      "target": "BEN072"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ037",
+      "target": "CAP023"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ037",
+      "target": "APP009"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ037",
+      "target": "BEN073"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ037",
+      "target": "BEN074"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ038",
+      "target": "CAP025"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ038",
+      "target": "CAP001"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ038",
+      "target": "APP012"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ038",
+      "target": "BEN075"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ038",
+      "target": "BEN076"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ039",
+      "target": "CAP002"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ039",
+      "target": "APP015"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ039",
+      "target": "BEN077"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ039",
+      "target": "BEN078"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ040",
+      "target": "CAP004"
+    },
+    {
+      "relationship": "TARGETS",
+      "source": "PRJ040",
+      "target": "CAP005"
+    },
+    {
+      "relationship": "FUNDS_MODERNIZATION",
+      "source": "PRJ040",
+      "target": "APP018"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ040",
+      "target": "BEN079"
+    },
+    {
+      "relationship": "PRODUCES",
+      "source": "PRJ040",
+      "target": "BEN080"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN001",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN002",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN003",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN004",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN005",
+      "target": "KPI005"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN006",
+      "target": "KPI006"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN007",
+      "target": "KPI007"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN008",
+      "target": "KPI008"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN009",
+      "target": "KPI009"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN010",
+      "target": "KPI010"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN011",
+      "target": "KPI011"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN012",
+      "target": "KPI012"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN013",
+      "target": "KPI013"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN014",
+      "target": "KPI014"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN015",
+      "target": "KPI015"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN016",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN017",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN018",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN019",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN020",
+      "target": "KPI005"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN021",
+      "target": "KPI006"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN022",
+      "target": "KPI007"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN023",
+      "target": "KPI008"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN024",
+      "target": "KPI009"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN025",
+      "target": "KPI010"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN026",
+      "target": "KPI011"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN027",
+      "target": "KPI012"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN028",
+      "target": "KPI013"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN029",
+      "target": "KPI014"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN030",
+      "target": "KPI015"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN031",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN032",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN033",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN034",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN035",
+      "target": "KPI005"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN036",
+      "target": "KPI006"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN037",
+      "target": "KPI007"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN038",
+      "target": "KPI008"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN039",
+      "target": "KPI009"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN040",
+      "target": "KPI010"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN041",
+      "target": "KPI011"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN042",
+      "target": "KPI012"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN043",
+      "target": "KPI013"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN044",
+      "target": "KPI014"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN045",
+      "target": "KPI015"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN046",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN047",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN048",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN049",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN050",
+      "target": "KPI005"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN051",
+      "target": "KPI006"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN052",
+      "target": "KPI007"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN053",
+      "target": "KPI008"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN054",
+      "target": "KPI009"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN055",
+      "target": "KPI010"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN056",
+      "target": "KPI011"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN057",
+      "target": "KPI012"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN058",
+      "target": "KPI013"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN059",
+      "target": "KPI014"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN060",
+      "target": "KPI015"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN061",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN062",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN063",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN064",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN065",
+      "target": "KPI005"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN066",
+      "target": "KPI006"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN067",
+      "target": "KPI007"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN068",
+      "target": "KPI008"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN069",
+      "target": "KPI009"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN070",
+      "target": "KPI010"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN071",
+      "target": "KPI011"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN072",
+      "target": "KPI012"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN073",
+      "target": "KPI013"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN074",
+      "target": "KPI014"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN075",
+      "target": "KPI015"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN076",
+      "target": "KPI001"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN077",
+      "target": "KPI002"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN078",
+      "target": "KPI003"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN079",
+      "target": "KPI004"
+    },
+    {
+      "relationship": "MEASURED_BY",
+      "source": "BEN080",
+      "target": "KPI005"
+    }
+  ]
+}

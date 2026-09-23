@@ -1,0 +1,242 @@
+name: Technology Value Intelligence Ontology
+version: "1.0.0"
+description: >
+  Ontology defining the entities, properties, and relationships connecting
+  Technology Cost, Applications, IT Services, Business Capabilities, Business Units,
+  Technologies, Vendors, Projects, Benefits, and KPIs.
+
+nodes:
+  BusinessUnit:
+    description: Operational and organizational divisions consuming technology and delivering business value.
+    primary_key: business_unit_id
+    properties:
+      business_unit_id: { type: string, required: true }
+      business_unit_name: { type: string, required: true }
+      region: { type: string, required: true }
+      business_unit_type: { type: string, required: true }
+      annual_revenue: { type: float, required: true }
+      employee_count: { type: integer, required: true }
+
+  BusinessCapability:
+    description: Core abilities and functional domains executed by the organization.
+    primary_key: capability_id
+    properties:
+      capability_id: { type: string, required: true }
+      capability_name: { type: string, required: true }
+      business_unit_id: { type: string, required: true }
+      strategic_priority: { type: string, required: true }
+      criticality: { type: string, required: true }
+      capability_owner: { type: string, required: true }
+
+  ITService:
+    description: Standardized technology service offerings cataloged and delivered to the business.
+    primary_key: service_id
+    properties:
+      service_id: { type: string, required: true }
+      service_name: { type: string, required: true }
+      service_category: { type: string, required: true }
+      service_owner: { type: string, required: true }
+      criticality: { type: string, required: true }
+      service_level: { type: string, required: true }
+
+  Application:
+    description: Software systems deployed to execute IT services and support business capabilities.
+    primary_key: application_id
+    properties:
+      application_id: { type: string, required: true }
+      application_name: { type: string, required: true }
+      service_id: { type: string, required: true }
+      application_type: { type: string, required: true }
+      lifecycle_status: { type: string, required: true, allowed: [Strategic, Tolerate, Migrate, Retire] }
+      criticality: { type: string, required: true }
+      business_criticality: { type: string, required: true }
+      annual_license_cost: { type: float, required: true }
+
+  Technology:
+    description: Underlying infrastructure, platform, database, or runtime components supporting applications.
+    primary_key: technology_id
+    properties:
+      technology_id: { type: string, required: true }
+      technology_name: { type: string, required: true }
+      technology_category: { type: string, required: true }
+      technology_vendor: { type: string, required: true }
+      lifecycle_status: { type: string, required: true }
+      environment: { type: string, required: true }
+
+  Vendor:
+    description: External third-party technology and service providers.
+    primary_key: vendor_id
+    properties:
+      vendor_id: { type: string, required: true }
+      vendor_name: { type: string, required: true }
+      vendor_category: { type: string, required: true }
+      contract_value: { type: float, required: true }
+      contract_start: { type: string, required: true }
+      contract_end: { type: string, required: true }
+
+  Project:
+    description: Strategic investments, transformation initiatives, and discretionary programs.
+    primary_key: project_id
+    properties:
+      project_id: { type: string, required: true }
+      project_name: { type: string, required: true }
+      project_type: { type: string, required: true }
+      sponsor_business_unit: { type: string, required: true }
+      start_date: { type: string, required: true }
+      end_date: { type: string, required: true }
+      investment_budget: { type: float, required: true }
+      actual_spend: { type: float, required: true }
+      expected_annual_benefit: { type: float, required: true }
+      status: { type: string, required: true }
+
+  CostRecord:
+    description: Granular financial ledger entries capturing monthly technology expenditures.
+    primary_key: cost_id
+    properties:
+      cost_id: { type: string, required: true }
+      month: { type: string, required: true }
+      cost_center: { type: string, required: true }
+      cost_pool: { type: string, required: true }
+      cost_category: { type: string, required: true }
+      amount: { type: float, required: true }
+      application_id: { type: string, required: false }
+      service_id: { type: string, required: false }
+      business_unit_id: { type: string, required: false }
+      vendor_id: { type: string, required: false }
+      project_id: { type: string, required: false }
+
+  ConsumptionRecord:
+    description: Monthly operational usage metrics generated by applications and consumed by business units.
+    primary_key: consumption_id
+    properties:
+      consumption_id: { type: string, required: true }
+      month: { type: string, required: true }
+      application_id: { type: string, required: true }
+      business_unit_id: { type: string, required: true }
+      active_users: { type: integer, required: true }
+      transactions: { type: integer, required: true }
+      api_calls: { type: integer, required: true }
+      compute_hours: { type: float, required: true }
+      storage_gb: { type: float, required: true }
+      tickets: { type: integer, required: true }
+
+  Benefit:
+    description: Quantifiable financial or operational gains expected and realized from project investments.
+    primary_key: benefit_id
+    properties:
+      benefit_id: { type: string, required: true }
+      project_id: { type: string, required: true }
+      benefit_type: { type: string, required: true }
+      expected_value: { type: float, required: true }
+      realized_value: { type: float, required: true }
+      measurement_period: { type: string, required: true }
+      benefit_status: { type: string, required: true }
+
+  KPI:
+    description: Key Performance Indicators benchmarking business and operational performance outcomes.
+    primary_key: kpi_id
+    properties:
+      kpi_id: { type: string, required: true }
+      kpi_name: { type: string, required: true }
+      kpi_category: { type: string, required: true }
+      baseline_value: { type: float, required: true }
+      target_value: { type: float, required: true }
+      actual_value: { type: float, required: true }
+      unit: { type: string, required: true }
+
+relationships:
+  - name: OWNS
+    source: BusinessUnit
+    target: BusinessCapability
+    cardinality: one_to_many
+    description: Business Unit has operational ownership and accountability for a Business Capability.
+
+  - name: ENABLED_BY
+    source: BusinessCapability
+    target: ITService
+    cardinality: many_to_many
+    description: Business Capability is facilitated and enabled by one or more IT Services.
+
+  - name: SUPPORTED_BY
+    source: ITService
+    target: Application
+    cardinality: one_to_many
+    description: IT Service is delivered through one or more applications.
+
+  - name: RUNS_ON
+    source: Application
+    target: Technology
+    cardinality: many_to_many
+    description: Application executes upon platform, database, runtime, or cloud infrastructure.
+
+  - name: SUPPLIED_BY
+    source: Application
+    target: Vendor
+    cardinality: many_to_one
+    description: Application or core software is licensed from or provided by an external vendor.
+
+  - name: CONSUMED_BY
+    source: Application
+    target: BusinessUnit
+    cardinality: many_to_many
+    description: Business Unit utilizes and generates operational activity on an Application.
+
+  - name: FUNDED_BY
+    source: Application
+    target: Project
+    cardinality: many_to_many
+    description: Application development or enhancement received capital funding from a Project.
+
+  - name: SUPPORTS
+    source: Application
+    target: BusinessCapability
+    cardinality: many_to_many
+    description: Application directly automates or fulfills capabilities for the enterprise.
+
+  - name: DEPENDS_ON
+    source: Application
+    target: Application
+    cardinality: many_to_many
+    description: Upstream or downstream integration dependency between applications.
+
+  - name: TARGETS
+    source: Project
+    target: BusinessCapability
+    cardinality: many_to_many
+    description: Investment initiative aims to improve, transform, or build a Business Capability.
+
+  - name: PRODUCES
+    source: Project
+    target: Benefit
+    cardinality: one_to_many
+    description: Investment initiative produces quantifiable business and financial benefits.
+
+  - name: MEASURED_BY
+    source: Benefit
+    target: KPI
+    cardinality: one_to_many
+    description: Realized benefit outcomes are tracked and validated through KPI movements.
+
+  - name: ATTRIBUTED_TO_APP
+    source: CostRecord
+    target: Application
+    cardinality: many_to_one
+    description: Financial cost record directly attributed to an application.
+
+  - name: ATTRIBUTED_TO_SERVICE
+    source: CostRecord
+    target: ITService
+    cardinality: many_to_one
+    description: Financial cost record attributed to an IT service offering.
+
+  - name: GENERATED_BY
+    source: ConsumptionRecord
+    target: Application
+    cardinality: many_to_one
+    description: Consumption log volume generated against an application.
+
+  - name: CONSUMED_BY_BU
+    source: ConsumptionRecord
+    target: BusinessUnit
+    cardinality: many_to_one
+    description: Consumption volume generated on behalf of a specific business unit.

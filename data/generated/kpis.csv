@@ -1,0 +1,16 @@
+kpi_id,kpi_name,kpi_category,baseline_value,target_value,actual_value,unit
+KPI001,Cost per Digital Transaction,Financial,4.25,2.8,2.65,₹
+KPI002,Average Incident Resolution Time,Operational,180.0,60.0,72.0,Minutes
+KPI003,Order Cycle Time,Operational,48.0,12.0,14.5,Hours
+KPI004,Procure-to-Pay Processing Time,Operational,14.0,3.0,3.5,Days
+KPI005,Digital Channel Adoption Rate,Customer,52.0,85.0,88.5,%
+KPI006,Process Automation Rate,Operational,35.0,75.0,71.0,%
+KPI007,Core Banking Availability,Reliability,99.8,99.99,99.98,%
+KPI008,Customer Support First-Call Resolution,Customer,64.0,85.0,82.0,%
+KPI009,Loan Origination Turnaround Time,Operational,72.0,4.0,5.2,Hours
+KPI010,Fraud Detection Accuracy Rate,Agility,84.0,98.0,97.4,%
+KPI011,Claims Processing Cycle Time,Operational,120.0,24.0,28.0,Hours
+KPI012,API Endpoint Response Latency,Reliability,450.0,80.0,85.0,ms
+KPI013,Cloud Resource Cost Efficiency Index,Financial,65.0,90.0,86.5,%
+KPI014,Identity Verification Pass Rate,Customer,78.0,96.0,95.2,%
+KPI015,Monthly Data Lake Ingestion Volume,Agility,120.0,500.0,480.0,TB

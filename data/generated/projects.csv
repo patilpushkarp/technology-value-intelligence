@@ -1,0 +1,41 @@
+project_id,project_name,project_type,sponsor_business_unit,start_date,end_date,investment_budget,actual_spend,expected_annual_benefit,status
+PRJ001,Core Banking Cloud Migration,Cloud Migration,BU001,2023-01-15,2024-06-30,180000000.0,185000000.0,45000000.0,Completed
+PRJ002,NextGen Enterprise Lakehouse,AI,BU006,2023-04-01,2024-09-30,140000000.0,138000000.0,38000000.0,Completed
+PRJ003,Real-Time Payment Modernization,Modernization,BU004,2023-03-01,2024-05-31,120000000.0,115000000.0,192000000.0,Completed
+PRJ004,Omnichannel CRM Rollout,Transformation,BU001,2023-06-01,2024-11-30,95000000.0,102000000.0,26000000.0,Completed
+PRJ005,Procure-to-Pay Automation,Automation,BU006,2023-08-01,2024-07-31,65000000.0,62000000.0,21000000.0,Completed
+PRJ006,Financial Consolidation Upgrade,Modernization,BU007,2023-09-01,2024-08-31,72000000.0,74000000.0,18500000.0,Completed
+PRJ007,Zero-Trust Identity Fabric,Infrastructure,BU006,2023-05-01,2024-06-30,88000000.0,86000000.0,24000000.0,Completed
+PRJ008,Mobile Banking 4.0 Redesign,Transformation,BU001,2023-11-01,2024-10-31,110000000.0,118000000.0,42000000.0,Completed
+PRJ009,Order-to-Cash Optimization,Automation,BU004,2024-01-01,2024-12-31,85000000.0,84000000.0,29000000.0,In Progress
+PRJ010,AI Fraud Prevention Shield,AI,BU010,2023-07-01,2024-08-31,130000000.0,126000000.0,48000000.0,Completed
+PRJ011,Treasury Liquidity Hub,Modernization,BU009,2024-02-01,2024-11-30,55000000.0,57000000.0,15000000.0,In Progress
+PRJ012,Retail Loan Origination FastTrack,Transformation,BU005,2023-10-01,2024-09-30,92000000.0,96000000.0,31000000.0,Completed
+PRJ013,Claims Auto-Adjudication AI,AI,BU008,2024-01-15,2024-12-15,78000000.0,75000000.0,22000000.0,In Progress
+PRJ014,Global Legacy CRM Consolidation,Application Replacement,BU001,2023-01-01,2024-08-31,250000000.0,290000000.0,300000000.0,Completed
+PRJ015,API Gateway Mesh Evolution,Infrastructure,BU006,2023-09-01,2024-04-30,45000000.0,44000000.0,14000000.0,Completed
+PRJ016,Digital Workplace Modernization,Modernization,BU007,2024-03-01,2024-12-31,62000000.0,61000000.0,16000000.0,In Progress
+PRJ017,Regulatory Basel IV Reporting,Regulatory,BU010,2023-04-01,2024-07-31,105000000.0,109000000.0,28000000.0,Completed
+PRJ018,Commercial Lending Automation,Automation,BU002,2024-02-01,2024-11-30,82000000.0,80000000.0,25000000.0,In Progress
+PRJ019,Cyber Threat Intelligence Hub,Infrastructure,BU006,2023-08-01,2024-05-31,76000000.0,74000000.0,20000000.0,Completed
+PRJ020,Wealth Management Advisory Portal,Transformation,BU003,2023-12-01,2024-10-31,89000000.0,93000000.0,27000000.0,Completed
+PRJ021,Warehouse IoT Logistics Upgrade,Infrastructure,BU006,2024-04-01,2025-01-31,52000000.0,48000000.0,12000000.0,In Progress
+PRJ022,Customer Data Platform 360,AI,BU001,2024-01-01,2024-11-30,94000000.0,91000000.0,33000000.0,In Progress
+PRJ023,Mainframe Decommission Wave 1,Application Replacement,BU006,2023-02-01,2024-06-30,115000000.0,128000000.0,40000000.0,Completed
+PRJ024,Branch Network Virtualization,Infrastructure,BU001,2024-03-01,2024-12-31,68000000.0,67000000.0,19000000.0,In Progress
+PRJ025,Enterprise Document AI Extraction,AI,BU006,2024-02-15,2024-10-15,48000000.0,47000000.0,15000000.0,In Progress
+PRJ026,Digital Onboarding Biometrics,Transformation,BU001,2023-09-01,2024-06-30,64000000.0,63000000.0,22000000.0,Completed
+PRJ027,Automated AML Surveillance,Regulatory,BU010,2023-11-01,2024-09-30,86000000.0,89000000.0,26000000.0,Completed
+PRJ028,Supplier Self-Service Portal,Automation,BU006,2024-05-01,2025-02-28,38000000.0,36000000.0,9500000.0,In Progress
+PRJ029,Multi-Cloud FinOps Engine,Modernization,BU006,2024-01-01,2024-08-31,42000000.0,41000000.0,18000000.0,Completed
+PRJ030,Cards Microservices Re-platform,Modernization,BU005,2023-07-01,2024-07-31,125000000.0,129000000.0,39000000.0,Completed
+PRJ031,Continuous Security Compliance,Infrastructure,BU010,2024-03-01,2024-11-30,56000000.0,54000000.0,14000000.0,In Progress
+PRJ032,Tax Automation Overhaul,Regulatory,BU007,2024-02-01,2024-09-30,49000000.0,51000000.0,13000000.0,Completed
+PRJ033,Intelligent Sales Recommender,AI,BU002,2024-04-01,2024-12-31,67000000.0,65000000.0,20000000.0,In Progress
+PRJ034,Logistics Visibility Control Tower,Modernization,BU006,2023-10-01,2024-08-31,73000000.0,76000000.0,23000000.0,Completed
+PRJ035,Contact Center Cloud Migration,Cloud Migration,BU001,2024-01-15,2024-10-31,81000000.0,83000000.0,24000000.0,In Progress
+PRJ036,Enterprise Asset Management Cloud,Cloud Migration,BU007,2024-03-15,2024-12-31,44000000.0,43000000.0,11000000.0,In Progress
+PRJ037,Algorithmic Market Risk Analyzer,Transformation,BU009,2023-08-01,2024-07-31,96000000.0,98000000.0,32000000.0,Completed
+PRJ038,Customer Feedback Sentiment AI,AI,BU001,2024-06-01,2025-01-31,35000000.0,32000000.0,8000000.0,In Progress
+PRJ039,Insurance Underwriting Engine,Modernization,BU008,2023-12-01,2024-11-30,87000000.0,89000000.0,27000000.0,In Progress
+PRJ040,NextGen Enterprise Integration Bus,Infrastructure,BU006,2024-01-01,2024-10-31,69000000.0,68000000.0,21000000.0,In Progress

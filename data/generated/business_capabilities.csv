@@ -1,0 +1,26 @@
+capability_id,capability_name,business_unit_id,strategic_priority,criticality,capability_owner
+CAP001,Customer Management,BU001,High,Business Critical,VP Customer Experience
+CAP002,Order Management,BU004,High,Mission Critical,Head of Digital Operations
+CAP003,Order-to-Cash,BU004,High,Mission Critical,Director Order Processing
+CAP004,Procure-to-Pay,BU006,Medium,Operational,Head of Procurement
+CAP005,Financial Reporting,BU007,High,Mission Critical,Chief Financial Officer
+CAP006,Supply Chain Planning,BU006,Medium,Business Critical,VP Supply Chain
+CAP007,Product Management,BU001,Medium,Operational,Head of Product Strategy
+CAP008,Digital Commerce,BU004,High,Mission Critical,Head of eCommerce
+CAP009,Workforce Management,BU007,Low,Operational,Chief People Officer
+CAP010,Data & Analytics,BU006,High,Business Critical,Chief Data Officer
+CAP011,Customer Service,BU001,High,Business Critical,Director Service Operations
+CAP012,Risk Management,BU010,High,Mission Critical,Chief Risk Officer
+CAP013,Regulatory Reporting,BU010,High,Mission Critical,Head of Regulatory Affairs
+CAP014,Marketing,BU001,Medium,Standard,Chief Marketing Officer
+CAP015,Sales Management,BU002,High,Business Critical,VP Enterprise Sales
+CAP016,Enterprise Planning,BU007,Medium,Business Critical,Head of Corporate Planning
+CAP017,Treasury Operations,BU009,High,Mission Critical,Head of Global Treasury
+CAP018,Accounts Payable,BU007,Medium,Operational,Controller Accounts Payable
+CAP019,Accounts Receivable,BU007,Medium,Operational,Controller Accounts Receivable
+CAP020,Procurement Operations,BU006,Low,Standard,Director Strategic Sourcing
+CAP021,Wealth Advisory,BU003,High,Business Critical,Head of Wealth Management
+CAP022,Loan Origination,BU005,High,Mission Critical,Head of Retail Lending
+CAP023,Fraud Detection,BU010,High,Mission Critical,Director Financial Crime
+CAP024,Identity Verification,BU006,High,Mission Critical,Head of Identity Security
+CAP025,Claims Processing,BU008,Medium,Business Critical,Head of Insurance Claims

@@ -1,0 +1,19 @@
+service_id,service_name,service_category,service_owner,criticality,service_level
+SRV001,ERP Services,Business Applications,Director ERP Applications,Tier 1,99.99%
+SRV002,CRM Services,Business Applications,Head of Customer Platforms,Tier 2,99.95%
+SRV003,Data Analytics Platform,Analytics,Chief Data Architect,Tier 2,99.90%
+SRV004,Enterprise Collaboration,Workplace,Head of End User Compute,Tier 3,99.50%
+SRV005,Cloud Platform Services,Infrastructure,VP Cloud Engineering,Tier 1,99.99%
+SRV006,Identity & Access Management,Security,Chief Information Security Officer,Tier 1,99.99%
+SRV007,Customer Digital Banking Platform,Business Applications,Head of Digital Channels,Tier 1,99.99%
+SRV008,Supply Chain Systems,Business Applications,Director Logistics Applications,Tier 2,99.90%
+SRV009,Finance & Accounting Systems,Business Applications,Head of Financial Systems,Tier 1,99.95%
+SRV010,Integration & API Services,Platform,Director Integration Architecture,Tier 1,99.99%
+SRV011,Payment Processing Engine,Business Applications,Head of Payments Tech,Tier 1,99.99%
+SRV012,Core Banking Services,Business Applications,Director Core Banking,Tier 1,99.99%
+SRV013,Workflow Automation Suite,Platform,Head of Automation CoE,Tier 2,99.90%
+SRV014,Enterprise Content Management,Workplace,Director Workplace Solutions,Tier 3,99.50%
+SRV015,Cybersecurity Operations & SOC,Security,Head of Threat Operations,Tier 1,99.99%
+SRV016,Data Lakehouse Infrastructure,Platform,Director Big Data Infrastructure,Tier 2,99.95%
+SRV017,Global Network & Connectivity,Infrastructure,Director Network Services,Tier 1,99.99%
+SRV018,Regulatory Compliance Systems,Business Applications,Head of RegTech,Tier 1,99.95%

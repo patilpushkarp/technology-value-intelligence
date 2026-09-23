@@ -1,0 +1,33 @@
+source_app_id,target_app_id,dependency_type,criticality
+APP004,APP001,Synchronous API,High
+APP006,APP003,Synchronous API,High
+APP008,APP005,Synchronous API,High
+APP010,APP007,Synchronous API,High
+APP012,APP009,Synchronous API,High
+APP014,APP011,Synchronous API,High
+APP016,APP013,Synchronous API,High
+APP018,APP015,Synchronous API,High
+APP020,APP017,Synchronous API,High
+APP022,APP019,Synchronous API,High
+APP024,APP021,Synchronous API,High
+APP026,APP023,Synchronous API,High
+APP028,APP025,Synchronous API,High
+APP030,APP027,Synchronous API,High
+APP032,APP029,Synchronous API,High
+APP034,APP031,Synchronous API,High
+APP036,APP033,Synchronous API,High
+APP038,APP035,Synchronous API,High
+APP040,APP037,Synchronous API,High
+APP042,APP039,Synchronous API,High
+APP044,APP041,Synchronous API,High
+APP046,APP043,Synchronous API,High
+APP048,APP045,Synchronous API,High
+APP050,APP047,Synchronous API,High
+APP001,APP010,Synchronous API,Mission Critical
+APP002,APP010,Synchronous API,Mission Critical
+APP004,APP010,Synchronous API,Mission Critical
+APP005,APP010,Synchronous API,Mission Critical
+APP011,APP010,Synchronous API,Mission Critical
+APP013,APP010,Synchronous API,Mission Critical
+APP014,APP010,Synchronous API,Mission Critical
+APP023,APP010,Synchronous API,Mission Critical
