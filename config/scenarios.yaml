@@ -1,0 +1,81 @@
+# Technology Value Intelligence (TVI) - Declarative Scenario Configuration
+# Parameterizes controlled business scenarios A through H for enterprise simulation.
+
+scenarios:
+  scenario_a:
+    app_id: "APP001"
+    name: "Enterprise Core Banking Engine"
+    description: "Scale Anchor: High absolute TCO with high operational utilization and low unit cost."
+    annual_license_target: 28000000.0
+    active_users: 8500
+    transactions_base: 6500000
+    expected_unit_cost_ceiling: 0.05
+
+  scenario_b:
+    app_id: "APP021"
+    name: "Legacy Branch Portal"
+    description: "Underutilized Legacy: Expensive to operate with low active users and high unit cost."
+    annual_license_target: 18000000.0
+    active_users: 140
+    transactions_base: 45000
+    overlapping_apps: ["APP002", "APP011"]
+    overlapping_capabilities: ["CAP001", "CAP008"]
+
+  scenario_c:
+    capability_id: "CAP003"
+    name: "Order-to-Cash"
+    description: "Duplicate Capability Overlap: Redundant functional support across multiple systems."
+    primary_app: "APP005"
+    secondary_app: "APP012"
+    primary_share: 0.70
+    secondary_share: 0.30
+
+  scenario_d:
+    app_id: "APP010"
+    name: "Central Authentication Hub"
+    description: "Single Point of Failure (SPOF): High inbound reverse-dependency blast radius."
+    inbound_dependents:
+      - "APP001"
+      - "APP002"
+      - "APP004"
+      - "APP005"
+      - "APP006"
+      - "APP007"
+      - "APP008"
+      - "APP009"
+
+  scenario_e:
+    project_id: "PRJ003"
+    name: "Real-Time Payment Modernization"
+    description: "Successful Investment: Completed under budget with over-achieved benefit realization."
+    budget_amount: 120000000.0
+    actual_spend: 115000000.0
+    expected_benefit: 192000000.0
+    realized_benefit: 207360000.0
+    realization_rate: 1.08
+
+  scenario_f:
+    project_id: "PRJ014"
+    name: "Global Legacy CRM Consolidation"
+    description: "Benefit Gap Overrun: Completed over budget with severe benefit shortfall."
+    budget_amount: 250000000.0
+    actual_spend: 290000000.0
+    expected_benefit: 300000000.0
+    realized_benefit: 70000000.0
+    realization_rate: 0.2333
+
+  scenario_g:
+    app_id: "APP014"
+    name: "Digital Payment Gateway"
+    description: "Elastic Consumption Surge: Month 8 spend surge proportional to transaction surge."
+    surge_start_month: 8
+    cost_multiplier: 2.71
+    txn_multiplier: 2.80
+
+  scenario_h:
+    app_id: "APP022"
+    name: "Wealth Advisory Engine"
+    description: "Unbacked Cost Anomaly: Month 8 spend surge with flat transaction volume."
+    surge_start_month: 8
+    cost_add_fixed: 3800000.0
+    txn_multiplier: 1.0

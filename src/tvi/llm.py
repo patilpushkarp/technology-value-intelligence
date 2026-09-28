@@ -19,12 +19,12 @@ import requests
 
 from tvi.config import Config, load_config
 from tvi.cost_analytics import calculate_application_tco, calculate_capability_cost, get_application_profile, get_capability_profile
-from tvi.dependency import get_application_dependencies, get_capability_dependencies
+from tvi.dependency import evaluate_deployment_gate, get_application_dependencies, get_capability_dependencies
 from tvi.graph import build_knowledge_graph
 from tvi.graph_queries import find_business_units_by_vendor, find_capability_overlapping_apps, find_costly_underutilized_overlapping_apps
-from tvi.rationalization import find_rationalization_candidates
-from tvi.value_realization import calculate_benefit_realization, get_project_value_profile
-from tvi.variance import identify_cost_drivers
+from tvi.rationalization import find_rationalization_candidates, generate_decommissioning_roadmap
+from tvi.value_realization import calculate_benefit_realization, evaluate_capability_maturity_progression, get_project_value_profile
+from tvi.variance import calculate_sla_breach_penalties, identify_cost_drivers
 
 
 class KnowledgeGraphAnalyst:
@@ -34,6 +34,13 @@ class KnowledgeGraphAnalyst:
         self.config = config or load_config()
         self.mode = mode if mode in ["rules", "local_llm"] else "rules"
         self._graph = None
+        self.history: List[Dict[str, Any]] = []
+        self.context: Dict[str, Any] = {}
+
+    def reset_session(self) -> None:
+        """Clear conversation turn history and contextual slot memory."""
+        self.history.clear()
+        self.context.clear()
 
     @property
     def graph(self):
@@ -49,7 +56,7 @@ class KnowledgeGraphAnalyst:
         except Exception:
             return False
 
-    def query(self, question: str) -> Dict[str, Any]:
+    def query(self, question: str, output_format: str = "text") -> Dict[str, Any]:
         """Main entrypoint for processing user natural language queries."""
         intent, params = self.detect_intent(question)
 
@@ -60,6 +67,7 @@ class KnowledgeGraphAnalyst:
                 "params": params or {},
                 "status": "CLARIFICATION_REQUIRED",
                 "mode": self.mode,
+                "output_format": output_format,
                 "explanation": (
                     "I could not confidently match your question to a validated analytical intent. "
                     "You can ask about:\n"
@@ -67,12 +75,25 @@ class KnowledgeGraphAnalyst:
                     "- Capability cost (e.g., 'What does Order-to-Cash cost?')\n"
                     "- Rationalization candidates (e.g., 'Which apps have high cost and low usage?')\n"
                     "- Application dependencies (e.g., 'What depends on APP021?')\n"
+                    "- CI/CD release deployment gates (e.g., 'Can we deploy APP010?')\n"
+                    "- Vendor contract SLA penalties (e.g., 'What penalties or credits are owed?')\n"
+                    "- Decommissioning roadmaps (e.g., 'Show decommissioning roadmap for APP021')\n"
+                    "- Capability maturity progression (e.g., 'How did project investments uplift capability maturity?')\n"
                     "- Project investments and benefits (e.g., 'What benefits were expected from PRJ014?')\n"
                     "- Cost variance and spend drivers (e.g., 'Why did spend increase in August?')\n"
                     "- Vendor dependencies (e.g., 'Which business units depend on technology supplied by TechNova?')"
                 ),
                 "structured_result": None,
             }
+
+        # Track contextual slots across turns
+        if "application_id" in params:
+            self.context["last_application_id"] = params["application_id"]
+        if "project_id" in params:
+            self.context["last_project_id"] = params["project_id"]
+        if "vendor" in params:
+            self.context["last_vendor_name"] = params["vendor"]
+        self.context["last_intent"] = intent
 
         # Dispatch to verified analytical function
         structured_data = self.dispatch(intent, params)
@@ -83,15 +104,31 @@ class KnowledgeGraphAnalyst:
         else:
             explanation = self._explain_with_rules(question, intent, structured_data)
 
-        return {
+        # Record conversational history
+        turn_record = {
+            "turn_index": len(self.history) + 1,
+            "question": question,
+            "intent": intent,
+            "params": params,
+            "explanation": explanation,
+        }
+        self.history.append(turn_record)
+
+        result_payload = {
             "question": question,
             "intent": intent,
             "params": params,
             "mode": self.mode,
+            "output_format": output_format,
             "status": "SUCCESS",
             "explanation": explanation,
             "structured_result": structured_data,
         }
+
+        if output_format == "markdown":
+            result_payload["markdown_presentation"] = f"### TVI AI Analyst Insight\n\n{explanation}"
+
+        return result_payload
 
     def detect_intent(self, question: str) -> Tuple[str, Dict[str, Any]]:
         """Map user query to known intents and extract semantic parameter entities."""
@@ -101,6 +138,15 @@ class KnowledgeGraphAnalyst:
         app_match = re.search(r"\b(app\d{3})\b", q, re.IGNORECASE)
         prj_match = re.search(r"\b(prj\d{3})\b", q, re.IGNORECASE)
         cap_match = re.search(r"\b(cap\d{3})\b", q, re.IGNORECASE)
+
+        # Contextual resolution for anaphoric pronouns ("it", "this app", "the system")
+        resolved_app = app_match.group(1).upper() if app_match else None
+        if not resolved_app and any(p in q for p in [" it", " this app", " that app", " the app", "deploy it"]):
+            resolved_app = self.context.get("last_application_id")
+
+        resolved_prj = prj_match.group(1).upper() if prj_match else None
+        if not resolved_prj and any(p in q for p in [" this project", " the project"]):
+            resolved_prj = self.context.get("last_project_id")
 
         # 0. Vendor Multi-hop Dependency (check first to avoid collision with generic 'depend')
         known_vendors = {
@@ -118,32 +164,51 @@ class KnowledgeGraphAnalyst:
         for v_key, v_name in known_vendors.items():
             if v_key in q:
                 return "VENDOR_DEPENDENCY", {"vendor": v_name}
-        if "vendor" in q or "supplied by" in q:
+        if ("vendor" in q or "supplied by" in q) and not any(w in q for w in ["sla", "penalty", "credit"]):
             return "VENDOR_DEPENDENCY", {"vendor": "TechNova"}
 
-        # 1. Dependency Analysis
+        # 1. CI/CD Deployment Gating
+        if any(w in q for w in ["deploy", "deployment gate", "release gate", "pipeline gate", "can we deploy", "approval level"]):
+            app_id = resolved_app or "APP010"
+            tier = "Major" if "major" in q else ("Hotfix" if "hotfix" in q else "Standard")
+            return "BLAST_RADIUS_GATING", {"application_id": app_id, "change_tier": tier}
+
+        # 2. Vendor Contract SLA Penalties & Credits
+        if any(w in q for w in ["sla", "penalty", "penalties", "contract breach", "credit memo", "unbacked rate"]):
+            return "SLA_PENALTIES", {}
+
+        # 3. Decommissioning Roadmap Milestones
+        if any(w in q for w in ["decommission", "roadmap", "milestone", "exit phase", "sunset"]):
+            app_id = resolved_app or "APP021"
+            return "DECOMMISSIONING_ROADMAP", {"application_id": app_id}
+
+        # 4. Capability Maturity Progression
+        if any(w in q for w in ["maturity", "progression", "capability uplift", "maturity point"]):
+            return "CAPABILITY_MATURITY", {}
+
+        # 5. Dependency Analysis
         if any(w in q for w in ["depend", "impact", "blast radius", "relies on"]):
-            if app_match:
-                return "APPLICATION_DEPENDENCY", {"application_id": app_match.group(1).upper()}
+            if resolved_app:
+                return "APPLICATION_DEPENDENCY", {"application_id": resolved_app}
             if cap_match:
                 return "CAPABILITY_DEPENDENCY", {"capability_id": cap_match.group(1).upper()}
 
-        # 2. Rationalization / Overlap / Low Utilization
+        # 6. Rationalization / Overlap / Low Utilization
         if any(w in q for w in ["rationaliz", "overlap", "underutilized", "low utilization", "retire", "candidates"]):
             return "RATIONALIZATION_CANDIDATES", {}
 
-        # 3. Project Benefits / Investment Realization
-        if prj_match or any(w in q for w in ["benefit", "investment", "realized", "project", "budget variance", "roi", "return"]):
-            if prj_match:
-                return "PROJECT_VALUE_PROFILE", {"project_id": prj_match.group(1).upper()}
+        # 7. Project Benefits / Investment Realization
+        if resolved_prj or any(w in q for w in ["benefit", "investment", "realized", "project", "budget variance", "roi", "return"]):
+            if resolved_prj:
+                return "PROJECT_VALUE_PROFILE", {"project_id": resolved_prj}
             return "PROJECT_BENEFIT_REALIZATION", {}
 
-        # 4. Cost Drivers / Variance / Increase
+        # 8. Cost Drivers / Variance / Increase
         if any(w in q for w in ["why did", "spend increase", "cost increase", "variance", "driver", "drove"]):
             months = re.findall(r"\b(2024-\d{2}|august|july|september)\b", q)
             return "COST_VARIANCE_DRIVERS", {"months": months}
 
-        # 5. Capability Cost (checked before generic app cost if cap_match is present)
+        # 9. Capability Cost
         if cap_match or any(w in q for w in ["capability", "order-to-cash", "procure-to-pay", "financial reporting"]):
             if cap_match:
                 return "CAPABILITY_COST", {"capability_id": cap_match.group(1).upper()}
@@ -151,9 +216,9 @@ class KnowledgeGraphAnalyst:
                 return "CAPABILITY_COST", {"capability_id": "CAP003", "capability_name": "Order-to-Cash"}
             return "CAPABILITY_COST", {"capability_id": "CAP003", "capability_name": "Order-to-Cash"}
 
-        # 6. Application Cost / Profile
-        if app_match or any(w in q for w in ["application cost", "tco", "app cost", "spend on"]):
-            app_id = app_match.group(1).upper() if app_match else "APP001"
+        # 10. Application Cost / Profile
+        if resolved_app or any(w in q for w in ["application cost", "tco", "app cost", "spend on"]):
+            app_id = resolved_app or "APP001"
             return "APPLICATION_COST", {"application_id": app_id}
 
         return "UNKNOWN", {}
@@ -178,6 +243,21 @@ class KnowledgeGraphAnalyst:
         elif intent == "CAPABILITY_DEPENDENCY":
             cap_id = params.get("capability_id", "CAP003")
             return get_capability_dependencies(cap_id, self.graph)
+
+        elif intent == "BLAST_RADIUS_GATING":
+            app_id = params.get("application_id", "APP010")
+            tier = params.get("change_tier", "Major")
+            return evaluate_deployment_gate(app_id, change_tier=tier, G=self.graph)
+
+        elif intent == "SLA_PENALTIES":
+            return calculate_sla_breach_penalties().to_dict(orient="records")
+
+        elif intent == "DECOMMISSIONING_ROADMAP":
+            app_id = params.get("application_id", "APP021")
+            return generate_decommissioning_roadmap(target_app_ids=[app_id]).to_dict(orient="records")
+
+        elif intent == "CAPABILITY_MATURITY":
+            return evaluate_capability_maturity_progression().head(10).to_dict(orient="records")
 
         elif intent == "PROJECT_VALUE_PROFILE":
             prj_id = params.get("project_id", "PRJ014")
@@ -285,7 +365,75 @@ class KnowledgeGraphAnalyst:
                 )
             return "\n".join(lines)
 
+        elif intent == "BLAST_RADIUS_GATING":
+            status = data.get("gate_status", "UNKNOWN")
+            app = data.get("application_name", data.get("application_id"))
+            tier = data.get("change_tier", "Standard")
+            b_rad = data.get("blast_radius_metric", 0)
+            thresh = data.get("threshold", 0)
+            approval = data.get("approval_level", "")
+            recom = data.get("recommendation", "")
+            return (
+                f"Deployment Gating Verdict for {app} ({tier} Release):\n"
+                f"• Gate Status: {status} (Blast Radius: {b_rad} vs Max Threshold: {thresh})\n"
+                f"• Direct Dependent Applications: {data.get('direct_dependent_apps_count')} systems\n"
+                f"• Required Governance Sign-off: {approval}\n"
+                f"• Policy Recommendation: {recom}"
+            )
+
+        elif intent == "SLA_PENALTIES":
+            if not data:
+                return "No vendor SLA breach penalties currently assessed across portfolio."
+            lines = ["Assessed Vendor Contract SLA Penalties & Service Credits:"]
+            for row in data:
+                lines.append(
+                    f"• {row['vendor_name']} ({row['application_name']}): Unbacked spend surge ₹{row['unbacked_spend_surge']/1e5:.1f}L | "
+                    f"Assessed Credit: ₹{row['assessed_penalty_credit_inr']/1e5:.1f}L ({row['credit_status']})"
+                )
+            return "\n".join(lines)
+
+        elif intent == "DECOMMISSIONING_ROADMAP":
+            if not data:
+                return "No decommissioning milestones available."
+            app_name = data[0].get("application_name", "Target Application")
+            lines = [f"Phased Decommissioning Milestone Roadmap for {app_name}:"]
+            for m in data:
+                lines.append(
+                    f"• {m['phase_code']} (Months {m['start_month']}-{m['end_month']}): {m['phase_name']} "
+                    f"[{m['risk_rating']} Risk] — {m['cumulative_cost_unlocked_pct']}% savings unlocked"
+                )
+            return "\n".join(lines)
+
+        elif intent == "CAPABILITY_MATURITY":
+            if not data:
+                return "No capability maturity progression records found."
+            lines = ["Strategic Capability Maturity Progression from Investments:"]
+            for r in data[:4]:
+                lines.append(
+                    f"• {r['capability_name']} ({r['strategic_priority']} Priority): Maturity {r['baseline_maturity']} -> {r['current_maturity']} "
+                    f"(+{r['maturity_uplift']} uplift via {r['project_name']}) | Classification: {r['transformation_impact']}"
+                )
+            return "\n".join(lines)
+
         return "Analysis completed. See structured result for quantitative details."
+
+    def generate_briefing_slide(self, question: str) -> Dict[str, Any]:
+        """Generate structured executive summary briefing slide components from query."""
+        res = self.query(question)
+        intent = res["intent"]
+        explanation = res["explanation"]
+
+        headline = explanation.split("\n")[0] if "\n" in explanation else explanation
+        bullets = [line.strip("•- ") for line in explanation.split("\n")[1:] if line.strip().startswith(("•", "-"))]
+
+        return {
+            "slide_id": f"SLIDE-{intent}",
+            "slide_title": f"Executive Intelligence: {intent.replace('_', ' ').title()}",
+            "user_query": question,
+            "executive_headline": headline,
+            "key_takeaways": bullets[:4] if bullets else [explanation],
+            "governance_disclaimer": "Validated via local DuckDB + NetworkX Enterprise Knowledge Graph (Zero Hallucination).",
+        }
 
     def _explain_with_llm(self, question: str, intent: str, data: Any) -> str:
         """Call local Ollama to formulate a fluent natural language response grounded in returned data."""

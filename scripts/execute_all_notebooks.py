@@ -25,23 +25,41 @@ import nbformat
 from IPython.core.interactiveshell import InteractiveShell
 from IPython.utils.capture import capture_output
 
-NOTEBOOKS = [
-    "01_generate_enterprise_data.ipynb",
-    "02_tbm_itfm_data_model.ipynb",
-    "03_build_knowledge_graph.ipynb",
-    "04_application_cost_intelligence.ipynb",
-    "05_capability_cost_intelligence.ipynb",
-    "06_consumption_intelligence.ipynb",
-    "07_application_rationalization.ipynb",
-    "08_dependency_and_impact_analysis.ipynb",
-    "09_investment_benefit_realization.ipynb",
-    "10_cost_driver_and_variance_analysis.ipynb",
-    "11_local_llm_knowledge_graph_analyst.ipynb",
-    "12_end_to_end_technology_value_intelligence.ipynb",
+BASE_NOTEBOOKS = [
+    "01_enterprise_data_generation/v1_baseline.ipynb",
+    "02_tbm_itfm_data_model/v1_baseline.ipynb",
+    "03_knowledge_graph_construction/v1_baseline.ipynb",
+    "04_application_cost_intelligence/v1_baseline.ipynb",
+    "05_capability_cost_intelligence/v1_baseline.ipynb",
+    "06_consumption_intelligence/v1_baseline.ipynb",
+    "07_application_rationalization/v1_baseline.ipynb",
+    "08_dependency_impact_analysis/v1_baseline.ipynb",
+    "09_investment_benefit_realization/v1_baseline.ipynb",
+    "10_cost_driver_variance_analysis/v1_baseline.ipynb",
+    "11_local_llm_knowledge_graph_analyst/v1_baseline.ipynb",
+    "12_end_to_end_value_intelligence/v1_baseline.ipynb",
 ]
 
+DEV_NOTEBOOKS = [
+    "01_enterprise_data_generation/v2_development.ipynb",
+    "02_tbm_itfm_data_model/v2_development.ipynb",
+    "03_knowledge_graph_construction/v2_development.ipynb",
+    "04_application_cost_intelligence/v2_development.ipynb",
+    "05_capability_cost_intelligence/v2_development.ipynb",
+    "06_consumption_intelligence/v2_development.ipynb",
+    "07_application_rationalization/v2_development.ipynb",
+    "08_dependency_impact_analysis/v2_development.ipynb",
+    "09_investment_benefit_realization/v2_development.ipynb",
+    "10_cost_driver_variance_analysis/v2_development.ipynb",
+    "11_local_llm_knowledge_graph_analyst/v2_development.ipynb",
+    "12_end_to_end_value_intelligence/v2_development.ipynb",
+]
+
+NOTEBOOKS = BASE_NOTEBOOKS + DEV_NOTEBOOKS
+
 def execute_single_notebook(nb_path: Path):
-    print(f"Executing: {nb_path.name:45s} ...", end=" ", flush=True)
+    rel_display = f"{nb_path.parent.name}/{nb_path.name}"
+    print(f"Executing: {rel_display:50s} ...", end=" ", flush=True)
     t0 = time.time()
 
     with open(nb_path, "r", encoding="utf-8") as f:

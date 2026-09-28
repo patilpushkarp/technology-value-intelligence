@@ -20,19 +20,52 @@ from pathlib import Path
 from typing import Any, Dict, List, Tuple
 import numpy as np
 import pandas as pd
+import yaml
 
-from tvi.config import Config, load_config
+from tvi.config import Config, load_config, get_project_root
 
 
 class EnterpriseDataGenerator:
     """Generates synthetic enterprise datasets with deterministic seeds."""
 
-    def __init__(self, config: Config | None = None):
+    def __init__(
+        self,
+        config: Config | None = None,
+        scenario_config: str | Path | Dict[str, Any] | None = None,
+    ):
         self.config = config or load_config()
         self.seed = self.config.project.random_seed
         self.rng = np.random.default_rng(self.seed)
         self.year = self.config.project.reporting_year
         self.months = [f"{self.year}-{m:02d}" for m in range(1, self.config.data.months + 1)]
+        self.scenarios = self.load_scenario_config(scenario_config)
+
+    def load_scenario_config(
+        self, scenario_config: str | Path | Dict[str, Any] | None = None
+    ) -> Dict[str, Any]:
+        """Load declarative scenario configuration from dict, file, or default YAML."""
+        if isinstance(scenario_config, dict):
+            return scenario_config.get("scenarios", scenario_config)
+
+        default_yaml = get_project_root() / "config" / "scenarios.yaml"
+        target_path = Path(scenario_config) if scenario_config else default_yaml
+
+        if target_path.exists():
+            with open(target_path, "r", encoding="utf-8") as f:
+                loaded = yaml.safe_load(f) or {}
+                return loaded.get("scenarios", loaded)
+
+        # Fallback in-memory defaults matching baseline
+        return {
+            "scenario_a": {"app_id": "APP001", "annual_license_target": 28000000.0, "active_users": 8500, "transactions_base": 6500000},
+            "scenario_b": {"app_id": "APP021", "annual_license_target": 18000000.0, "active_users": 140, "transactions_base": 45000},
+            "scenario_c": {"capability_id": "CAP003", "primary_app": "APP005", "secondary_app": "APP012"},
+            "scenario_d": {"app_id": "APP010"},
+            "scenario_e": {"project_id": "PRJ003", "budget_amount": 120000000.0, "actual_spend": 115000000.0, "expected_benefit": 192000000.0},
+            "scenario_f": {"project_id": "PRJ014", "budget_amount": 250000000.0, "actual_spend": 290000000.0, "expected_benefit": 300000000.0},
+            "scenario_g": {"app_id": "APP014", "surge_start_month": 8, "cost_multiplier": 2.71, "txn_multiplier": 2.80},
+            "scenario_h": {"app_id": "APP022", "surge_start_month": 8, "cost_add_fixed": 3800000.0, "txn_multiplier": 1.0},
+        }
 
     def generate_all(self, output_dir: str | Path | None = None) -> Dict[str, pd.DataFrame]:
         """Generate all enterprise entities and relationship tables.
@@ -873,3 +906,168 @@ class EnterpriseDataGenerator:
                     c_id_counter += 1
 
         return pd.DataFrame(records)
+
+    def generate_cloud_billing_records(
+        self, app_df: pd.DataFrame, tech_df: pd.DataFrame | None = None
+    ) -> pd.DataFrame:
+        """Generate synthetic granular cloud billing records (AWS CUR / Azure Cost Management schema).
+
+        Models line-item level infrastructure consumption across AWS and Azure providers
+        with resource IDs, product codes, unblended costs, and application attributions.
+        """
+        cloud_products = [
+            ("AWS", "AmazonEC2", "Hrs", 18.5),
+            ("AWS", "AmazonRDS", "Hrs", 42.0),
+            ("AWS", "AmazonEKS", "Cluster-Hrs", 75.0),
+            ("AWS", "AmazonS3", "GB-Mo", 1.8),
+            ("Azure", "AzureAppService", "Hrs", 22.0),
+            ("Azure", "AzureSQL", "DTU-Hrs", 35.0),
+            ("Azure", "AzureBlobStorage", "GB-Mo", 1.6),
+            ("Azure", "AzureKubernetesService", "Cluster-Hrs", 72.0),
+        ]
+
+        records = []
+        line_counter = 1
+
+        for month in self.months:
+            m_num = int(month.split("-")[1])
+            for _, app in app_df.iterrows():
+                app_id = app["application_id"]
+                app_num = int(app_id.replace("APP", ""))
+
+                # Assign cloud provider deterministically
+                provider, product, unit, unit_rate = cloud_products[app_num % len(cloud_products)]
+                invoice_id = f"INV-{month}-{provider.upper()}"
+
+                # Compute usage volume
+                base_usage = 120.0 + (app_num * 18) % 500
+                if app_id == "APP014" and m_num >= 8:
+                    base_usage *= 2.65
+                elif app_id == "APP001":
+                    base_usage *= 3.5
+
+                usage_qty = round(base_usage + float(self.rng.normal(5.0, 1.0)), 2)
+                cost_inr = round(usage_qty * unit_rate * 83.5, 2)  # Conversion to INR
+
+                resource_id = (
+                    f"arn:aws:{product.lower()}:ap-south-1:123456789012:{app_id.lower()}-res-01"
+                    if provider == "AWS"
+                    else f"/subscriptions/sub-01/resourceGroups/rg-prod/providers/Microsoft.{product}/{app_id.lower()}-res"
+                )
+
+                records.append({
+                    "line_item_id": f"CUR{line_counter:07d}",
+                    "bill_invoice_id": invoice_id,
+                    "month": month,
+                    "cloud_provider": provider,
+                    "line_item_product_code": product,
+                    "pricing_unit": unit,
+                    "usage_amount": usage_qty,
+                    "line_item_unblended_cost": cost_inr,
+                    "line_item_currency_code": self.config.project.currency,
+                    "resource_id": resource_id,
+                    "application_id": app_id,
+                })
+                line_counter += 1
+
+        return pd.DataFrame(records)
+
+    def generate_organizational_hierarchy(self, bu_df: pd.DataFrame) -> pd.DataFrame:
+        """Generate multi-level organizational hierarchies and cost-center sub-allocations.
+
+        Creates a 3-tier organizational structure:
+        Enterprise Division -> Business Unit -> Department / Cost Center.
+        """
+        divisions = {
+            "BU001": "Consumer & Retail Banking Group",
+            "BU002": "Commercial & Corporate Banking Group",
+            "BU003": "Global Markets & Treasury",
+            "BU004": "Digital Payments & Neo-Banking Group",
+            "BU005": "Wealth & Asset Management Group",
+            "BU006": "Risk Management & Compliance Group",
+            "BU007": "Operations & Business Process Group",
+            "BU008": "Enterprise Technology & Infrastructure",
+            "BU009": "Customer Experience & Marketing Group",
+            "BU010": "Finance, Accounting & Tax Group",
+        }
+
+        managers = [
+            "Aditi Rao", "Vikram Malhotra", "Sunita Nair", "Rajesh Iyer",
+            "Pooja Deshmukh", "Arun Venkataraman", "Neha Kulkarni", "Sanjay Gupta"
+        ]
+
+        cost_centers = []
+        cc_counter = 1
+
+        for _, bu in bu_df.iterrows():
+            bu_id = bu["business_unit_id"]
+            bu_name = bu["business_unit_name"]
+            division = divisions.get(bu_id, f"{bu_name} Division")
+
+            # 3 sub-departments/cost centers per Business Unit
+            sub_depts = [
+                f"{bu_name} Front-Office Operations",
+                f"{bu_name} Core Processing & Engineering",
+                f"{bu_name} Strategy & Product Analytics",
+            ]
+
+            for dept_name in sub_depts:
+                cc_id = f"CC{cc_counter:03d}"
+                manager = managers[(cc_counter - 1) % len(managers)]
+                cost_centers.append({
+                    "cost_center_id": cc_id,
+                    "cost_center_name": dept_name,
+                    "business_unit_id": bu_id,
+                    "division_name": division,
+                    "budget_code": f"BG-2024-{cc_id}",
+                    "cost_center_manager": manager,
+                })
+                cc_counter += 1
+
+        return pd.DataFrame(cost_centers)
+
+    def apply_data_drift(
+        self,
+        cost_df: pd.DataFrame,
+        cons_df: pd.DataFrame,
+        monthly_trend: float = 0.015,
+        seasonality: bool = True,
+        noise_std: float = 0.01,
+    ) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        """Apply synthetic data drift and trend progression across monthly time-series records.
+
+        Simulates compound monthly organic growth, seasonal business cycle variations
+        (e.g., Q4 retail banking spikes), and stochastic variance.
+        """
+        c_drift = cost_df.copy()
+        u_drift = cons_df.copy()
+
+        # Month sequence mapping
+        month_order = {m: i for i, m in enumerate(sorted(cost_df["month"].unique()))}
+
+        def get_drift_factor(m_str: str) -> float:
+            idx = month_order.get(m_str, 0)
+            trend = (1.0 + monthly_trend) ** idx
+            # Seasonality: Festive/Fiscal year-end ramp in Q4
+            m_num = int(m_str.split("-")[1])
+            seasonal = 1.0
+            if seasonality:
+                if m_num in [10, 11, 12]:
+                    seasonal = 1.08 + (m_num - 10) * 0.03
+                elif m_num in [1, 2]:
+                    seasonal = 0.96
+            jitter = 1.0 + float(self.rng.normal(0.0, noise_std))
+            return trend * seasonal * jitter
+
+        c_drift["drift_multiplier"] = c_drift["month"].apply(get_drift_factor)
+        c_drift["amount"] = (c_drift["amount"] * c_drift["drift_multiplier"]).round(2)
+        c_drift.drop(columns=["drift_multiplier"], inplace=True)
+
+        u_drift["drift_multiplier"] = u_drift["month"].apply(get_drift_factor)
+        for col in ["transactions", "api_calls", "active_users"]:
+            if col in u_drift.columns:
+                u_drift[col] = (u_drift[col] * u_drift["drift_multiplier"]).astype(int)
+        u_drift.drop(columns=["drift_multiplier"], inplace=True)
+
+        return c_drift, u_drift
+

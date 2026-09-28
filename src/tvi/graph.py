@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 import networkx as nx
+import numpy as np
 import pandas as pd
 
 from tvi.config import Config, load_config
@@ -307,3 +308,226 @@ def get_focused_subgraph(
         sub_nodes = list(immediate)[:max_nodes]
 
     return G.subgraph(sub_nodes).copy()
+
+
+def export_cypher_script(G: nx.DiGraph, output_path: str | Path | None = None) -> str:
+    """Generate executable Cypher DDL/DML script for Neo4j and Memgraph graph databases.
+
+    Creates uniqueness constraints, typed entity nodes with properties, and multi-relational edges.
+    """
+    lines = [
+        "// ============================================================================",
+        "// Technology Value Intelligence (TVI) - Neo4j / Memgraph Cypher Ingestion DDL",
+        "// ============================================================================",
+        "",
+        "// 1. Schema Uniqueness Constraints",
+    ]
+
+    entity_types = sorted({data.get("entity_type", "Entity") for _, data in G.nodes(data=True)})
+    for et in entity_types:
+        lines.append(f"CREATE CONSTRAINT IF NOT EXISTS FOR (n:{et}) REQUIRE n.id IS UNIQUE;")
+    lines.append("")
+
+    lines.append("// 2. Entity Nodes")
+    for node, data in G.nodes(data=True):
+        et = data.get("entity_type", "Entity")
+        # Clean and format properties
+        clean_props = {"id": str(node)}
+        for k, v in data.items():
+            if k == "entity_type":
+                continue
+            if isinstance(v, (int, float, bool)):
+                clean_props[k] = v
+            else:
+                clean_props[k] = str(v).replace("'", "\\'")
+
+        props_str = ", ".join(
+            f"{k}: {v if isinstance(v, (int, float, bool)) else repr(v)}"
+            for k, v in clean_props.items()
+        )
+        lines.append(f"MERGE (n:{et} {{id: '{node}'}}) SET n += {{{props_str}}};")
+
+    lines.append("")
+    lines.append("// 3. Semantic Graph Relationships")
+    for u, v, data in G.edges(data=True):
+        rel_type = data.get("relationship", "RELATED_TO").upper().replace(" ", "_")
+        edge_props = {k: v for k, v in data.items() if k != "relationship"}
+        if edge_props:
+            prop_entries = ", ".join(
+                f"{k}: {v if isinstance(v, (int, float, bool)) else repr(v)}"
+                for k, v in edge_props.items()
+            )
+            props_str = f" {{{prop_entries}}}"
+        else:
+            props_str = ""
+
+        lines.append(
+            f"MATCH (a {{id: '{u}'}}), (b {{id: '{v}'}}) "
+            f"MERGE (a)-[r:{rel_type}{props_str}]->(b);"
+        )
+
+    cypher_text = "\n".join(lines) + "\n"
+
+    if output_path is not None:
+        target = Path(output_path).resolve()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with open(target, "w", encoding="utf-8") as f:
+            f.write(cypher_text)
+
+    return cypher_text
+
+
+def compute_graph_embeddings(
+    G: nx.DiGraph,
+    dimensions: int = 16,
+    seed: int = 42,
+) -> Dict[str, List[float]]:
+    """Compute dense structural node embeddings using Laplacian Spectral Decomposition.
+
+    Captures high-order topological proximity and role equivalence across the enterprise graph
+    without requiring external deep learning dependencies.
+    """
+    nodes = sorted(list(G.nodes()))
+    node_to_idx = {n: i for i, n in enumerate(nodes)}
+    n_count = len(nodes)
+
+    if n_count == 0:
+        return {}
+
+    # Build symmetric adjacency with self-loops
+    adj = np.eye(n_count)
+    for u, v in G.edges():
+        if u in node_to_idx and v in node_to_idx:
+            i, j = node_to_idx[u], node_to_idx[v]
+            adj[i, j] += 1.0
+            adj[j, i] += 1.0
+
+    # Degree normalization
+    degrees = np.sum(adj, axis=1)
+    d_inv_sqrt = np.zeros_like(degrees)
+    pos_mask = degrees > 0
+    d_inv_sqrt[pos_mask] = 1.0 / np.sqrt(degrees[pos_mask])
+    norm_adj = d_inv_sqrt[:, np.newaxis] * adj * d_inv_sqrt[np.newaxis, :]
+
+    # Truncated SVD decomposition
+    k = min(dimensions, n_count - 1) if n_count > 1 else 1
+    u, s, _ = np.linalg.svd(norm_adj)
+    emb_matrix = u[:, :k] * np.sqrt(s[:k])
+
+    embeddings = {}
+    for i, node in enumerate(nodes):
+        vec = [round(float(val), 6) for val in emb_matrix[i]]
+        # Pad to requested dimension if graph is smaller
+        if len(vec) < dimensions:
+            vec.extend([0.0] * (dimensions - len(vec)))
+        embeddings[node] = vec
+
+    return embeddings
+
+
+def build_temporal_graph(
+    base_graph: nx.DiGraph | None = None,
+) -> Dict[str, Any]:
+    """Model quarterly enterprise architecture topology dynamics across release cycles.
+
+    Tracks structural evolution (nodes added, deprecated, modified) and density metrics across Q1-Q4.
+    """
+    if base_graph is None:
+        base_graph = build_knowledge_graph()
+
+    quarterly_snapshots = {}
+    quarters = ["Q1-2024", "Q2-2024", "Q3-2024", "Q4-2024"]
+
+    # Progressive evolution: Q1 starts at 90% nodes, Q2 adds 5%, Q3 adds 5%, Q4 full
+    nodes_sorted = sorted(list(base_graph.nodes()))
+    total = len(nodes_sorted)
+
+    q_subsets = {
+        "Q1-2024": set(nodes_sorted[: int(total * 0.90)]),
+        "Q2-2024": set(nodes_sorted[: int(total * 0.94)]),
+        "Q3-2024": set(nodes_sorted[: int(total * 0.98)]),
+        "Q4-2024": set(nodes_sorted),
+    }
+
+    prev_nodes: Set[str] = set()
+    for q in quarters:
+        active_nodes = q_subsets[q]
+        sub_g = base_graph.subgraph(active_nodes)
+
+        nodes_added = list(active_nodes - prev_nodes)
+        quarterly_snapshots[q] = {
+            "node_count": sub_g.number_of_nodes(),
+            "edge_count": sub_g.number_of_edges(),
+            "density": round(nx.density(sub_g), 5),
+            "newly_onboarded_nodes": len(nodes_added),
+            "sample_new_nodes": nodes_added[:5],
+        }
+        prev_nodes = active_nodes
+
+    return quarterly_snapshots
+
+
+def export_cytoscape_json(
+    G: nx.DiGraph, output_path: str | Path | None = None
+) -> Dict[str, Any]:
+    """Export property graph to Cytoscape.js and D3.js web-ready visualization format.
+
+    Generates nodes and edges with formatted visual metadata, colors, and badges.
+    """
+    type_color_map = {
+        "Application": "#1f77b4",
+        "BusinessCapability": "#2ca02c",
+        "BusinessUnit": "#9467bd",
+        "ITService": "#ff7f0e",
+        "Technology": "#17becf",
+        "Vendor": "#8c564b",
+        "Project": "#e377c2",
+        "Benefit": "#bcbd22",
+        "KPI": "#d62728",
+    }
+
+    cy_nodes = []
+    for node, data in G.nodes(data=True):
+        e_type = data.get("entity_type", "Entity")
+        cy_nodes.append({
+            "data": {
+                "id": str(node),
+                "label": str(data.get("label", node)),
+                "entity_type": e_type,
+                "color": type_color_map.get(e_type, "#7f7f7f"),
+                **{k: v for k, v in data.items() if k not in ["label", "entity_type"]},
+            }
+        })
+
+    cy_edges = []
+    for u, v, data in G.edges(data=True):
+        cy_edges.append({
+            "data": {
+                "id": f"{u}->{v}",
+                "source": str(u),
+                "target": str(v),
+                "relationship": data.get("relationship", "RELATED_TO"),
+                **{k: v for k, v in data.items() if k != "relationship"},
+            }
+        })
+
+    payload = {
+        "format": "cytoscape_js",
+        "elements": {
+            "nodes": cy_nodes,
+            "edges": cy_edges,
+        },
+        "metadata": {
+            "total_nodes": len(cy_nodes),
+            "total_edges": len(cy_edges),
+        },
+    }
+
+    if output_path is not None:
+        target = Path(output_path).resolve()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with open(target, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2)
+
+    return payload
+

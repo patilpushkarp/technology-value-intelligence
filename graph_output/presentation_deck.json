@@ -1,0 +1,52 @@
+{
+  "presentation_title": "Technology Value Realization (TVR) Executive Synthesis",
+  "reporting_period": "FY2024",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Executive Spend & Portfolio Concentration",
+      "headline": "Total IT Spend \u20b9161.83 Cr concentrated across 50 applications.",
+      "bullets": [
+        "Top 3 systems (CoreBanking Alpha, Legacy Customer Web Portal, Cloud Payment Microhub) account for 29.2% of total spend.",
+        "Top 10 systems consume 58% of software & cloud infrastructure capital."
+      ]
+    },
+    {
+      "slide_number": 2,
+      "title": "FinOps Cost Variance & Root-Cause Signals",
+      "headline": "August spend shift of \u20b9+0.98 Cr decomposed into elastic scale vs rate anomaly.",
+      "bullets": [
+        "APP014 (Cloud Payment Hub) surge correlated with +180% transaction volume expansion.",
+        "APP022 (Batch Billing) surged +\u20b938L with flat transaction throughput (investigation alert filed)."
+      ]
+    },
+    {
+      "slide_number": 3,
+      "title": "Business Capability Unit Economics",
+      "headline": "Full-stack proportional capability attribution with zero reconciliation leakage.",
+      "bullets": [
+        "Order-to-Cash (CAP003) and Core Account Servicing (CAP001) drive 35% of total capability costs.",
+        "Scale anchors achieve sub-\u20b90.05 per business transaction."
+      ]
+    },
+    {
+      "slide_number": 4,
+      "title": "Portfolio Rationalization & Topological Gating",
+      "headline": "Elimination candidates identified alongside critical Single Points of Failure.",
+      "bullets": [
+        "APP021 identified as prime rationalization review candidate with \u20b98.4 Cr avoidable run-rate baseline.",
+        "APP010 (Central Auth Hub) flagged as critical topological bottleneck (8 direct downstream systems)."
+      ]
+    },
+    {
+      "slide_number": 5,
+      "title": "Investment Value Realization & Governance Actions",
+      "headline": "High-performing PRJ003 (+108% BRR) contrasted with PRJ014 benefit deficit.",
+      "bullets": [
+        "PRJ003 exceeded expected benefit returns (\u20b920.7 Cr realized vs \u20b919.2 Cr target).",
+        "PRJ014 delivered only 23% of planned CRM transformation value (\u20b923 Cr benefit deficit).",
+        "Recommendation: Approve capital rebalancing from legacy maintenance to strategic cloud capabilities."
+      ]
+    }
+  ]
+}

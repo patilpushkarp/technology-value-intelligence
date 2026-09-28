@@ -19,18 +19,18 @@ def main():
     print("=" * 60)
 
     notebooks = [
-        (build_notebook_01, "01_generate_enterprise_data.ipynb"),
-        (build_notebook_02, "02_tbm_itfm_data_model.ipynb"),
-        (build_notebook_03, "03_build_knowledge_graph.ipynb"),
-        (build_notebook_04, "04_application_cost_intelligence.ipynb"),
-        (build_notebook_05, "05_capability_cost_intelligence.ipynb"),
-        (build_notebook_06, "06_consumption_intelligence.ipynb"),
-        (build_notebook_07, "07_application_rationalization.ipynb"),
-        (build_notebook_08, "08_dependency_and_impact_analysis.ipynb"),
-        (build_notebook_09, "09_investment_benefit_realization.ipynb"),
-        (build_notebook_10, "10_cost_driver_and_variance_analysis.ipynb"),
-        (build_notebook_11, "11_local_llm_knowledge_graph_analyst.ipynb"),
-        (build_notebook_12, "12_end_to_end_technology_value_intelligence.ipynb"),
+        (build_notebook_01, "01_enterprise_data_generation/v1_baseline.ipynb"),
+        (build_notebook_02, "02_tbm_itfm_data_model/v1_baseline.ipynb"),
+        (build_notebook_03, "03_knowledge_graph_construction/v1_baseline.ipynb"),
+        (build_notebook_04, "04_application_cost_intelligence/v1_baseline.ipynb"),
+        (build_notebook_05, "05_capability_cost_intelligence/v1_baseline.ipynb"),
+        (build_notebook_06, "06_consumption_intelligence/v1_baseline.ipynb"),
+        (build_notebook_07, "07_application_rationalization/v1_baseline.ipynb"),
+        (build_notebook_08, "08_dependency_impact_analysis/v1_baseline.ipynb"),
+        (build_notebook_09, "09_investment_benefit_realization/v1_baseline.ipynb"),
+        (build_notebook_10, "10_cost_driver_variance_analysis/v1_baseline.ipynb"),
+        (build_notebook_11, "11_local_llm_knowledge_graph_analyst/v1_baseline.ipynb"),
+        (build_notebook_12, "12_end_to_end_value_intelligence/v1_baseline.ipynb"),
     ]
 
     for builder_fn, filename in notebooks:
