@@ -19,16 +19,15 @@ Welcome to the **Technology Value Intelligence (TVI)** codebase. This document d
 | **Environment / Dependencies / Setup** | Update installation commands, Python version requirements, prerequisites, or package additions. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
 | **Verification & Testing** | Update test suite instructions, validation check counts, or script execution commands. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
 | **Configuration / Scenarios** | Update scenario matrix (Scenarios A–H), data generation counts, currency, or reporting settings. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
-| **Notebook / Module Changes** | Update executive purpose, data inputs/outputs, key scenarios, file structure, or methodology. | Subdirectory [`notebooks/<module>/README.md`](file:///Users/pushkar/Documents/projects/value/notebooks) |
-| **Roadmap & Improvement Progress** | Check off completed roadmap items `[x]` or append newly identified future roadmap tasks. | Subdirectory [`notebooks/<module>/README.md`](file:///Users/pushkar/Documents/projects/value/notebooks) |
-| **New Notebooks or Subsystems** | Create a brand-new, comprehensive `README.md` following the standard template and register it in the root table. | New directory `README.md` & Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
+| **Notebook / Module Changes** | Update executive purpose, data inputs/outputs, key scenarios, file structure, or methodology. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
+| **Roadmap & Improvement Progress** | Check off completed roadmap items `[x]` or append newly identified future roadmap tasks. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
+| **New Notebooks or Subsystems** | Create a brand-new, comprehensive documentation section following the standard template and register it in the root table. | Root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) |
 
 ### 2. Pre-Completion README Verification Checklist
 
 Before finishing any task or marking work complete, you must explicitly verify:
 - [ ] Did I alter any files in `src/tvi/`, `notebooks/`, `database/`, `data/`, `scripts/`, or `tests/`?
 - [ ] Did I update the root [`README.md`](file:///Users/pushkar/Documents/projects/value/README.md) if project-wide commands, dependencies, or structures changed?
-- [ ] Did I update the relevant module README in `notebooks/<module_dir>/README.md` if notebook logic, data artifacts, or algorithms changed?
 - [ ] Are all code snippets, file paths, and command instructions in the updated READMEs verified and accurate?
 
 ---
@@ -101,12 +100,18 @@ Before finishing any task or marking work complete, you must explicitly verify:
 │   ├── value_realization.py    # TVR investment benefit realization
 │   └── variance.py             # MoM variance decomposition
 ├── notebooks/                  # 12-notebook progressive curriculum
-│   ├── 01_enterprise_data_generation/       # Module folder (README.md, v1_baseline, v2_dev)
-│   ├── 01_generate_enterprise_data.ipynb    # Root baseline notebook
-│   ├── 02_tbm_itfm_data_model/
+│   ├── 01_generate_enterprise_data.ipynb
 │   ├── 02_tbm_itfm_data_model.ipynb
-│   ├── ...
-│   └── 12_end_to_end_value_intelligence/
+│   ├── 03_build_knowledge_graph.ipynb
+│   ├── 04_application_cost_intelligence.ipynb
+│   ├── 05_capability_cost_intelligence.ipynb
+│   ├── 06_consumption_intelligence.ipynb
+│   ├── 07_application_rationalization.ipynb
+│   ├── 08_dependency_and_impact_analysis.ipynb
+│   ├── 09_investment_benefit_realization.ipynb
+│   ├── 10_cost_driver_and_variance_analysis.ipynb
+│   ├── 11_local_llm_knowledge_graph_analyst.ipynb
+│   └── 12_end_to_end_technology_value_intelligence.ipynb
 ├── data/                       # Local data storage (raw, processed, generated)
 ├── database/                   # Local DuckDB database file
 ├── graph_output/               # Exported GraphML and visualization outputs
@@ -118,9 +123,8 @@ Before finishing any task or marking work complete, you must explicitly verify:
 
 ## 🛠️ Development & Coding Standards
 
-### 1. Notebook Versioning & Baseline Protection
-- **Root Baseline Notebooks (`notebooks/0X_*.ipynb`) & `v1_baseline.ipynb`:** Preserved as frozen, verified baseline references. Never introduce breaking changes directly into baseline notebooks.
-- **Development Notebooks (`notebooks/XX_*/v2_development.ipynb`):** The active playground for prototyping enhancements, new visualizations, and algorithm extensions.
+### 1. Notebook Architecture & Production Code
+- **Notebooks (`notebooks/0X_*.ipynb`):** The 12-notebook progressive curriculum incorporates complete analytical workflows and developments following the 8-part consulting research framework.
 - **Production Code (`src/tvi/`):** All reusable logic, transformations, and mathematical models must live in modular, tested Python files within `src/tvi/`, not solely inside notebook cells.
 
 ### 2. Determinism and Reproducibility
