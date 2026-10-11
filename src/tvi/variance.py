@@ -181,13 +181,20 @@ def detect_cost_anomalies(
             c.application_id,
             a.application_name,
             c.month,
-            SUM(c.amount) AS monthly_spend,
+            c.monthly_spend,
             COALESCE(u.transactions, 0) AS transactions,
             COALESCE(u.active_users, 0) AS active_users
-        FROM cost_records c
+        FROM (
+            SELECT application_id, month, SUM(amount) AS monthly_spend
+            FROM cost_records
+            GROUP BY application_id, month
+        ) c
         JOIN applications a ON c.application_id = a.application_id
-        LEFT JOIN consumption_records u ON c.application_id = u.application_id AND c.month = u.month
-        GROUP BY c.application_id, a.application_name, c.month, u.transactions, u.active_users
+        LEFT JOIN (
+            SELECT application_id, month, SUM(transactions) AS transactions, SUM(active_users) AS active_users
+            FROM consumption_records
+            GROUP BY application_id, month
+        ) u ON c.application_id = u.application_id AND c.month = u.month
         ORDER BY c.application_id, c.month
     """)
 

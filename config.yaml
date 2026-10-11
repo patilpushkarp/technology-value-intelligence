@@ -19,6 +19,124 @@ data:
   processed_dir: "data/processed"
   generated_dir: "data/generated"
 
+  # Level 4: Parametric Distribution Specifications
+  distributions:
+    annual_license_cost:
+      family: "lognormal"
+      mu: 16.2
+      sigma: 0.75
+      min_clip: 3000000.0
+      max_clip: 40000000.0
+
+    monthly_cost_jitter:
+      family: "normal"
+      mu: 1.0
+      sigma: 0.03
+      min_clip: 0.92
+      max_clip: 1.08
+
+    cost_pool_split:
+      family: "dirichlet"
+      alpha: [9.0, 6.0, 5.0]
+
+    active_users:
+      family: "lognormal"
+      mu: 6.5
+      sigma: 0.9
+      min_clip: 20.0
+      max_clip: 10000.0
+
+    transactions:
+      family: "lognormal"
+      mu: 12.4
+      sigma: 0.85
+      min_clip: 1000.0
+      max_clip: 5000000.0
+
+    transactions_per_user:
+      family: "gamma"
+      shape: 4.0
+      scale: 50.0
+      min_clip: 100.0
+      max_clip: 500.0
+
+    api_calls:
+      family: "lognormal"
+      mu: 13.8
+      sigma: 0.85
+      min_clip: 2500.0
+      max_clip: 25000000.0
+
+    api_call_multiplier:
+      family: "gamma"
+      shape: 4.0
+      scale: 0.75
+      min_clip: 1.5
+      max_clip: 8.0
+
+    compute_hours:
+      family: "gamma"
+      shape: 3.0
+      scale: 250.0
+      min_clip: 50.0
+      max_clip: 5000.0
+
+    storage_gb:
+      family: "gamma"
+      shape: 2.5
+      scale: 400.0
+      min_clip: 50.0
+      max_clip: 10000.0
+
+    ticket_rate:
+      family: "poisson"
+      lambda_per_user: 0.015
+      min_clip: 1.0
+
+    benefit_realization_completed:
+      family: "beta"
+      a: 8.0
+      b: 2.5
+      scale: 1.15
+
+    benefit_realization_in_progress:
+      family: "beta"
+      a: 2.0
+      b: 4.0
+      scale: 0.80
+
+    cloud_usage:
+      family: "gamma"
+      shape: 5.0
+      scale: 20.0
+      min_clip: 10.0
+      max_clip: 3000.0
+
+    shared_infra_cost:
+      family: "truncnorm"
+      mu: 2200000.0
+      sigma: 400000.0
+      min_clip: 1200000.0
+      max_clip: 3500000.0
+
+  # Level 6: Copula Correlation Structure (Spearman rank correlations)
+  correlations:
+    consumption_metrics:
+      variables:
+        - "active_users"
+        - "transactions"
+        - "api_calls"
+        - "compute_hours"
+        - "storage_gb"
+        - "tickets"
+      matrix:
+        - [1.00, 0.85, 0.75, 0.70, 0.40, 0.60]
+        - [0.85, 1.00, 0.90, 0.80, 0.55, 0.50]
+        - [0.75, 0.90, 1.00, 0.75, 0.45, 0.40]
+        - [0.70, 0.80, 0.75, 1.00, 0.50, 0.35]
+        - [0.40, 0.55, 0.45, 0.50, 1.00, 0.20]
+        - [0.60, 0.50, 0.40, 0.35, 0.20, 1.00]
+
 database:
   path: "database/technology_value_intelligence.duckdb"
 

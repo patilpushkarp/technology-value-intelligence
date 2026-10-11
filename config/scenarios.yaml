@@ -1,8 +1,15 @@
 # Technology Value Intelligence (TVI) - Declarative Scenario Configuration
-# Parameterizes controlled business scenarios A through H for enterprise simulation.
+# Parameterizes 25 controlled business scenarios (Basic to Advanced) for enterprise simulation.
 
 scenarios:
+  # ============================================================================
+  # CATEGORY 1: BASIC SCENARIOS (A through H) - Foundational Cost, Utilization & Redundancy
+  # ============================================================================
   scenario_a:
+    scenario_id: "SCN-01"
+    code: "scenario_a"
+    tier: "basic"
+    category: "Cost & Utilization"
     app_id: "APP001"
     name: "Enterprise Core Banking Engine"
     description: "Scale Anchor: High absolute TCO with high operational utilization and low unit cost."
@@ -12,9 +19,13 @@ scenarios:
     expected_unit_cost_ceiling: 0.05
 
   scenario_b:
+    scenario_id: "SCN-02"
+    code: "scenario_b"
+    tier: "basic"
+    category: "Application Rationalization"
     app_id: "APP021"
     name: "Legacy Branch Portal"
-    description: "Underutilized Legacy: Expensive to operate with low active users and high unit cost."
+    description: "Underutilized Legacy: Expensive to operate with low active users and astronomical unit cost."
     annual_license_target: 18000000.0
     active_users: 140
     transactions_base: 45000
@@ -22,6 +33,10 @@ scenarios:
     overlapping_capabilities: ["CAP001", "CAP008"]
 
   scenario_c:
+    scenario_id: "SCN-03"
+    code: "scenario_c"
+    tier: "basic"
+    category: "Capability Architecture"
     capability_id: "CAP003"
     name: "Order-to-Cash"
     description: "Duplicate Capability Overlap: Redundant functional support across multiple systems."
@@ -31,6 +46,10 @@ scenarios:
     secondary_share: 0.30
 
   scenario_d:
+    scenario_id: "SCN-04"
+    code: "scenario_d"
+    tier: "basic"
+    category: "Graph Topology & Risk"
     app_id: "APP010"
     name: "Central Authentication Hub"
     description: "Single Point of Failure (SPOF): High inbound reverse-dependency blast radius."
@@ -45,6 +64,10 @@ scenarios:
       - "APP009"
 
   scenario_e:
+    scenario_id: "SCN-05"
+    code: "scenario_e"
+    tier: "basic"
+    category: "Value Realization"
     project_id: "PRJ003"
     name: "Real-Time Payment Modernization"
     description: "Successful Investment: Completed under budget with over-achieved benefit realization."
@@ -55,6 +78,10 @@ scenarios:
     realization_rate: 1.08
 
   scenario_f:
+    scenario_id: "SCN-06"
+    code: "scenario_f"
+    tier: "basic"
+    category: "Value Realization"
     project_id: "PRJ014"
     name: "Global Legacy CRM Consolidation"
     description: "Benefit Gap Overrun: Completed over budget with severe benefit shortfall."
@@ -65,6 +92,10 @@ scenarios:
     realization_rate: 0.2333
 
   scenario_g:
+    scenario_id: "SCN-07"
+    code: "scenario_g"
+    tier: "basic"
+    category: "Variance & Elasticity"
     app_id: "APP014"
     name: "Digital Payment Gateway"
     description: "Elastic Consumption Surge: Month 8 spend surge proportional to transaction surge."
@@ -73,9 +104,214 @@ scenarios:
     txn_multiplier: 2.80
 
   scenario_h:
+    scenario_id: "SCN-08"
+    code: "scenario_h"
+    tier: "basic"
+    category: "Variance & Anomaly"
     app_id: "APP022"
     name: "Wealth Advisory Engine"
     description: "Unbacked Cost Anomaly: Month 8 spend surge with flat transaction volume."
     surge_start_month: 8
     cost_add_fixed: 3800000.0
     txn_multiplier: 1.0
+
+  # ============================================================================
+  # CATEGORY 2: INTERMEDIATE SCENARIOS (I through Q) - FinOps, Vendor, Architecture & Life-Cycle
+  # ============================================================================
+  scenario_i:
+    scenario_id: "SCN-09"
+    code: "scenario_i"
+    tier: "intermediate"
+    category: "Vendor Sourcing Risk"
+    vendor_id: "VEN001"
+    name: "TechNova Cloud Vendor Concentration"
+    description: "Vendor Concentration Risk: High spend share and critical single-vendor lock-in."
+    spend_share_threshold: 0.35
+    dependent_apps: ["APP001", "APP004", "APP014", "APP029"]
+
+  scenario_j:
+    scenario_id: "SCN-10"
+    code: "scenario_j"
+    tier: "intermediate"
+    category: "SaaS FinOps Optimization"
+    app_id: "APP008"
+    name: "Workforce Central HR Shelfware"
+    description: "SaaS Shelfware: High licensed seats (5,000 paid) with low actual active utilization (1,200 users)."
+    licensed_seats: 5000
+    active_users: 1200
+    shelfware_pct: 0.76
+
+  scenario_k:
+    scenario_id: "SCN-11"
+    code: "scenario_k"
+    tier: "intermediate"
+    category: "Stranded Cost Modeling"
+    app_id: "APP018"
+    name: "ProcureDirect Stranded Fixed Overhead"
+    description: "Stranded Costs: Application retired in Q2 but facility and hardware overhead persist through Q4."
+    retirement_month: 5
+    monthly_stranded_infra: 1500000.0
+
+  scenario_l:
+    scenario_id: "SCN-12"
+    code: "scenario_l"
+    tier: "intermediate"
+    category: "Technical Debt Governance"
+    app_id: "APP019"
+    name: "Global Ledger Technical Debt Drag"
+    description: "Technical Debt Drag: High maintenance and contractor labor cost exceeding 65% of TCO."
+    labor_cost_ratio: 0.68
+    monthly_ticket_growth: 0.15
+
+  scenario_m:
+    scenario_id: "SCN-13"
+    code: "scenario_m"
+    tier: "intermediate"
+    category: "Financial Chargeback & ABC"
+    service_id: "SRV005"
+    name: "Cloud Platform Cross-Subsidization"
+    description: "Shared Infra Subsidization: Shared infrastructure funded by BU006 while consumed by BU001 and BU004."
+    funding_bu: "BU006"
+    consuming_bus: ["BU001", "BU004"]
+    unallocated_shared_cost: 33600000.0
+
+  scenario_n:
+    scenario_id: "SCN-14"
+    code: "scenario_n"
+    tier: "intermediate"
+    category: "Contractual Cost Shock"
+    app_id: "APP002"
+    name: "OmniCRM Contractual Price Escalation"
+    description: "Price Escalation Shock: Mid-year contract renewal introduces unbudgeted +25% vendor fee increase."
+    escalation_month: 7
+    escalation_pct: 0.25
+
+  scenario_o:
+    scenario_id: "SCN-15"
+    code: "scenario_o"
+    tier: "intermediate"
+    category: "Obsolescence & Lifecycle Risk"
+    app_id: "APP012"
+    name: "QuickOrder Deprecated Tech Exposure"
+    description: "EoL Tech Exposure: Core operational system running on deprecated WebSphere and Solaris stacks."
+    technologies: ["TECH019", "TECH020"]
+    lifecycle_status: "Deprecated"
+
+  scenario_p:
+    scenario_id: "SCN-16"
+    code: "scenario_p"
+    tier: "intermediate"
+    category: "Multi-Cloud FinOps Arbitrage"
+    app_aws: "APP003"
+    app_azure: "APP023"
+    name: "Multi-Cloud Workload Arbitrage"
+    description: "Multi-Cloud Disparity: Comparable analytical workloads exhibiting 38% cost variance between AWS and Azure."
+    unit_rate_disparity_pct: 0.38
+
+  scenario_q:
+    scenario_id: "SCN-17"
+    code: "scenario_q"
+    tier: "intermediate"
+    category: "Contract SLA Governance"
+    app_id: "APP036"
+    vendor_id: "VEN008"
+    name: "ATM Controller SLA Breach Penalty"
+    description: "SLA Penalty Clawback: Repeated availability breaches trigger contractual vendor rebate credits."
+    breach_months: [4, 5, 6]
+    monthly_penalty_credit: 2500000.0
+
+  # ============================================================================
+  # CATEGORY 3: ADVANCED SCENARIOS (R through Y) - Cascading Graphs, TVR Econometrics & Strategy
+  # ============================================================================
+  scenario_r:
+    scenario_id: "SCN-18"
+    code: "scenario_r"
+    tier: "advanced"
+    category: "Transitive Graph Blast Radius"
+    app_id: "APP029"
+    name: "API Mesh Transitive Outage Blast Radius"
+    description: "Cascading Blast Radius: Middle-tier failure cascades transitively across 14 enterprise services."
+    direct_callers: 6
+    transitive_callers: 14
+    hourly_revenue_at_risk: 42000000.0
+
+  scenario_s:
+    scenario_id: "SCN-19"
+    code: "scenario_s"
+    tier: "advanced"
+    category: "GreenOps & Sustainability"
+    app_id: "APP013"
+    name: "TradeExecution GreenOps Carbon Inefficiency"
+    description: "Carbon Inefficiency Spike: Heavy off-peak batch compute generates excessive carbon footprint."
+    annual_emissions_kg_co2e: 42000.0
+    carbon_intensity_ratio: 5.2
+
+  scenario_t:
+    scenario_id: "SCN-20"
+    code: "scenario_t"
+    tier: "advanced"
+    category: "Serverless Elasticity & Throttling"
+    app_id: "APP039"
+    name: "Mobile Banking Serverless Concurrency Burst"
+    description: "Serverless Throttling: Morning traffic spikes exceed concurrency limits causing latency throttles."
+    peak_concurrency: 450
+    throttle_events: 185
+    cold_start_pct: 4.2
+
+  scenario_u:
+    scenario_id: "SCN-21"
+    code: "scenario_u"
+    tier: "advanced"
+    category: "Contractual Lock-in & Exit Penalties"
+    app_id: "APP012"
+    name: "Decommissioning Exit Penalty Domino"
+    description: "Contractual Lock-in: Early retirement triggers 50% termination penalty offsetting gross TCO savings."
+    contract_months_remaining: 6
+    penalty_rate: 0.50
+    net_savings_pct: 0.45
+
+  scenario_v:
+    scenario_id: "SCN-22"
+    code: "scenario_v"
+    tier: "advanced"
+    category: "Econometric Causal TVR"
+    project_id: "PRJ001"
+    name: "Cloud Migration Econometric J-Curve Lag"
+    description: "Benefit Realization Lag: DiD analysis shows negative net return in Year 1 before Year 2 efficiency gains."
+    year1_net_benefit: -15000000.0
+    year2_projected_benefit: 45000000.0
+
+  scenario_w:
+    scenario_id: "SCN-23"
+    code: "scenario_w"
+    tier: "advanced"
+    category: "Zero-Trust Architecture Audit"
+    source_app: "APP025"
+    target_app: "APP004"
+    name: "Zero-Trust Security Zone Violation"
+    description: "Security Containment Breach: Low-criticality app has unsegmented database access to Tier-1 PCI data."
+    violation_type: "CROSS_TIER_DATABASE_ACCESS"
+    severity: "CRITICAL"
+
+  scenario_x:
+    scenario_id: "SCN-24"
+    code: "scenario_x"
+    tier: "advanced"
+    category: "Multi-Criteria Decision Analysis"
+    candidate_apps: ["APP021", "APP035", "APP046"]
+    name: "MCDA Multi-Criteria Rationalization Frontier"
+    description: "Portfolio MCDA: Simultaneous retirement of 3 Pareto-dominated apps reallocates ₹28 Cr into innovation."
+    avoidable_spend_cr: 28.5
+    retired_dependencies: 12
+
+  scenario_y:
+    scenario_id: "SCN-25"
+    code: "scenario_y"
+    tier: "advanced"
+    category: "Strategic Portfolio Rebalancing"
+    name: "Enterprise Strategic Rebalancing Simulation"
+    description: "Portfolio Rebalancing: Shifting 15% of Run spend into Grow/Transform boosts portfolio value by 24%."
+    run_reallocation_pct: 0.15
+    reallocated_capital_cr: 18.4
+    target_capabilities: ["CAP008", "CAP022", "CAP023"]
+    value_acceleration_pct: 0.24

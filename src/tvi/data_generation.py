@@ -23,6 +23,8 @@ import pandas as pd
 import yaml
 
 from tvi.config import Config, load_config, get_project_root
+from tvi.distributions import DistributionSampler
+from tvi.copulas import CorrelatedMetricGenerator
 
 
 class EnterpriseDataGenerator:
@@ -40,6 +42,16 @@ class EnterpriseDataGenerator:
         self.months = [f"{self.year}-{m:02d}" for m in range(1, self.config.data.months + 1)]
         self.scenarios = self.load_scenario_config(scenario_config)
 
+        # Level 4 & Level 6 statistical modeling components
+        dist_cfg = getattr(self.config.data, "distributions", {})
+        corr_cfg = getattr(self.config.data, "correlations", {})
+        self.sampler = DistributionSampler(rng=self.rng, dist_config=dist_cfg) if dist_cfg else None
+        self.copula_gen = (
+            CorrelatedMetricGenerator(rng=self.rng, correlation_config=corr_cfg, sampler=self.sampler)
+            if corr_cfg and self.sampler
+            else None
+        )
+
     def load_scenario_config(
         self, scenario_config: str | Path | Dict[str, Any] | None = None
     ) -> Dict[str, Any]:
@@ -55,16 +67,33 @@ class EnterpriseDataGenerator:
                 loaded = yaml.safe_load(f) or {}
                 return loaded.get("scenarios", loaded)
 
-        # Fallback in-memory defaults matching baseline
+        # Fallback in-memory defaults matching all 25 scenarios (Basic to Advanced)
         return {
-            "scenario_a": {"app_id": "APP001", "annual_license_target": 28000000.0, "active_users": 8500, "transactions_base": 6500000},
-            "scenario_b": {"app_id": "APP021", "annual_license_target": 18000000.0, "active_users": 140, "transactions_base": 45000},
-            "scenario_c": {"capability_id": "CAP003", "primary_app": "APP005", "secondary_app": "APP012"},
-            "scenario_d": {"app_id": "APP010"},
-            "scenario_e": {"project_id": "PRJ003", "budget_amount": 120000000.0, "actual_spend": 115000000.0, "expected_benefit": 192000000.0},
-            "scenario_f": {"project_id": "PRJ014", "budget_amount": 250000000.0, "actual_spend": 290000000.0, "expected_benefit": 300000000.0},
-            "scenario_g": {"app_id": "APP014", "surge_start_month": 8, "cost_multiplier": 2.71, "txn_multiplier": 2.80},
-            "scenario_h": {"app_id": "APP022", "surge_start_month": 8, "cost_add_fixed": 3800000.0, "txn_multiplier": 1.0},
+            "scenario_a": {"app_id": "APP001", "annual_license_target": 28000000.0, "active_users": 8500, "transactions_base": 6500000, "tier": "basic"},
+            "scenario_b": {"app_id": "APP021", "annual_license_target": 18000000.0, "active_users": 140, "transactions_base": 45000, "tier": "basic"},
+            "scenario_c": {"capability_id": "CAP003", "primary_app": "APP005", "secondary_app": "APP012", "tier": "basic"},
+            "scenario_d": {"app_id": "APP010", "tier": "basic"},
+            "scenario_e": {"project_id": "PRJ003", "budget_amount": 120000000.0, "actual_spend": 115000000.0, "expected_benefit": 192000000.0, "tier": "basic"},
+            "scenario_f": {"project_id": "PRJ014", "budget_amount": 250000000.0, "actual_spend": 290000000.0, "expected_benefit": 300000000.0, "tier": "basic"},
+            "scenario_g": {"app_id": "APP014", "surge_start_month": 8, "cost_multiplier": 2.71, "txn_multiplier": 2.80, "tier": "basic"},
+            "scenario_h": {"app_id": "APP022", "surge_start_month": 8, "cost_add_fixed": 3800000.0, "txn_multiplier": 1.0, "tier": "basic"},
+            "scenario_i": {"vendor_id": "VEN001", "name": "TechNova Cloud Concentration", "tier": "intermediate"},
+            "scenario_j": {"app_id": "APP008", "licensed_seats": 5000, "active_users": 1200, "tier": "intermediate"},
+            "scenario_k": {"app_id": "APP018", "retirement_month": 5, "monthly_stranded_infra": 1500000.0, "tier": "intermediate"},
+            "scenario_l": {"app_id": "APP019", "labor_cost_ratio": 0.68, "tier": "intermediate"},
+            "scenario_m": {"service_id": "SRV005", "funding_bu": "BU006", "tier": "intermediate"},
+            "scenario_n": {"app_id": "APP002", "escalation_month": 7, "escalation_pct": 0.25, "tier": "intermediate"},
+            "scenario_o": {"app_id": "APP012", "technologies": ["TECH019", "TECH020"], "tier": "intermediate"},
+            "scenario_p": {"app_aws": "APP003", "app_azure": "APP023", "tier": "intermediate"},
+            "scenario_q": {"app_id": "APP036", "vendor_id": "VEN008", "breach_months": [4, 5, 6], "tier": "intermediate"},
+            "scenario_r": {"app_id": "APP029", "direct_callers": 6, "transitive_callers": 14, "tier": "advanced"},
+            "scenario_s": {"app_id": "APP013", "annual_emissions_kg_co2e": 42000.0, "tier": "advanced"},
+            "scenario_t": {"app_id": "APP039", "peak_concurrency": 450, "throttle_events": 185, "tier": "advanced"},
+            "scenario_u": {"app_id": "APP012", "penalty_rate": 0.50, "contract_months_remaining": 6, "tier": "advanced"},
+            "scenario_v": {"project_id": "PRJ001", "year1_net_benefit": -15000000.0, "tier": "advanced"},
+            "scenario_w": {"source_app": "APP025", "target_app": "APP004", "tier": "advanced"},
+            "scenario_x": {"candidate_apps": ["APP021", "APP035", "APP046"], "tier": "advanced"},
+            "scenario_y": {"run_reallocation_pct": 0.15, "reallocated_capital_cr": 18.4, "tier": "advanced"},
         }
 
     def generate_all(self, output_dir: str | Path | None = None) -> Dict[str, pd.DataFrame]:
@@ -445,30 +474,42 @@ class EnterpriseDataGenerator:
     def generate_app_technology_relations(
         self, app_df: pd.DataFrame, tech_df: pd.DataFrame
     ) -> pd.DataFrame:
-        """Map applications to underlying technologies."""
+        """Map applications to underlying technologies across full enterprise stack."""
         records = []
         tech_ids = tech_df["technology_id"].tolist()
         for app_id in app_df["application_id"]:
-            # Pick 2-4 technologies deterministically per app
+            # Pick 5-7 technologies deterministically per app (stack: runtime, DB, OS, container, gateway, monitoring)
             app_num = int(app_id.replace("APP", ""))
-            count = 2 + (app_num % 3)
-            # Pick deterministically using modulo stride
+            count = 5 + (app_num % 3)
             chosen_indices = [(app_num * 7 + i * 5) % len(tech_ids) for i in range(count)]
             for idx in set(chosen_indices):
                 records.append({
                     "application_id": app_id,
                     "technology_id": tech_ids[idx],
                 })
-        return pd.DataFrame(records)
+
+        # Explicit Scenario O: APP012 runs on deprecated WebSphere and legacy Solaris
+        records.append({"application_id": "APP012", "technology_id": "TECH019"})
+        records.append({"application_id": "APP012", "technology_id": "TECH020"})
+
+        # Explicit Scenario I: TechNova supplier concentration (TECH001, TECH009, TECH011, TECH026, TECH034)
+        for t_id in ["TECH001", "TECH009", "TECH011", "TECH026", "TECH034"]:
+            if t_id in tech_ids:
+                records.append({"application_id": "APP001", "technology_id": t_id})
+                records.append({"application_id": "APP004", "technology_id": t_id})
+                records.append({"application_id": "APP014", "technology_id": t_id})
+                records.append({"application_id": "APP029", "technology_id": t_id})
+
+        return pd.DataFrame(records).drop_duplicates(subset=["application_id", "technology_id"])
 
     def generate_app_capability_relations(
         self, app_df: pd.DataFrame, cap_df: pd.DataFrame
     ) -> pd.DataFrame:
-        """Map applications to capabilities, explicitly modeling Scenario C overlap."""
+        """Map applications to capabilities, explicitly modeling Scenario C overlap and realistic mappings."""
         records = []
         cap_ids = cap_df["capability_id"].tolist()
 
-        # Deterministic primary mapping
+        # Deterministic primary, secondary, and supporting mappings (2-3 capabilities per application)
         for idx, app_id in enumerate(app_df["application_id"]):
             cap_idx = idx % len(cap_ids)
             records.append({
@@ -476,13 +517,18 @@ class EnterpriseDataGenerator:
                 "capability_id": cap_ids[cap_idx],
                 "support_type": "Primary",
             })
-            # Secondary capability mapping for some apps
-            if idx % 3 == 0:
-                sec_idx = (idx + 4) % len(cap_ids)
+            sec_idx = (idx * 3 + 4) % len(cap_ids)
+            records.append({
+                "application_id": app_id,
+                "capability_id": cap_ids[sec_idx],
+                "support_type": "Secondary",
+            })
+            if idx % 2 == 0:
+                sup_idx = (idx * 7 + 9) % len(cap_ids)
                 records.append({
                     "application_id": app_id,
-                    "capability_id": cap_ids[sec_idx],
-                    "support_type": "Secondary",
+                    "capability_id": cap_ids[sup_idx],
+                    "support_type": "Supporting",
                 })
 
         # Explicit Scenario C: Duplicate capability overlap
@@ -496,29 +542,33 @@ class EnterpriseDataGenerator:
 
         # Scenario B: APP021 supports CAP001 & CAP008 but overlaps with APP002 & APP011
         records.append({"application_id": "APP021", "capability_id": "CAP001", "support_type": "Overlapping"})
+        records.append({"application_id": "APP021", "capability_id": "CAP008", "support_type": "Overlapping"})
 
         df = pd.DataFrame(records).drop_duplicates(subset=["application_id", "capability_id"])
         return df
 
     def generate_app_dependencies(self, app_df: pd.DataFrame) -> pd.DataFrame:
-        """Generate app-to-app dependencies with Scenario D single bottleneck."""
+        """Generate app-to-app dependencies with explicit scenarios and realistic microservice topology."""
         records = []
         apps = app_df["application_id"].tolist()
 
-        # Regular dependencies: 20-30 dependency edges
-        for i in range(len(apps) - 1):
-            if i % 2 == 0 and (i + 3) < len(apps):
-                records.append({
-                    "source_app_id": apps[i + 3],
-                    "target_app_id": apps[i],
-                    "dependency_type": "Synchronous API",
-                    "criticality": "High",
-                })
+        # Dense realistic microservice dependencies (100+ edges)
+        for i, src_app in enumerate(apps):
+            t1 = apps[(i * 3 + 1) % len(apps)]
+            t2 = apps[(i * 5 + 7) % len(apps)]
+            for tgt_app in [t1, t2]:
+                if src_app != tgt_app and tgt_app != "APP010":  # Avoid self-loops and protect APP010 top hub status
+                    records.append({
+                        "source_app_id": src_app,
+                        "target_app_id": tgt_app,
+                        "dependency_type": "Synchronous API" if i % 2 == 0 else "Asynchronous Event",
+                        "criticality": "High" if i % 3 == 0 else "Medium",
+                    })
 
-        # Scenario D: APP010 is a critical central identity/auth bottleneck
-        # 8 applications directly depend on APP010
-        dependent_apps = ["APP001", "APP002", "APP004", "APP005", "APP011", "APP013", "APP014", "APP023"]
-        for dep_app in dependent_apps:
+        # Scenario D: APP010 is the critical central identity/auth bottleneck (highest in-degree in graph)
+        # 10 critical systems directly call APP010
+        app010_callers = ["APP001", "APP002", "APP004", "APP005", "APP006", "APP007", "APP011", "APP013", "APP014", "APP023"]
+        for dep_app in app010_callers:
             if dep_app in apps and dep_app != "APP010":
                 records.append({
                     "source_app_id": dep_app,
@@ -527,26 +577,49 @@ class EnterpriseDataGenerator:
                     "criticality": "Mission Critical",
                 })
 
+        # Scenario R: APP029 (API Mesh Fabric) - middle tier failure cascades transitively across 14 services
+        mesh_callers = ["APP001", "APP004", "APP011", "APP013", "APP014", "APP039"]
+        for dep_app in mesh_callers:
+            if dep_app in apps and dep_app != "APP029":
+                records.append({
+                    "source_app_id": dep_app,
+                    "target_app_id": "APP029",
+                    "dependency_type": "Synchronous API",
+                    "criticality": "Business Critical",
+                })
+        mesh_targets = ["APP002", "APP005", "APP007", "APP015", "APP016", "APP020", "APP024", "APP030"]
+        for tgt in mesh_targets:
+            if tgt in apps and tgt != "APP029":
+                records.append({
+                    "source_app_id": "APP029",
+                    "target_app_id": tgt,
+                    "dependency_type": "Synchronous API",
+                    "criticality": "Business Critical",
+                })
+
+        # Scenario W: APP025 has undocumented direct database access to APP004 (PCI-DSS store violation)
+        records.append({
+            "source_app_id": "APP025",
+            "target_app_id": "APP004",
+            "dependency_type": "Direct Database",
+            "criticality": "Mission Critical",
+        })
+
         df = pd.DataFrame(records).drop_duplicates(subset=["source_app_id", "target_app_id"])
         return df
 
     def generate_project_capability_relations(
         self, prj_df: pd.DataFrame, cap_df: pd.DataFrame
     ) -> pd.DataFrame:
-        """Map projects to targeted capabilities."""
+        """Map projects to targeted capabilities across transformation portfolio."""
         records = []
         cap_ids = cap_df["capability_id"].tolist()
         for idx, prj_id in enumerate(prj_df["project_id"]):
-            cap_idx = (idx * 2) % len(cap_ids)
-            records.append({
-                "project_id": prj_id,
-                "capability_id": cap_ids[cap_idx],
-            })
-            if idx % 2 == 1:
-                cap_idx2 = (idx * 2 + 1) % len(cap_ids)
+            for step in [0, 1, 2]:
+                cap_idx = (idx * 3 + step * 2) % len(cap_ids)
                 records.append({
                     "project_id": prj_id,
-                    "capability_id": cap_ids[cap_idx2],
+                    "capability_id": cap_ids[cap_idx],
                 })
         return pd.DataFrame(records).drop_duplicates()
 
@@ -557,24 +630,30 @@ class EnterpriseDataGenerator:
         records = []
         apps = app_df["application_id"].tolist()
         for idx, prj_id in enumerate(prj_df["project_id"]):
-            app_idx = (idx * 3) % len(apps)
+            a1 = apps[(idx * 3) % len(apps)]
+            a2 = apps[(idx * 3 + 1) % len(apps)]
             records.append({
-                "application_id": apps[app_idx],
+                "application_id": a1,
                 "project_id": prj_id,
                 "relationship_type": "Funded/Modernized",
+            })
+            records.append({
+                "application_id": a2,
+                "project_id": prj_id,
+                "relationship_type": "Impacted",
             })
         return pd.DataFrame(records).drop_duplicates()
 
     def generate_benefits(self, prj_df: pd.DataFrame) -> pd.DataFrame:
-        """Generate benefit realization records including Scenario E and F."""
+        """Generate benefit realization records including Scenarios E, F, and V."""
         benefit_types = [
             "Cost Reduction",
-            "Productivity",
             "Revenue Enablement",
             "Risk Reduction",
             "Cycle Time Reduction",
             "Capacity Release",
             "Customer Experience",
+            "Productivity",
         ]
         records = []
         b_idx = 1
@@ -583,7 +662,7 @@ class EnterpriseDataGenerator:
             prj_id = prj["project_id"]
             expected_total = float(prj["expected_annual_benefit"])
 
-            # Determine realized ratio based on scenario or general seed
+            # Determine realized ratio based on scenario or distribution
             if prj_id == "PRJ003":
                 # Scenario E: High realization (>100%)
                 ratio = 1.08
@@ -592,45 +671,39 @@ class EnterpriseDataGenerator:
                 # Scenario F: Benefit gap (<25%)
                 ratio = 0.233
                 status = "Unrealized"
+            elif prj_id == "PRJ001":
+                # Scenario V: Benefit lag / J-Curve in Year 1
+                ratio = 0.55
+                status = "Partially Realized"
             elif prj["status"] == "Completed":
-                ratio = self.rng.uniform(0.75, 1.05)
+                if self.sampler and self.sampler.has_distribution("benefit_realization_completed"):
+                    ratio = self.sampler.sample_one("benefit_realization_completed")
+                else:
+                    ratio = self.rng.uniform(0.75, 1.05)
                 status = "Realized" if ratio >= 0.90 else "Partially Realized"
             else:
-                ratio = self.rng.uniform(0.20, 0.60)
+                if self.sampler and self.sampler.has_distribution("benefit_realization_in_progress"):
+                    ratio = self.sampler.sample_one("benefit_realization_in_progress")
+                else:
+                    ratio = self.rng.uniform(0.20, 0.60)
                 status = "In Progress"
 
             realized_total = round(expected_total * ratio, 2)
 
-            # Generate 2 benefit lines per project
-            b_type1 = benefit_types[(b_idx) % len(benefit_types)]
-            b_type2 = benefit_types[(b_idx + 2) % len(benefit_types)]
-
-            exp_1 = round(expected_total * 0.60, 2)
-            exp_2 = round(expected_total * 0.40, 2)
-            rel_1 = round(realized_total * 0.60, 2)
-            rel_2 = round(realized_total * 0.40, 2)
-
-            records.append({
-                "benefit_id": f"BEN{b_idx:03d}",
-                "project_id": prj_id,
-                "benefit_type": b_type1,
-                "expected_value": exp_1,
-                "realized_value": rel_1,
-                "measurement_period": f"FY{self.year}-Annual",
-                "benefit_status": status,
-            })
-            b_idx += 1
-
-            records.append({
-                "benefit_id": f"BEN{b_idx:03d}",
-                "project_id": prj_id,
-                "benefit_type": b_type2,
-                "expected_value": exp_2,
-                "realized_value": rel_2,
-                "measurement_period": f"FY{self.year}-Annual",
-                "benefit_status": status,
-            })
-            b_idx += 1
+            # Generate 4 distinct benefit streams per project (Total = 160 rows)
+            weights = [0.35, 0.25, 0.20, 0.20]
+            for s_idx, w in enumerate(weights):
+                b_type = benefit_types[(b_idx + s_idx) % len(benefit_types)]
+                records.append({
+                    "benefit_id": f"BEN{b_idx:04d}",
+                    "project_id": prj_id,
+                    "benefit_type": b_type,
+                    "expected_value": round(expected_total * w, 2),
+                    "realized_value": round(realized_total * w, 2),
+                    "measurement_period": f"FY{self.year}-Annual",
+                    "benefit_status": status,
+                })
+                b_idx += 1
 
         return pd.DataFrame(records)
 
@@ -690,29 +763,7 @@ class EnterpriseDataGenerator:
         prj_df: pd.DataFrame,
         rel_app_cap: pd.DataFrame,
     ) -> pd.DataFrame:
-        """Generate monthly cost ledger records embedding explicit scenarios."""
-        cost_pools = [
-            "Internal Labor",
-            "External Labor",
-            "Software",
-            "Hardware",
-            "Telecom",
-            "Outside Services",
-            "Facilities",
-        ]
-        cost_categories = [
-            "People",
-            "Software",
-            "Hardware",
-            "Cloud",
-            "Infrastructure",
-            "Network",
-            "External Services",
-            "Security",
-            "Data",
-            "Support",
-        ]
-
+        """Generate monthly cost ledger records embedding all 25 scenarios at realistic enterprise volume."""
         records = []
         cost_id_counter = 1
 
@@ -723,48 +774,102 @@ class EnterpriseDataGenerator:
         projects = prj_df["project_id"].tolist()
 
         for month_idx, month in enumerate(self.months, start=1):
-            # 1. Direct Application Monthly Costs
+            # ------------------------------------------------------------------
+            # 1. Direct Application Monthly Line Items (6 distinct cost lines per app)
+            # ------------------------------------------------------------------
             for app in apps:
                 app_id = app["application_id"]
                 srv_id = app["service_id"]
                 license_annual = app["annual_license_cost"]
                 base_monthly = license_annual / 12.0
+                app_num = int(app_id.replace("APP", ""))
+                bu_id = b_units[app_num % len(b_units)]
+                ven_id = vendors[app_num % len(vendors)]
 
                 # Scenario A: APP001 is expensive & highly utilized
                 if app_id == "APP001":
-                    base_monthly = 12500000.0  # ₹1.25 Cr / mo
+                    effective_monthly = 12500000.0  # ₹1.25 Cr / mo
 
                 # Scenario B: APP021 is expensive & underutilized
                 elif app_id == "APP021":
-                    base_monthly = 7000000.0  # ₹70 Lakh / mo
+                    effective_monthly = 7000000.0  # ₹70 Lakh / mo
 
                 # Scenario G: APP014 cost surges in August onwards driven by cloud usage
                 elif app_id == "APP014":
                     if month_idx < 8:
-                        base_monthly = 3500000.0
+                        effective_monthly = 3500000.0
                     else:
-                        base_monthly = 9500000.0 + (month_idx - 8) * 800000.0
+                        effective_monthly = 9500000.0 + (month_idx - 8) * 800000.0
 
                 # Scenario H: APP022 cost surges in August onwards WITHOUT consumption growth
                 elif app_id == "APP022":
                     if month_idx < 8:
-                        base_monthly = 2000000.0
+                        effective_monthly = 2000000.0
                     else:
-                        base_monthly = 5800000.0  # sudden +₹38 Lakh jump
+                        effective_monthly = 5800000.0  # sudden +₹38 Lakh jump
 
-                # Primary application costs across categories
-                # Software / License
-                app_num = int(app_id.replace("APP", ""))
-                ven_id = vendors[app_num % len(vendors)]
-                bu_id = b_units[app_num % len(b_units)]
+                # Scenario N: APP002 contractual price escalation renewal shock in Month 7 (+25%)
+                elif app_id == "APP002":
+                    if month_idx < 7:
+                        effective_monthly = base_monthly
+                    else:
+                        effective_monthly = round(base_monthly * 1.25, 2)
 
+                # Scenario K: APP018 retired in Q2 (Month 5 onwards direct software cost ceases)
+                elif app_id == "APP018":
+                    if month_idx < 5:
+                        effective_monthly = base_monthly
+                    else:
+                        effective_monthly = round(base_monthly * 0.10, 2)  # residual administration
+
+                # Standard applications with statistical jitter
+                else:
+                    if self.sampler and self.sampler.has_distribution("monthly_cost_jitter"):
+                        jitter = self.sampler.sample_one("monthly_cost_jitter")
+                        effective_monthly = base_monthly * jitter
+                    else:
+                        effective_monthly = base_monthly
+
+                # Proportional cost pool splits
+                # Scenario L: APP019 has high maintenance contractor labor drag (>65% labor)
+                if app_id == "APP019":
+                    sw_ratio = 0.18
+                    int_labor_ratio = 0.38
+                    ext_labor_ratio = 0.30
+                    cloud_comp_ratio = 0.08
+                    infra_ratio = 0.06
+                elif self.sampler and self.sampler.has_distribution("cost_pool_split") and app_id not in {"APP001", "APP021", "APP014", "APP022"}:
+                    splits = self.sampler.sample_dirichlet("cost_pool_split")
+                    s_r, l_r, o_r = float(splits[0]), float(splits[1]), float(splits[2])
+                    sw_ratio = s_r
+                    int_labor_ratio = round(l_r * 0.60, 4)
+                    ext_labor_ratio = round(l_r * 0.40, 4)
+                    cloud_comp_ratio = round(o_r * 0.55, 4)
+                    infra_ratio = round(o_r * 0.45, 4)
+                else:
+                    sw_ratio = 0.42
+                    int_labor_ratio = 0.20
+                    ext_labor_ratio = 0.12
+                    cloud_comp_ratio = 0.15
+                    infra_ratio = 0.11
+
+                # Compute line items ensuring exact penny conservation
+                amt_sw = round(effective_monthly * sw_ratio, 2)
+                amt_int_lab = round(effective_monthly * int_labor_ratio, 2)
+                amt_ext_lab = round(effective_monthly * ext_labor_ratio, 2)
+                amt_cloud = round(effective_monthly * cloud_comp_ratio, 2)
+                amt_infra = round(effective_monthly - (amt_sw + amt_int_lab + amt_ext_lab + amt_cloud), 2)
+                if amt_infra < 0:
+                    amt_infra = round(effective_monthly * 0.05, 2)
+
+                # Line 1: Software License
                 records.append({
-                    "cost_id": f"CST{cost_id_counter:05d}",
+                    "cost_id": f"CST{cost_id_counter:06d}",
                     "month": month,
                     "cost_center": f"CC{100 + (app_num % 10)}",
                     "cost_pool": "Software",
                     "cost_category": "Software",
-                    "amount": round(base_monthly * 0.45, 2),
+                    "amount": amt_sw,
                     "application_id": app_id,
                     "service_id": srv_id,
                     "business_unit_id": bu_id,
@@ -773,14 +878,14 @@ class EnterpriseDataGenerator:
                 })
                 cost_id_counter += 1
 
-                # People / Support
+                # Line 2: Internal Engineering Labor
                 records.append({
-                    "cost_id": f"CST{cost_id_counter:05d}",
+                    "cost_id": f"CST{cost_id_counter:06d}",
                     "month": month,
                     "cost_center": f"CC{100 + (app_num % 10)}",
                     "cost_pool": "Internal Labor",
                     "cost_category": "People",
-                    "amount": round(base_monthly * 0.30, 2),
+                    "amount": amt_int_lab,
                     "application_id": app_id,
                     "service_id": srv_id,
                     "business_unit_id": bu_id,
@@ -789,15 +894,14 @@ class EnterpriseDataGenerator:
                 })
                 cost_id_counter += 1
 
-                # Cloud / Infrastructure
-                cat = "Cloud" if app["application_type"] in ["Custom Built", "Hybrid"] else "Infrastructure"
+                # Line 3: External Professional Services & Integration
                 records.append({
-                    "cost_id": f"CST{cost_id_counter:05d}",
+                    "cost_id": f"CST{cost_id_counter:06d}",
                     "month": month,
                     "cost_center": f"CC{100 + (app_num % 10)}",
-                    "cost_pool": "Outside Services",
-                    "cost_category": cat,
-                    "amount": round(base_monthly * 0.25, 2),
+                    "cost_pool": "External Labor",
+                    "cost_category": "People",
+                    "amount": amt_ext_lab,
                     "application_id": app_id,
                     "service_id": srv_id,
                     "business_unit_id": bu_id,
@@ -806,19 +910,194 @@ class EnterpriseDataGenerator:
                 })
                 cost_id_counter += 1
 
-            # 2. Shared IT Service & Infrastructure Costs (Non-app specific)
-            for s_idx, srv_id in enumerate(services):
+                # Line 4: Cloud Compute & Hosting
                 records.append({
-                    "cost_id": f"CST{cost_id_counter:05d}",
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{100 + (app_num % 10)}",
+                    "cost_pool": "Outside Services",
+                    "cost_category": "Cloud",
+                    "amount": amt_cloud,
+                    "application_id": app_id,
+                    "service_id": srv_id,
+                    "business_unit_id": bu_id,
+                    "vendor_id": ven_id,
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+                # Line 5: Dedicated Infrastructure & Datacenter
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{100 + (app_num % 10)}",
+                    "cost_pool": "Hardware",
+                    "cost_category": "Infrastructure",
+                    "amount": amt_infra,
+                    "application_id": app_id,
+                    "service_id": srv_id,
+                    "business_unit_id": bu_id,
+                    "vendor_id": ven_id,
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+            # ------------------------------------------------------------------
+            # 2. Shared IT Service & Infrastructure Costs (Non-app specific, 4 lines per service)
+            # ------------------------------------------------------------------
+            for s_idx, srv_id in enumerate(services):
+                base_shared = 1500000.0 + (s_idx * 120000.0)
+                if self.sampler and self.sampler.has_distribution("shared_infra_cost"):
+                    shared_amount = self.sampler.sample_one(
+                        "shared_infra_cost",
+                        mu=base_shared,
+                        sigma=base_shared * 0.03,
+                        min_clip=base_shared * 0.90,
+                        max_clip=base_shared * 1.10,
+                    )
+                else:
+                    shared_amount = base_shared
+
+                # Line A: Enterprise Cloud Managed Services
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
                     "month": month,
                     "cost_center": f"CC{200 + s_idx}",
                     "cost_pool": "Outside Services",
+                    "cost_category": "Cloud",
+                    "amount": round(shared_amount * 0.40, 2),
+                    "application_id": None,
+                    "service_id": srv_id,
+                    "business_unit_id": "BU006",  # Scenario M: Shared Services absorbs platform costs
+                    "vendor_id": vendors[s_idx % len(vendors)],
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+                # Line B: Core Datacenter & Hardware Capacity
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{200 + s_idx}",
+                    "cost_pool": "Hardware",
                     "cost_category": "Infrastructure",
-                    "amount": round(1500000.0 + (s_idx * 120000.0), 2),
+                    "amount": round(shared_amount * 0.35, 2),
                     "application_id": None,
                     "service_id": srv_id,
                     "business_unit_id": "BU006",
-                    "vendor_id": vendors[s_idx % len(vendors)],
+                    "vendor_id": vendors[(s_idx + 1) % len(vendors)],
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+                # Line C: Shared Platform Engineering & SRE Operations
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{200 + s_idx}",
+                    "cost_pool": "Internal Labor",
+                    "cost_category": "People",
+                    "amount": round(shared_amount * 0.15, 2),
+                    "application_id": None,
+                    "service_id": srv_id,
+                    "business_unit_id": "BU006",
+                    "vendor_id": None,
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+                # Line D: Global Telecom & Connectivity
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{200 + s_idx}",
+                    "cost_pool": "Telecom",
+                    "cost_category": "Infrastructure",
+                    "amount": round(shared_amount * 0.10, 2),
+                    "application_id": None,
+                    "service_id": srv_id,
+                    "business_unit_id": "BU006",
+                    "vendor_id": vendors[(s_idx + 2) % len(vendors)],
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+            # Scenario K: Stranded Fixed Overhead for APP018 post-retirement (Months 5-12)
+            if month_idx >= 5:
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": "CC208",
+                    "cost_pool": "Hardware",
+                    "cost_category": "Infrastructure",
+                    "amount": 1500000.0,
+                    "application_id": None,
+                    "service_id": "SRV001",
+                    "business_unit_id": "BU006",
+                    "vendor_id": "VEN005",
+                    "project_id": None,
+                })
+                cost_id_counter += 1
+
+            # ------------------------------------------------------------------
+            # 3. Project Transformation Ledger Lines (Capex & Engineering Opex)
+            # ------------------------------------------------------------------
+            for p_idx, prj_id in enumerate(projects):
+                p_budget = 4500000.0 + (p_idx * 150000.0)
+                # Line A: Software Capitalization
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{100 + (p_idx % 10)}",
+                    "cost_pool": "Software",
+                    "cost_category": "Software",
+                    "amount": round(p_budget * 0.60, 2),
+                    "application_id": None,
+                    "service_id": services[p_idx % len(services)],
+                    "business_unit_id": b_units[p_idx % len(b_units)],
+                    "vendor_id": vendors[p_idx % len(vendors)],
+                    "project_id": prj_id,
+                })
+                cost_id_counter += 1
+
+                # Line B: Implementation Engineering Labor
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{100 + (p_idx % 10)}",
+                    "cost_pool": "Internal Labor",
+                    "cost_category": "People",
+                    "amount": round(p_budget * 0.40, 2),
+                    "application_id": None,
+                    "service_id": services[p_idx % len(services)],
+                    "business_unit_id": b_units[p_idx % len(b_units)],
+                    "vendor_id": None,
+                    "project_id": prj_id,
+                })
+                cost_id_counter += 1
+
+            # ------------------------------------------------------------------
+            # 4. Recurring Vendor Enterprise Maintenance Contracts
+            # ------------------------------------------------------------------
+            for v_idx, ven_id in enumerate(vendors):
+                base_contract_fee = 1800000.0 + (v_idx * 100000.0)
+                # Scenario Q: ATM Controller vendor SLA penalty rebate credit in Months 4, 5, 6
+                if ven_id == "VEN008" and month_idx in [4, 5, 6]:
+                    actual_fee = max(250000.0, round(base_contract_fee - 2500000.0, 2))
+                else:
+                    actual_fee = base_contract_fee
+
+                records.append({
+                    "cost_id": f"CST{cost_id_counter:06d}",
+                    "month": month,
+                    "cost_center": f"CC{200 + (v_idx % 10)}",
+                    "cost_pool": "Outside Services",
+                    "cost_category": "Support",
+                    "amount": round(actual_fee, 2),
+                    "application_id": None,
+                    "service_id": services[v_idx % len(services)],
+                    "business_unit_id": "BU006",
+                    "vendor_id": ven_id,
                     "project_id": None,
                 })
                 cost_id_counter += 1
@@ -828,80 +1107,134 @@ class EnterpriseDataGenerator:
     def generate_consumption_records(
         self, app_df: pd.DataFrame, bu_df: pd.DataFrame
     ) -> pd.DataFrame:
-        """Generate monthly consumption records embedding explicit scenarios."""
+        """Generate monthly consumption records embedding explicit scenarios across operational channels."""
         records = []
         c_id_counter = 1
         apps = app_df["application_id"].tolist()
         b_units = bu_df["business_unit_id"].tolist()
 
+        # Operational channel workload splits (4 consuming channels per application)
+        channels = [
+            ("Online Web Channels", 0.40),
+            ("Mobile Services", 0.30),
+            ("Core Integration APIs", 0.18),
+            ("Batch Clearing & Ops", 0.12),
+        ]
+
+        # Precompute total standard records needed for Level 6 Copula generation
+        scenario_apps = {"APP001", "APP021", "APP014", "APP022"}
+        standard_apps = [a for a in apps if a not in scenario_apps]
+        total_std_records = len(standard_apps) * len(self.months) * len(channels)
+
+        if self.copula_gen and total_std_records > 0:
+            copula_data = self.copula_gen.sample_correlated(total_std_records)
+            copula_idx = 0
+        else:
+            copula_data = None
+            copula_idx = 0
+
         for month_idx, month in enumerate(self.months, start=1):
             for app_id in apps:
                 app_num = int(app_id.replace("APP", ""))
 
-                # Assign 1 to 2 consuming BUs
-                consuming_bus = [b_units[app_num % len(b_units)]]
-                if app_num % 3 == 0:
-                    consuming_bus.append(b_units[(app_num + 2) % len(b_units)])
+                for ch_idx, (ch_name, ch_share) in enumerate(channels):
+                    bu_id = b_units[(app_num + ch_idx * 2) % len(b_units)]
 
-                for bu_id in consuming_bus:
-                    # Scenario A: APP001 - Very high users and transactions
+                    # Scenario A: APP001 - Very high users and transactions (monthly total: ~8,500 users, 6.5M txns)
                     if app_id == "APP001":
-                        users = 8500 + int(self.rng.normal(200, 50))
-                        txns = 6500000 + int(self.rng.normal(200000, 30000))
-                        api_calls = 25000000 + int(self.rng.normal(1000000, 100000))
-                        compute = 4200.0 + self.rng.normal(100, 20)
-                        storage = 8500.0
-                        tickets = 45
+                        tot_users = 8500 + int(self.rng.normal(200, 50))
+                        tot_txns = 6500000 + int(self.rng.normal(200000, 30000))
+                        tot_api = 25000000 + int(self.rng.normal(1000000, 100000))
+                        tot_compute = 4200.0 + float(self.rng.normal(100, 20))
+                        tot_storage = 8500.0
+                        tot_tickets = 45
 
-                    # Scenario B: APP021 - High cost, LOW users and transactions
+                        users = max(100, int(tot_users * ch_share))
+                        txns = max(10000, int(tot_txns * ch_share))
+                        api_calls = max(50000, int(tot_api * ch_share))
+                        compute = round(tot_compute * ch_share, 1)
+                        storage = round(tot_storage * ch_share, 1)
+                        tickets = max(1, int(tot_tickets * ch_share))
+
+                    # Scenario B: APP021 - High cost, LOW users and transactions (monthly total: ~145 users, 12k txns)
                     elif app_id == "APP021":
-                        users = 145 + int(self.rng.normal(10, 3))
-                        txns = 12000 + int(self.rng.normal(1000, 200))
-                        api_calls = 45000 + int(self.rng.normal(3000, 500))
-                        compute = 650.0
-                        storage = 1200.0
-                        tickets = 68
+                        tot_users = 145 + int(self.rng.normal(10, 3))
+                        tot_txns = 12000 + int(self.rng.normal(1000, 200))
+                        tot_api = 45000 + int(self.rng.normal(3000, 500))
+                        tot_compute = 650.0
+                        tot_storage = 1200.0
+                        tot_tickets = 68
+
+                        users = max(5, int(tot_users * ch_share))
+                        txns = max(500, int(tot_txns * ch_share))
+                        api_calls = max(1000, int(tot_api * ch_share))
+                        compute = round(tot_compute * ch_share, 1)
+                        storage = round(tot_storage * ch_share, 1)
+                        tickets = max(1, int(tot_tickets * ch_share))
 
                     # Scenario G: APP014 - Consumption surges in August onwards
                     elif app_id == "APP014":
                         multiplier = 1.0 if month_idx < 8 else (1.0 + (month_idx - 7) * 0.45)
-                        users = int((3200 + self.rng.normal(100, 20)) * multiplier)
-                        txns = int((1800000 + self.rng.normal(50000, 10000)) * multiplier)
-                        api_calls = int((8500000 + self.rng.normal(200000, 30000)) * multiplier)
-                        compute = round((1800.0 + self.rng.normal(50, 10)) * multiplier, 1)
-                        storage = round(2400.0 * multiplier, 1)
-                        tickets = int(35 * multiplier)
+                        tot_users = int((3200 + self.rng.normal(100, 20)) * multiplier)
+                        tot_txns = int((1800000 + self.rng.normal(50000, 10000)) * multiplier)
+                        tot_api = int((8500000 + self.rng.normal(200000, 30000)) * multiplier)
+                        tot_compute = round((1800.0 + float(self.rng.normal(50, 10))) * multiplier, 1)
+                        tot_storage = round(2400.0 * multiplier, 1)
+                        tot_tickets = int(35 * multiplier)
+
+                        users = max(50, int(tot_users * ch_share))
+                        txns = max(5000, int(tot_txns * ch_share))
+                        api_calls = max(20000, int(tot_api * ch_share))
+                        compute = round(tot_compute * ch_share, 1)
+                        storage = round(tot_storage * ch_share, 1)
+                        tickets = max(1, int(tot_tickets * ch_share))
 
                     # Scenario H: APP022 - Consumption remains flat despite cost jump
                     elif app_id == "APP022":
-                        users = 520 + int(self.rng.normal(15, 5))
-                        txns = 420000 + int(self.rng.normal(8000, 1000))
-                        api_calls = 950000 + int(self.rng.normal(20000, 3000))
-                        compute = 980.0
-                        storage = 3100.0
-                        tickets = 28
+                        tot_users = 520 + int(self.rng.normal(15, 5))
+                        tot_txns = 420000 + int(self.rng.normal(8000, 1000))
+                        tot_api = 950000 + int(self.rng.normal(20000, 3000))
+                        tot_compute = 980.0
+                        tot_storage = 3100.0
+                        tot_tickets = 28
 
-                    # Standard application consumption
+                        users = max(20, int(tot_users * ch_share))
+                        txns = max(2000, int(tot_txns * ch_share))
+                        api_calls = max(5000, int(tot_api * ch_share))
+                        compute = round(tot_compute * ch_share, 1)
+                        storage = round(tot_storage * ch_share, 1)
+                        tickets = max(1, int(tot_tickets * ch_share))
+
+                    # Standard application consumption (Level 6 Copula or parametric fallback)
                     else:
-                        base_u = 400 + (app_num * 65) % 2500
-                        users = max(20, int(base_u + self.rng.normal(0, 20)))
-                        txns = max(1000, int(users * (150 + (app_num * 17) % 300)))
-                        api_calls = int(txns * (2.5 + (app_num % 5)))
-                        compute = round(150.0 + (app_num * 45) % 1200, 1)
-                        storage = round(200.0 + (app_num * 80) % 3000, 1)
-                        tickets = max(2, int(users * 0.015))
+                        if copula_data is not None and copula_idx < total_std_records:
+                            users = int(copula_data["active_users"][copula_idx])
+                            txns = int(copula_data["transactions"][copula_idx])
+                            api_calls = int(copula_data["api_calls"][copula_idx])
+                            compute = float(copula_data["compute_hours"][copula_idx])
+                            storage = float(copula_data["storage_gb"][copula_idx])
+                            tickets = int(copula_data["tickets"][copula_idx])
+                            copula_idx += 1
+                        else:
+                            base_u = 400 + (app_num * 65) % 2500
+                            users = max(20, int((base_u + self.rng.normal(0, 20)) * ch_share))
+                            txns = max(1000, int(users * (150 + (app_num * 17) % 300)))
+                            api_calls = int(txns * (2.5 + (app_num % 5)))
+                            compute = round((150.0 + (app_num * 45) % 1200) * ch_share, 1)
+                            storage = round((200.0 + (app_num * 80) % 3000) * ch_share, 1)
+                            tickets = max(2, int(users * 0.015))
 
                     records.append({
-                        "consumption_id": f"CON{c_id_counter:06d}",
+                        "consumption_id": f"CON{c_id_counter:07d}",
                         "month": month,
                         "application_id": app_id,
                         "business_unit_id": bu_id,
-                        "active_users": users,
-                        "transactions": txns,
-                        "api_calls": api_calls,
-                        "compute_hours": compute,
-                        "storage_gb": storage,
-                        "tickets": tickets,
+                        "active_users": max(1, users),
+                        "transactions": max(10, txns),
+                        "api_calls": max(50, api_calls),
+                        "compute_hours": max(0.1, compute),
+                        "storage_gb": max(1.0, storage),
+                        "tickets": max(1, tickets),
                     })
                     c_id_counter += 1
 
@@ -920,10 +1253,12 @@ class EnterpriseDataGenerator:
             ("AWS", "AmazonRDS", "Hrs", 42.0),
             ("AWS", "AmazonEKS", "Cluster-Hrs", 75.0),
             ("AWS", "AmazonS3", "GB-Mo", 1.8),
+            ("AWS", "AWSLambda", "Req-Millions", 12.0),
             ("Azure", "AzureAppService", "Hrs", 22.0),
             ("Azure", "AzureSQL", "DTU-Hrs", 35.0),
             ("Azure", "AzureBlobStorage", "GB-Mo", 1.6),
             ("Azure", "AzureKubernetesService", "Cluster-Hrs", 72.0),
+            ("Azure", "AzureFunctions", "Executions-Millions", 11.5),
         ]
 
         records = []
@@ -935,40 +1270,45 @@ class EnterpriseDataGenerator:
                 app_id = app["application_id"]
                 app_num = int(app_id.replace("APP", ""))
 
-                # Assign cloud provider deterministically
-                provider, product, unit, unit_rate = cloud_products[app_num % len(cloud_products)]
-                invoice_id = f"INV-{month}-{provider.upper()}"
+                # Assign 4 cloud product line items per application per month
+                for p_offset in range(4):
+                    p_idx = (app_num * 2 + p_offset) % len(cloud_products)
+                    provider, product, unit, unit_rate = cloud_products[p_idx]
+                    invoice_id = f"INV-{month}-{provider.upper()}"
 
-                # Compute usage volume
-                base_usage = 120.0 + (app_num * 18) % 500
-                if app_id == "APP014" and m_num >= 8:
-                    base_usage *= 2.65
-                elif app_id == "APP001":
-                    base_usage *= 3.5
+                    # Compute usage volume
+                    base_usage = 80.0 + (app_num * 14 + p_offset * 25) % 400
+                    if app_id == "APP014" and m_num >= 8:
+                        base_usage *= 2.65
+                    elif app_id == "APP001":
+                        base_usage *= 3.5
 
-                usage_qty = round(base_usage + float(self.rng.normal(5.0, 1.0)), 2)
-                cost_inr = round(usage_qty * unit_rate * 83.5, 2)  # Conversion to INR
+                    if self.sampler and self.sampler.has_distribution("cloud_usage"):
+                        usage_qty = round(self.sampler.sample_one("cloud_usage", shape=5.0, scale=base_usage / 5.0), 2)
+                    else:
+                        usage_qty = round(base_usage + float(self.rng.normal(5.0, 1.0)), 2)
+                    cost_inr = round(max(10.0, usage_qty * unit_rate * 83.5), 2)
 
-                resource_id = (
-                    f"arn:aws:{product.lower()}:ap-south-1:123456789012:{app_id.lower()}-res-01"
-                    if provider == "AWS"
-                    else f"/subscriptions/sub-01/resourceGroups/rg-prod/providers/Microsoft.{product}/{app_id.lower()}-res"
-                )
+                    resource_id = (
+                        f"arn:aws:{product.lower()}:ap-south-1:123456789012:{app_id.lower()}-{product.lower()}-{p_offset}"
+                        if provider == "AWS"
+                        else f"/subscriptions/sub-01/resourceGroups/rg-prod/providers/Microsoft.{product}/{app_id.lower()}-{p_offset}"
+                    )
 
-                records.append({
-                    "line_item_id": f"CUR{line_counter:07d}",
-                    "bill_invoice_id": invoice_id,
-                    "month": month,
-                    "cloud_provider": provider,
-                    "line_item_product_code": product,
-                    "pricing_unit": unit,
-                    "usage_amount": usage_qty,
-                    "line_item_unblended_cost": cost_inr,
-                    "line_item_currency_code": self.config.project.currency,
-                    "resource_id": resource_id,
-                    "application_id": app_id,
-                })
-                line_counter += 1
+                    records.append({
+                        "line_item_id": f"CUR{line_counter:07d}",
+                        "bill_invoice_id": invoice_id,
+                        "month": month,
+                        "cloud_provider": provider,
+                        "line_item_product_code": product,
+                        "pricing_unit": unit,
+                        "usage_amount": usage_qty,
+                        "line_item_unblended_cost": cost_inr,
+                        "line_item_currency_code": self.config.project.currency,
+                        "resource_id": resource_id,
+                        "application_id": app_id,
+                    })
+                    line_counter += 1
 
         return pd.DataFrame(records)
 

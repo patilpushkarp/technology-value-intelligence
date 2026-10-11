@@ -1,81 +1,161 @@
 benefit_id,project_id,benefit_type,expected_value,realized_value,measurement_period,benefit_status
-BEN001,PRJ001,Productivity,27000000.0,21932509.75,FY2024-Annual,Partially Realized
-BEN002,PRJ001,Risk Reduction,18000000.0,14621673.17,FY2024-Annual,Partially Realized
-BEN003,PRJ002,Risk Reduction,22800000.0,18831782.71,FY2024-Annual,Partially Realized
-BEN004,PRJ002,Capacity Release,15200000.0,12554521.8,FY2024-Annual,Partially Realized
-BEN005,PRJ003,Capacity Release,115200000.0,124416000.0,FY2024-Annual,Exceeded
-BEN006,PRJ003,Cost Reduction,76800000.0,82944000.0,FY2024-Annual,Exceeded
-BEN007,PRJ004,Cost Reduction,15600000.0,11840655.43,FY2024-Annual,Partially Realized
-BEN008,PRJ004,Revenue Enablement,10400000.0,7893770.28,FY2024-Annual,Partially Realized
-BEN009,PRJ005,Revenue Enablement,12600000.0,9899643.52,FY2024-Annual,Partially Realized
-BEN010,PRJ005,Cycle Time Reduction,8400000.0,6599762.34,FY2024-Annual,Partially Realized
-BEN011,PRJ006,Cycle Time Reduction,11100000.0,11378105.2,FY2024-Annual,Realized
-BEN012,PRJ006,Customer Experience,7400000.0,7585403.46,FY2024-Annual,Realized
-BEN013,PRJ007,Customer Experience,14400000.0,12189022.52,FY2024-Annual,Partially Realized
-BEN014,PRJ007,Productivity,9600000.0,8126015.02,FY2024-Annual,Partially Realized
-BEN015,PRJ008,Productivity,25200000.0,23497456.84,FY2024-Annual,Realized
-BEN016,PRJ008,Risk Reduction,16800000.0,15664971.23,FY2024-Annual,Realized
-BEN017,PRJ009,Risk Reduction,17400000.0,6716498.36,FY2024-Annual,In Progress
-BEN018,PRJ009,Capacity Release,11600000.0,4477665.57,FY2024-Annual,In Progress
-BEN019,PRJ010,Capacity Release,28800000.0,25059898.76,FY2024-Annual,Partially Realized
-BEN020,PRJ010,Cost Reduction,19200000.0,16706599.17,FY2024-Annual,Partially Realized
-BEN021,PRJ011,Cost Reduction,9000000.0,3714789.93,FY2024-Annual,In Progress
-BEN022,PRJ011,Revenue Enablement,6000000.0,2476526.62,FY2024-Annual,In Progress
-BEN023,PRJ012,Revenue Enablement,18600000.0,14994793.31,FY2024-Annual,Partially Realized
-BEN024,PRJ012,Cycle Time Reduction,12400000.0,9996528.87,FY2024-Annual,Partially Realized
-BEN025,PRJ013,Cycle Time Reduction,13200000.0,7859828.59,FY2024-Annual,In Progress
-BEN026,PRJ013,Customer Experience,8800000.0,5239885.72,FY2024-Annual,In Progress
-BEN027,PRJ014,Customer Experience,180000000.0,41940000.0,FY2024-Annual,Unrealized
-BEN028,PRJ014,Productivity,120000000.0,27960000.0,FY2024-Annual,Unrealized
-BEN029,PRJ015,Productivity,8400000.0,8362135.83,FY2024-Annual,Realized
-BEN030,PRJ015,Risk Reduction,5600000.0,5574757.22,FY2024-Annual,Realized
-BEN031,PRJ016,Risk Reduction,9600000.0,4767800.19,FY2024-Annual,In Progress
-BEN032,PRJ016,Capacity Release,6400000.0,3178533.46,FY2024-Annual,In Progress
-BEN033,PRJ017,Capacity Release,16800000.0,14962546.85,FY2024-Annual,Partially Realized
-BEN034,PRJ017,Cost Reduction,11200000.0,9975031.24,FY2024-Annual,Partially Realized
-BEN035,PRJ018,Cost Reduction,15000000.0,3917262.73,FY2024-Annual,In Progress
-BEN036,PRJ018,Revenue Enablement,10000000.0,2611508.49,FY2024-Annual,In Progress
-BEN037,PRJ019,Revenue Enablement,12000000.0,12314397.09,FY2024-Annual,Realized
-BEN038,PRJ019,Cycle Time Reduction,8000000.0,8209598.06,FY2024-Annual,Realized
-BEN039,PRJ020,Cycle Time Reduction,16200000.0,13809141.15,FY2024-Annual,Partially Realized
-BEN040,PRJ020,Customer Experience,10800000.0,9206094.1,FY2024-Annual,Partially Realized
-BEN041,PRJ021,Customer Experience,7200000.0,1584307.27,FY2024-Annual,In Progress
-BEN042,PRJ021,Productivity,4800000.0,1056204.84,FY2024-Annual,In Progress
-BEN043,PRJ022,Productivity,19800000.0,6671837.12,FY2024-Annual,In Progress
-BEN044,PRJ022,Risk Reduction,13200000.0,4447891.41,FY2024-Annual,In Progress
-BEN045,PRJ023,Risk Reduction,24000000.0,23720090.62,FY2024-Annual,Realized
-BEN046,PRJ023,Capacity Release,16000000.0,15813393.75,FY2024-Annual,Realized
-BEN047,PRJ024,Capacity Release,11400000.0,5119551.88,FY2024-Annual,In Progress
-BEN048,PRJ024,Cost Reduction,7600000.0,3413034.58,FY2024-Annual,In Progress
-BEN049,PRJ025,Cost Reduction,9000000.0,4503018.91,FY2024-Annual,In Progress
-BEN050,PRJ025,Revenue Enablement,6000000.0,3002012.6,FY2024-Annual,In Progress
-BEN051,PRJ026,Revenue Enablement,13200000.0,13042796.12,FY2024-Annual,Realized
-BEN052,PRJ026,Cycle Time Reduction,8800000.0,8695197.41,FY2024-Annual,Realized
-BEN053,PRJ027,Cycle Time Reduction,15600000.0,12691947.58,FY2024-Annual,Partially Realized
-BEN054,PRJ027,Customer Experience,10400000.0,8461298.39,FY2024-Annual,Partially Realized
-BEN055,PRJ028,Customer Experience,5700000.0,3246225.96,FY2024-Annual,In Progress
-BEN056,PRJ028,Productivity,3800000.0,2164150.64,FY2024-Annual,In Progress
-BEN057,PRJ029,Productivity,10800000.0,9519086.32,FY2024-Annual,Partially Realized
-BEN058,PRJ029,Risk Reduction,7200000.0,6346057.54,FY2024-Annual,Partially Realized
-BEN059,PRJ030,Risk Reduction,23400000.0,22035875.82,FY2024-Annual,Realized
-BEN060,PRJ030,Capacity Release,15600000.0,14690583.88,FY2024-Annual,Realized
-BEN061,PRJ031,Capacity Release,8400000.0,1687757.48,FY2024-Annual,In Progress
-BEN062,PRJ031,Cost Reduction,5600000.0,1125171.65,FY2024-Annual,In Progress
-BEN063,PRJ032,Cost Reduction,7800000.0,8174482.28,FY2024-Annual,Realized
-BEN064,PRJ032,Revenue Enablement,5200000.0,5449654.86,FY2024-Annual,Realized
-BEN065,PRJ033,Revenue Enablement,12000000.0,3748302.65,FY2024-Annual,In Progress
-BEN066,PRJ033,Cycle Time Reduction,8000000.0,2498868.44,FY2024-Annual,In Progress
-BEN067,PRJ034,Cycle Time Reduction,13800000.0,10606941.26,FY2024-Annual,Partially Realized
-BEN068,PRJ034,Customer Experience,9200000.0,7071294.18,FY2024-Annual,Partially Realized
-BEN069,PRJ035,Customer Experience,14400000.0,5519589.36,FY2024-Annual,In Progress
-BEN070,PRJ035,Productivity,9600000.0,3679726.24,FY2024-Annual,In Progress
-BEN071,PRJ036,Productivity,6600000.0,1660639.35,FY2024-Annual,In Progress
-BEN072,PRJ036,Risk Reduction,4400000.0,1107092.9,FY2024-Annual,In Progress
-BEN073,PRJ037,Risk Reduction,19200000.0,15277401.85,FY2024-Annual,Partially Realized
-BEN074,PRJ037,Capacity Release,12800000.0,10184934.57,FY2024-Annual,Partially Realized
-BEN075,PRJ038,Capacity Release,4800000.0,2173983.0,FY2024-Annual,In Progress
-BEN076,PRJ038,Cost Reduction,3200000.0,1449322.0,FY2024-Annual,In Progress
-BEN077,PRJ039,Cost Reduction,16200000.0,5786169.5,FY2024-Annual,In Progress
-BEN078,PRJ039,Revenue Enablement,10800000.0,3857446.33,FY2024-Annual,In Progress
-BEN079,PRJ040,Revenue Enablement,12600000.0,7166136.35,FY2024-Annual,In Progress
-BEN080,PRJ040,Cycle Time Reduction,8400000.0,4777424.23,FY2024-Annual,In Progress
+BEN0001,PRJ001,Revenue Enablement,15750000.0,8662500.0,FY2024-Annual,Partially Realized
+BEN0002,PRJ001,Cycle Time Reduction,11250000.0,6187500.0,FY2024-Annual,Partially Realized
+BEN0003,PRJ001,Customer Experience,9000000.0,4950000.0,FY2024-Annual,Partially Realized
+BEN0004,PRJ001,Cost Reduction,9000000.0,4950000.0,FY2024-Annual,Partially Realized
+BEN0005,PRJ002,Customer Experience,13300000.0,10876818.09,FY2024-Annual,Partially Realized
+BEN0006,PRJ002,Cost Reduction,9500000.0,7769155.78,FY2024-Annual,Partially Realized
+BEN0007,PRJ002,Risk Reduction,7600000.0,6215324.62,FY2024-Annual,Partially Realized
+BEN0008,PRJ002,Capacity Release,7600000.0,6215324.62,FY2024-Annual,Partially Realized
+BEN0009,PRJ003,Risk Reduction,67200000.0,72576000.0,FY2024-Annual,Exceeded
+BEN0010,PRJ003,Capacity Release,48000000.0,51840000.0,FY2024-Annual,Exceeded
+BEN0011,PRJ003,Productivity,38400000.0,41472000.0,FY2024-Annual,Exceeded
+BEN0012,PRJ003,Revenue Enablement,38400000.0,41472000.0,FY2024-Annual,Exceeded
+BEN0013,PRJ004,Productivity,9100000.0,6202050.94,FY2024-Annual,Partially Realized
+BEN0014,PRJ004,Revenue Enablement,6500000.0,4430036.38,FY2024-Annual,Partially Realized
+BEN0015,PRJ004,Cycle Time Reduction,5200000.0,3544029.11,FY2024-Annual,Partially Realized
+BEN0016,PRJ004,Customer Experience,5200000.0,3544029.11,FY2024-Annual,Partially Realized
+BEN0017,PRJ005,Cycle Time Reduction,7350000.0,5671779.89,FY2024-Annual,Partially Realized
+BEN0018,PRJ005,Customer Experience,5250000.0,4051271.35,FY2024-Annual,Partially Realized
+BEN0019,PRJ005,Cost Reduction,4200000.0,3241017.08,FY2024-Annual,Partially Realized
+BEN0020,PRJ005,Risk Reduction,4200000.0,3241017.08,FY2024-Annual,Partially Realized
+BEN0021,PRJ006,Cost Reduction,6475000.0,5422416.57,FY2024-Annual,Partially Realized
+BEN0022,PRJ006,Risk Reduction,4625000.0,3873154.69,FY2024-Annual,Partially Realized
+BEN0023,PRJ006,Capacity Release,3700000.0,3098523.75,FY2024-Annual,Partially Realized
+BEN0024,PRJ006,Productivity,3700000.0,3098523.75,FY2024-Annual,Partially Realized
+BEN0025,PRJ007,Capacity Release,8400000.0,6766890.48,FY2024-Annual,Partially Realized
+BEN0026,PRJ007,Productivity,6000000.0,4833493.2,FY2024-Annual,Partially Realized
+BEN0027,PRJ007,Revenue Enablement,4800000.0,3866794.56,FY2024-Annual,Partially Realized
+BEN0028,PRJ007,Cycle Time Reduction,4800000.0,3866794.56,FY2024-Annual,Partially Realized
+BEN0029,PRJ008,Revenue Enablement,14700000.0,10374961.74,FY2024-Annual,Partially Realized
+BEN0030,PRJ008,Cycle Time Reduction,10500000.0,7410686.96,FY2024-Annual,Partially Realized
+BEN0031,PRJ008,Customer Experience,8400000.0,5928549.57,FY2024-Annual,Partially Realized
+BEN0032,PRJ008,Cost Reduction,8400000.0,5928549.57,FY2024-Annual,Partially Realized
+BEN0033,PRJ009,Customer Experience,10150000.0,1598659.07,FY2024-Annual,In Progress
+BEN0034,PRJ009,Cost Reduction,7250000.0,1141899.33,FY2024-Annual,In Progress
+BEN0035,PRJ009,Risk Reduction,5800000.0,913519.47,FY2024-Annual,In Progress
+BEN0036,PRJ009,Capacity Release,5800000.0,913519.47,FY2024-Annual,In Progress
+BEN0037,PRJ010,Risk Reduction,16800000.0,16529829.04,FY2024-Annual,Realized
+BEN0038,PRJ010,Capacity Release,12000000.0,11807020.74,FY2024-Annual,Realized
+BEN0039,PRJ010,Productivity,9600000.0,9445616.6,FY2024-Annual,Realized
+BEN0040,PRJ010,Revenue Enablement,9600000.0,9445616.6,FY2024-Annual,Realized
+BEN0041,PRJ011,Productivity,5250000.0,1802180.52,FY2024-Annual,In Progress
+BEN0042,PRJ011,Revenue Enablement,3750000.0,1287271.8,FY2024-Annual,In Progress
+BEN0043,PRJ011,Cycle Time Reduction,3000000.0,1029817.44,FY2024-Annual,In Progress
+BEN0044,PRJ011,Customer Experience,3000000.0,1029817.44,FY2024-Annual,In Progress
+BEN0045,PRJ012,Cycle Time Reduction,10850000.0,7717977.57,FY2024-Annual,Partially Realized
+BEN0046,PRJ012,Customer Experience,7750000.0,5512841.12,FY2024-Annual,Partially Realized
+BEN0047,PRJ012,Cost Reduction,6200000.0,4410272.9,FY2024-Annual,Partially Realized
+BEN0048,PRJ012,Risk Reduction,6200000.0,4410272.9,FY2024-Annual,Partially Realized
+BEN0049,PRJ013,Cost Reduction,7700000.0,1124288.68,FY2024-Annual,In Progress
+BEN0050,PRJ013,Risk Reduction,5500000.0,803063.34,FY2024-Annual,In Progress
+BEN0051,PRJ013,Capacity Release,4400000.0,642450.67,FY2024-Annual,In Progress
+BEN0052,PRJ013,Productivity,4400000.0,642450.67,FY2024-Annual,In Progress
+BEN0053,PRJ014,Capacity Release,105000000.0,24465000.0,FY2024-Annual,Unrealized
+BEN0054,PRJ014,Productivity,75000000.0,17475000.0,FY2024-Annual,Unrealized
+BEN0055,PRJ014,Revenue Enablement,60000000.0,13980000.0,FY2024-Annual,Unrealized
+BEN0056,PRJ014,Cycle Time Reduction,60000000.0,13980000.0,FY2024-Annual,Unrealized
+BEN0057,PRJ015,Revenue Enablement,4900000.0,3845825.67,FY2024-Annual,Partially Realized
+BEN0058,PRJ015,Cycle Time Reduction,3500000.0,2747018.33,FY2024-Annual,Partially Realized
+BEN0059,PRJ015,Customer Experience,2800000.0,2197614.67,FY2024-Annual,Partially Realized
+BEN0060,PRJ015,Cost Reduction,2800000.0,2197614.67,FY2024-Annual,Partially Realized
+BEN0061,PRJ016,Customer Experience,5600000.0,1743045.95,FY2024-Annual,In Progress
+BEN0062,PRJ016,Cost Reduction,4000000.0,1245032.82,FY2024-Annual,In Progress
+BEN0063,PRJ016,Risk Reduction,3200000.0,996026.26,FY2024-Annual,In Progress
+BEN0064,PRJ016,Capacity Release,3200000.0,996026.26,FY2024-Annual,In Progress
+BEN0065,PRJ017,Risk Reduction,9800000.0,8289577.59,FY2024-Annual,Partially Realized
+BEN0066,PRJ017,Capacity Release,7000000.0,5921126.85,FY2024-Annual,Partially Realized
+BEN0067,PRJ017,Productivity,5600000.0,4736901.48,FY2024-Annual,Partially Realized
+BEN0068,PRJ017,Revenue Enablement,5600000.0,4736901.48,FY2024-Annual,Partially Realized
+BEN0069,PRJ018,Productivity,8750000.0,2610906.6,FY2024-Annual,In Progress
+BEN0070,PRJ018,Revenue Enablement,6250000.0,1864933.29,FY2024-Annual,In Progress
+BEN0071,PRJ018,Cycle Time Reduction,5000000.0,1491946.63,FY2024-Annual,In Progress
+BEN0072,PRJ018,Customer Experience,5000000.0,1491946.63,FY2024-Annual,In Progress
+BEN0073,PRJ019,Cycle Time Reduction,7000000.0,4965147.36,FY2024-Annual,Partially Realized
+BEN0074,PRJ019,Customer Experience,5000000.0,3546533.83,FY2024-Annual,Partially Realized
+BEN0075,PRJ019,Cost Reduction,4000000.0,2837227.06,FY2024-Annual,Partially Realized
+BEN0076,PRJ019,Risk Reduction,4000000.0,2837227.06,FY2024-Annual,Partially Realized
+BEN0077,PRJ020,Cost Reduction,9450000.0,9268087.25,FY2024-Annual,Realized
+BEN0078,PRJ020,Risk Reduction,6750000.0,6620062.32,FY2024-Annual,Realized
+BEN0079,PRJ020,Capacity Release,5400000.0,5296049.86,FY2024-Annual,Realized
+BEN0080,PRJ020,Productivity,5400000.0,5296049.86,FY2024-Annual,Realized
+BEN0081,PRJ021,Capacity Release,4200000.0,2142521.61,FY2024-Annual,In Progress
+BEN0082,PRJ021,Productivity,3000000.0,1530372.58,FY2024-Annual,In Progress
+BEN0083,PRJ021,Revenue Enablement,2400000.0,1224298.06,FY2024-Annual,In Progress
+BEN0084,PRJ021,Cycle Time Reduction,2400000.0,1224298.06,FY2024-Annual,In Progress
+BEN0085,PRJ022,Revenue Enablement,11550000.0,1457689.39,FY2024-Annual,In Progress
+BEN0086,PRJ022,Cycle Time Reduction,8250000.0,1041206.7,FY2024-Annual,In Progress
+BEN0087,PRJ022,Customer Experience,6600000.0,832965.36,FY2024-Annual,In Progress
+BEN0088,PRJ022,Cost Reduction,6600000.0,832965.36,FY2024-Annual,In Progress
+BEN0089,PRJ023,Customer Experience,14000000.0,10785645.9,FY2024-Annual,Partially Realized
+BEN0090,PRJ023,Cost Reduction,10000000.0,7704032.79,FY2024-Annual,Partially Realized
+BEN0091,PRJ023,Risk Reduction,8000000.0,6163226.23,FY2024-Annual,Partially Realized
+BEN0092,PRJ023,Capacity Release,8000000.0,6163226.23,FY2024-Annual,Partially Realized
+BEN0093,PRJ024,Risk Reduction,6650000.0,2318564.66,FY2024-Annual,In Progress
+BEN0094,PRJ024,Capacity Release,4750000.0,1656117.62,FY2024-Annual,In Progress
+BEN0095,PRJ024,Productivity,3800000.0,1324894.09,FY2024-Annual,In Progress
+BEN0096,PRJ024,Revenue Enablement,3800000.0,1324894.09,FY2024-Annual,In Progress
+BEN0097,PRJ025,Productivity,5250000.0,682040.6,FY2024-Annual,In Progress
+BEN0098,PRJ025,Revenue Enablement,3750000.0,487171.86,FY2024-Annual,In Progress
+BEN0099,PRJ025,Cycle Time Reduction,3000000.0,389737.49,FY2024-Annual,In Progress
+BEN0100,PRJ025,Customer Experience,3000000.0,389737.49,FY2024-Annual,In Progress
+BEN0101,PRJ026,Cycle Time Reduction,7700000.0,6493352.49,FY2024-Annual,Partially Realized
+BEN0102,PRJ026,Customer Experience,5500000.0,4638108.92,FY2024-Annual,Partially Realized
+BEN0103,PRJ026,Cost Reduction,4400000.0,3710487.14,FY2024-Annual,Partially Realized
+BEN0104,PRJ026,Risk Reduction,4400000.0,3710487.14,FY2024-Annual,Partially Realized
+BEN0105,PRJ027,Cost Reduction,9100000.0,9707827.64,FY2024-Annual,Realized
+BEN0106,PRJ027,Risk Reduction,6500000.0,6934162.6,FY2024-Annual,Realized
+BEN0107,PRJ027,Capacity Release,5200000.0,5547330.08,FY2024-Annual,Realized
+BEN0108,PRJ027,Productivity,5200000.0,5547330.08,FY2024-Annual,Realized
+BEN0109,PRJ028,Capacity Release,3325000.0,255067.26,FY2024-Annual,In Progress
+BEN0110,PRJ028,Productivity,2375000.0,182190.9,FY2024-Annual,In Progress
+BEN0111,PRJ028,Revenue Enablement,1900000.0,145752.72,FY2024-Annual,In Progress
+BEN0112,PRJ028,Cycle Time Reduction,1900000.0,145752.72,FY2024-Annual,In Progress
+BEN0113,PRJ029,Revenue Enablement,6300000.0,5784339.47,FY2024-Annual,Realized
+BEN0114,PRJ029,Cycle Time Reduction,4500000.0,4131671.05,FY2024-Annual,Realized
+BEN0115,PRJ029,Customer Experience,3600000.0,3305336.84,FY2024-Annual,Realized
+BEN0116,PRJ029,Cost Reduction,3600000.0,3305336.84,FY2024-Annual,Realized
+BEN0117,PRJ030,Customer Experience,13650000.0,13131680.06,FY2024-Annual,Realized
+BEN0118,PRJ030,Cost Reduction,9750000.0,9379771.47,FY2024-Annual,Realized
+BEN0119,PRJ030,Risk Reduction,7800000.0,7503817.18,FY2024-Annual,Realized
+BEN0120,PRJ030,Capacity Release,7800000.0,7503817.18,FY2024-Annual,Realized
+BEN0121,PRJ031,Risk Reduction,4900000.0,1556152.16,FY2024-Annual,In Progress
+BEN0122,PRJ031,Capacity Release,3500000.0,1111537.25,FY2024-Annual,In Progress
+BEN0123,PRJ031,Productivity,2800000.0,889229.8,FY2024-Annual,In Progress
+BEN0124,PRJ031,Revenue Enablement,2800000.0,889229.8,FY2024-Annual,In Progress
+BEN0125,PRJ032,Productivity,4550000.0,3817475.86,FY2024-Annual,Partially Realized
+BEN0126,PRJ032,Revenue Enablement,3250000.0,2726768.48,FY2024-Annual,Partially Realized
+BEN0127,PRJ032,Cycle Time Reduction,2600000.0,2181414.78,FY2024-Annual,Partially Realized
+BEN0128,PRJ032,Customer Experience,2600000.0,2181414.78,FY2024-Annual,Partially Realized
+BEN0129,PRJ033,Cycle Time Reduction,7000000.0,1151703.16,FY2024-Annual,In Progress
+BEN0130,PRJ033,Customer Experience,5000000.0,822645.11,FY2024-Annual,In Progress
+BEN0131,PRJ033,Cost Reduction,4000000.0,658116.09,FY2024-Annual,In Progress
+BEN0132,PRJ033,Risk Reduction,4000000.0,658116.09,FY2024-Annual,In Progress
+BEN0133,PRJ034,Cost Reduction,8050000.0,6233501.75,FY2024-Annual,Partially Realized
+BEN0134,PRJ034,Risk Reduction,5750000.0,4452501.25,FY2024-Annual,Partially Realized
+BEN0135,PRJ034,Capacity Release,4600000.0,3562001.0,FY2024-Annual,Partially Realized
+BEN0136,PRJ034,Productivity,4600000.0,3562001.0,FY2024-Annual,Partially Realized
+BEN0137,PRJ035,Capacity Release,8400000.0,1965367.61,FY2024-Annual,In Progress
+BEN0138,PRJ035,Productivity,6000000.0,1403834.01,FY2024-Annual,In Progress
+BEN0139,PRJ035,Revenue Enablement,4800000.0,1123067.21,FY2024-Annual,In Progress
+BEN0140,PRJ035,Cycle Time Reduction,4800000.0,1123067.21,FY2024-Annual,In Progress
+BEN0141,PRJ036,Revenue Enablement,3850000.0,758127.1,FY2024-Annual,In Progress
+BEN0142,PRJ036,Cycle Time Reduction,2750000.0,541519.36,FY2024-Annual,In Progress
+BEN0143,PRJ036,Customer Experience,2200000.0,433215.49,FY2024-Annual,In Progress
+BEN0144,PRJ036,Cost Reduction,2200000.0,433215.49,FY2024-Annual,In Progress
+BEN0145,PRJ037,Customer Experience,11200000.0,12068868.43,FY2024-Annual,Realized
+BEN0146,PRJ037,Cost Reduction,8000000.0,8620620.31,FY2024-Annual,Realized
+BEN0147,PRJ037,Risk Reduction,6400000.0,6896496.25,FY2024-Annual,Realized
+BEN0148,PRJ037,Capacity Release,6400000.0,6896496.25,FY2024-Annual,Realized
+BEN0149,PRJ038,Risk Reduction,2800000.0,425643.32,FY2024-Annual,In Progress
+BEN0150,PRJ038,Capacity Release,2000000.0,304030.94,FY2024-Annual,In Progress
+BEN0151,PRJ038,Productivity,1600000.0,243224.75,FY2024-Annual,In Progress
+BEN0152,PRJ038,Revenue Enablement,1600000.0,243224.75,FY2024-Annual,In Progress
+BEN0153,PRJ039,Productivity,9450000.0,5387265.39,FY2024-Annual,In Progress
+BEN0154,PRJ039,Revenue Enablement,6750000.0,3848046.71,FY2024-Annual,In Progress
+BEN0155,PRJ039,Cycle Time Reduction,5400000.0,3078437.36,FY2024-Annual,In Progress
+BEN0156,PRJ039,Customer Experience,5400000.0,3078437.36,FY2024-Annual,In Progress
+BEN0157,PRJ040,Cycle Time Reduction,7350000.0,1406310.56,FY2024-Annual,In Progress
+BEN0158,PRJ040,Customer Experience,5250000.0,1004507.54,FY2024-Annual,In Progress
+BEN0159,PRJ040,Cost Reduction,4200000.0,803606.03,FY2024-Annual,In Progress
+BEN0160,PRJ040,Risk Reduction,4200000.0,803606.03,FY2024-Annual,In Progress

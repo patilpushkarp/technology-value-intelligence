@@ -1,0 +1,12 @@
+{
+  "name": "technology-value-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Technology Value Intelligence & Vedanam Nuxt 4 Web Application",
+  "scripts": {
+    "dev": "npm --prefix vedanam run dev",
+    "build": "npm --prefix vedanam run build",
+    "preview": "npm --prefix vedanam run preview",
+    "generate": "npm --prefix vedanam run generate"
+  }
+}

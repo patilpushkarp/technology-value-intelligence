@@ -112,6 +112,7 @@ Before finishing any task or marking work complete, you must explicitly verify:
 │   ├── 10_cost_driver_and_variance_analysis.ipynb
 │   ├── 11_local_llm_knowledge_graph_analyst.ipynb
 │   └── 12_end_to_end_technology_value_intelligence.ipynb
+├── blog/                       # 24 executive business articles + 42 technical engineering guides (gitignored)
 ├── data/                       # Local data storage (raw, processed, generated)
 ├── database/                   # Local DuckDB database file
 ├── graph_output/               # Exported GraphML and visualization outputs

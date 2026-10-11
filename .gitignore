@@ -44,3 +44,16 @@ database/*.duckdb.tmp
 # IDEs
 .idea/
 .vscode/
+
+# Business Blog Posts
+blog/
+
+# Node & Nuxt 4 web app
+node_modules/
+.nuxt/
+.output/
+vedanam/node_modules/
+vedanam/.nuxt/
+vedanam/.output/
+vedanam/.npm/
+vedanam/.nuxtrc

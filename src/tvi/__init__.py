@@ -21,6 +21,12 @@ from tvi.consumption_analytics import (
 )
 from tvi.database import TVIDatabase, get_database
 from tvi.data_generation import EnterpriseDataGenerator
+from tvi.distributions import DistributionSampler, DistributionSpec
+from tvi.copulas import (
+    CorrelatedMetricGenerator,
+    nearest_correlation_matrix,
+    spearman_to_pearson,
+)
 from tvi.dependency import (
     get_application_dependencies,
     get_business_unit_dependencies,
@@ -74,6 +80,11 @@ __all__ = [
     "load_config",
     "load_ontology",
     "EnterpriseDataGenerator",
+    "DistributionSampler",
+    "DistributionSpec",
+    "CorrelatedMetricGenerator",
+    "nearest_correlation_matrix",
+    "spearman_to_pearson",
     "DataQualityValidator",
     "run_data_quality_checks",
     "TVIDatabase",

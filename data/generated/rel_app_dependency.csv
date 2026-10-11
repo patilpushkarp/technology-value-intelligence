@@ -1,33 +1,123 @@
 source_app_id,target_app_id,dependency_type,criticality
-APP004,APP001,Synchronous API,High
-APP006,APP003,Synchronous API,High
-APP008,APP005,Synchronous API,High
-APP010,APP007,Synchronous API,High
-APP012,APP009,Synchronous API,High
-APP014,APP011,Synchronous API,High
-APP016,APP013,Synchronous API,High
-APP018,APP015,Synchronous API,High
-APP020,APP017,Synchronous API,High
-APP022,APP019,Synchronous API,High
-APP024,APP021,Synchronous API,High
-APP026,APP023,Synchronous API,High
-APP028,APP025,Synchronous API,High
-APP030,APP027,Synchronous API,High
-APP032,APP029,Synchronous API,High
-APP034,APP031,Synchronous API,High
-APP036,APP033,Synchronous API,High
-APP038,APP035,Synchronous API,High
-APP040,APP037,Synchronous API,High
-APP042,APP039,Synchronous API,High
-APP044,APP041,Synchronous API,High
-APP046,APP043,Synchronous API,High
-APP048,APP045,Synchronous API,High
-APP050,APP047,Synchronous API,High
+APP001,APP002,Synchronous API,High
+APP001,APP008,Synchronous API,High
+APP002,APP005,Asynchronous Event,Medium
+APP002,APP013,Asynchronous Event,Medium
+APP003,APP008,Synchronous API,Medium
+APP003,APP018,Synchronous API,Medium
+APP004,APP011,Asynchronous Event,High
+APP004,APP023,Asynchronous Event,High
+APP005,APP014,Synchronous API,Medium
+APP005,APP028,Synchronous API,Medium
+APP006,APP017,Asynchronous Event,Medium
+APP006,APP033,Asynchronous Event,Medium
+APP007,APP020,Synchronous API,High
+APP007,APP038,Synchronous API,High
+APP008,APP023,Asynchronous Event,Medium
+APP008,APP043,Asynchronous Event,Medium
+APP009,APP026,Synchronous API,Medium
+APP009,APP048,Synchronous API,Medium
+APP010,APP029,Asynchronous Event,High
+APP010,APP003,Asynchronous Event,High
+APP011,APP032,Synchronous API,Medium
+APP011,APP008,Synchronous API,Medium
+APP012,APP035,Asynchronous Event,Medium
+APP012,APP013,Asynchronous Event,Medium
+APP013,APP038,Synchronous API,High
+APP013,APP018,Synchronous API,High
+APP014,APP041,Asynchronous Event,Medium
+APP014,APP023,Asynchronous Event,Medium
+APP015,APP044,Synchronous API,Medium
+APP015,APP028,Synchronous API,Medium
+APP016,APP047,Asynchronous Event,High
+APP016,APP033,Asynchronous Event,High
+APP017,APP050,Synchronous API,Medium
+APP017,APP038,Synchronous API,Medium
+APP018,APP003,Asynchronous Event,Medium
+APP018,APP043,Asynchronous Event,Medium
+APP019,APP006,Synchronous API,High
+APP019,APP048,Synchronous API,High
+APP020,APP009,Asynchronous Event,Medium
+APP020,APP003,Asynchronous Event,Medium
+APP021,APP012,Synchronous API,Medium
+APP021,APP008,Synchronous API,Medium
+APP022,APP015,Asynchronous Event,High
+APP022,APP013,Asynchronous Event,High
+APP023,APP018,Synchronous API,Medium
+APP024,APP021,Asynchronous Event,Medium
+APP024,APP023,Asynchronous Event,Medium
+APP025,APP024,Synchronous API,High
+APP025,APP028,Synchronous API,High
+APP026,APP027,Asynchronous Event,Medium
+APP026,APP033,Asynchronous Event,Medium
+APP027,APP030,Synchronous API,Medium
+APP027,APP038,Synchronous API,Medium
+APP028,APP033,Asynchronous Event,High
+APP028,APP043,Asynchronous Event,High
+APP029,APP036,Synchronous API,Medium
+APP029,APP048,Synchronous API,Medium
+APP030,APP039,Asynchronous Event,Medium
+APP030,APP003,Asynchronous Event,Medium
+APP031,APP042,Synchronous API,High
+APP031,APP008,Synchronous API,High
+APP032,APP045,Asynchronous Event,Medium
+APP032,APP013,Asynchronous Event,Medium
+APP033,APP048,Synchronous API,Medium
+APP033,APP018,Synchronous API,Medium
+APP034,APP001,Asynchronous Event,High
+APP034,APP023,Asynchronous Event,High
+APP035,APP004,Synchronous API,Medium
+APP035,APP028,Synchronous API,Medium
+APP036,APP007,Asynchronous Event,Medium
+APP036,APP033,Asynchronous Event,Medium
+APP037,APP038,Synchronous API,High
+APP038,APP013,Asynchronous Event,Medium
+APP038,APP043,Asynchronous Event,Medium
+APP039,APP016,Synchronous API,Medium
+APP039,APP048,Synchronous API,Medium
+APP040,APP019,Asynchronous Event,High
+APP040,APP003,Asynchronous Event,High
+APP041,APP022,Synchronous API,Medium
+APP041,APP008,Synchronous API,Medium
+APP042,APP025,Asynchronous Event,Medium
+APP042,APP013,Asynchronous Event,Medium
+APP043,APP028,Synchronous API,High
+APP043,APP018,Synchronous API,High
+APP044,APP031,Asynchronous Event,Medium
+APP044,APP023,Asynchronous Event,Medium
+APP045,APP034,Synchronous API,Medium
+APP045,APP028,Synchronous API,Medium
+APP046,APP037,Asynchronous Event,High
+APP046,APP033,Asynchronous Event,High
+APP047,APP040,Synchronous API,Medium
+APP047,APP038,Synchronous API,Medium
+APP048,APP043,Asynchronous Event,Medium
+APP049,APP046,Synchronous API,High
+APP049,APP048,Synchronous API,High
+APP050,APP049,Asynchronous Event,Medium
+APP050,APP003,Asynchronous Event,Medium
 APP001,APP010,Synchronous API,Mission Critical
 APP002,APP010,Synchronous API,Mission Critical
 APP004,APP010,Synchronous API,Mission Critical
 APP005,APP010,Synchronous API,Mission Critical
+APP006,APP010,Synchronous API,Mission Critical
+APP007,APP010,Synchronous API,Mission Critical
 APP011,APP010,Synchronous API,Mission Critical
 APP013,APP010,Synchronous API,Mission Critical
 APP014,APP010,Synchronous API,Mission Critical
 APP023,APP010,Synchronous API,Mission Critical
+APP001,APP029,Synchronous API,Business Critical
+APP004,APP029,Synchronous API,Business Critical
+APP011,APP029,Synchronous API,Business Critical
+APP013,APP029,Synchronous API,Business Critical
+APP014,APP029,Synchronous API,Business Critical
+APP039,APP029,Synchronous API,Business Critical
+APP029,APP002,Synchronous API,Business Critical
+APP029,APP005,Synchronous API,Business Critical
+APP029,APP007,Synchronous API,Business Critical
+APP029,APP015,Synchronous API,Business Critical
+APP029,APP016,Synchronous API,Business Critical
+APP029,APP020,Synchronous API,Business Critical
+APP029,APP024,Synchronous API,Business Critical
+APP029,APP030,Synchronous API,Business Critical
+APP025,APP004,Direct Database,Mission Critical

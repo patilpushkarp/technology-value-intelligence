@@ -27,6 +27,8 @@ class DataSettings(BaseModel):
     raw_dir: str = "data/raw"
     processed_dir: str = "data/processed"
     generated_dir: str = "data/generated"
+    distributions: Dict[str, Any] = Field(default_factory=dict)
+    correlations: Dict[str, Any] = Field(default_factory=dict)
 
 
 class DatabaseSettings(BaseModel):

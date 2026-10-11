@@ -302,10 +302,9 @@ def get_focused_subgraph(
     sub_nodes = set(nx.ego_graph(undirected, center_node, radius=radius).nodes())
 
     if len(sub_nodes) > max_nodes:
-        # Keep immediate 1-hop neighbors prioritized
-        immediate = set(G.predecessors(center_node)).union(set(G.successors(center_node)))
-        immediate.add(center_node)
-        sub_nodes = list(immediate)[:max_nodes]
+        # Keep immediate 1-hop neighbors prioritized, guaranteeing center_node is preserved
+        immediate = [n for n in set(G.predecessors(center_node)).union(set(G.successors(center_node))) if n != center_node]
+        sub_nodes = [center_node] + immediate[: max_nodes - 1]
 
     return G.subgraph(sub_nodes).copy()
 
