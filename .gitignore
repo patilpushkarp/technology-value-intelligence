@@ -48,6 +48,9 @@ database/*.duckdb.tmp
 # Business Blog Posts
 blog/
 
+# Automation and maintenance scripts
+scripts/
+
 # Node & Nuxt 4 web app
 node_modules/
 .nuxt/

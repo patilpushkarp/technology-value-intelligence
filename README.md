@@ -179,6 +179,12 @@ For software engineers, data architects, and quantitative analysts, [`blog/techn
 
 *For role-tailored technical developer tracks (FinOps Engineer, Graph Architect, AI/Graph RAG Developer, Quantitative Strategist), consult the [`blog/technical/README.md`](blog/technical/README.md) index.*
 
+### 📱 Social Media & LinkedIn Distribution Campaign (`blog/linkedin/`)
+To maximize global industry reach and executive awareness, [`blog/linkedin/`](blog/linkedin/README.md) houses an exhaustive **66-post LinkedIn campaign hub** mapped 1:1 to every business article and technical guide. Each post includes formatted copy-paste ready copy, 2 alternative A/B tested hook variations (contrarian vs data-driven), a 5-slide PDF carousel brief for design teams, and a raw text quick-copy block. The campaign is structured into:
+- **Executive Leadership Posts ([`blog/linkedin/business/`](blog/linkedin/business/))**: 24 posts targeted at CFOs, CIOs, and BU Presidents released Tuesdays and Thursdays.
+- **Developer & Architect Posts ([`blog/linkedin/technical/`](blog/linkedin/technical/))**: 42 deep engineering posts released Mondays, Wednesdays, and Fridays covering algorithms, DuckDB vectorization, copulas, and Graph RAG.
+- **Master Campaign Playbook ([`blog/linkedin/README.md`](blog/linkedin/README.md))**: Complete 14-week content calendar, persona segmentation matrix, and LinkedIn algorithm engagement strategies.
+
 ---
 
 ## 6. Real-World Enterprise Dataset Scale & 25 Scenarios Matrix

@@ -112,11 +112,11 @@ Before finishing any task or marking work complete, you must explicitly verify:
 │   ├── 10_cost_driver_and_variance_analysis.ipynb
 │   ├── 11_local_llm_knowledge_graph_analyst.ipynb
 │   └── 12_end_to_end_technology_value_intelligence.ipynb
-├── blog/                       # 24 executive business articles + 42 technical engineering guides (gitignored)
+├── blog/                       # 24 business articles + 42 technical guides + 66 LinkedIn posts (gitignored)
 ├── data/                       # Local data storage (raw, processed, generated)
 ├── database/                   # Local DuckDB database file
 ├── graph_output/               # Exported GraphML and visualization outputs
-├── scripts/                    # Maintenance & automation scripts
+├── scripts/                    # Maintenance & automation scripts (gitignored)
 └── tests/                      # Automated unit test suite
 ```
 
