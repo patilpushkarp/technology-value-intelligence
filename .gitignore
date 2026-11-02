@@ -60,3 +60,7 @@ vedanam/.nuxt/
 vedanam/.output/
 vedanam/.npm/
 vedanam/.nuxtrc
+
+# Database files
+database/
+*.duckdb
